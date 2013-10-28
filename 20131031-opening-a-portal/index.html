@@ -52,7 +52,7 @@
 <body>
 <H1 style="text-align: center;">Open a Portal and Communicate With The Other Side...</H1>
 
-<IMG SRC="franky.jpg" class="picture">
+<IMG SRC="https://github.com/dreamfactorysoftware/dsp-blog-posts/blob/master/20131031-portal/franky.jpg" class="picture">
 
 <H2>Introduction</H2>
 
@@ -116,21 +116,21 @@
 </p>
 
 <figure>
-	<img class="shrink" src="figure1.png">
+	<img class="shrink" src="https://github.com/dreamfactorysoftware/dsp-blog-posts/blob/master/20131031-portal/figure1.png">
 	<figcaption>Figure 1: The Facebook Developer App Center</figcaption>
 </figure>
 
 <p>Click on the "Create New App" button and you'll be presented with the new application screen as shown in figure 2.</p>
 
 <figure>
-	<img src="figure2.png">
+	<img src="https://github.com/dreamfactorysoftware/dsp-blog-posts/blob/master/20131031-portal/figure2.png">
 	<figcaption>Figure 2: New App Screen</figcaption>
 </figure>
 
 <p>Here you'll enter the name of your application and the category. Utility or Other are good categories for portal applications. Once you've entered the required information, press the "Continue" button. The next screen, as shown in figure 3, will reveal your application keys.</p>
 
 <figure>
-	<img src="figure3.png">
+	<img src="https://github.com/dreamfactorysoftware/dsp-blog-posts/blob/master/20131031-portal/figure3.png">
 	<figcaption>Figure 3: Your keys revealed</figcaption>
 </figure>
 
@@ -155,18 +155,18 @@
 <p>Because of the sensitive nature of client IDs, secrets, and access tokens (OH MY!); there is no "admin" screen for providers and provider users. You must use the DSP REST API to manipulate this data. This can be done with any REST utility (Postman in Chrome, or REST Client in FireFox) or from the command line with cURL. This API call is like any other REST API call you make to your DSP. For example, to get the list of providers configured in your DSP, issue a GET with no ID to
 <code>https://dsp-name.cloud.dreamfactory.com/rest/system/provider</code> as shown in figure 4.</p>
 <figure>
-	<img class="shrink" src="figure4.png">
+	<img class="shrink" src="https://github.com/dreamfactorysoftware/dsp-blog-posts/blob/master/20131031-portal/figure4.png">
 	<figcaption>Figure 4: Getting a list of your providers with Postman</figcaption>
 </figure>
 <p>You've undoubtedly noticed that nothing was returned in that example. That's because we haven't created any providers. So let's do that now. Issue a POST request to the same URL, but this time we need to provide a payload which includes your keys.
 </p>
 <figure>
-	<img class="shrink" src="figure5.png">
+	<img class="shrink" src="https://github.com/dreamfactorysoftware/dsp-blog-posts/blob/master/20131031-portal/figure5.png">
 	<figcaption>Figure 5: The POST request</figcaption>
 </figure>
 <p>After you POST the text in figure 5 (with your keys obviously) you'll see the result as shown in figure 6. Don't use the keys shown in this article as they will not be available once this article is published.</p>
 <figure>
-	<img class="shrink" src="figure6.png">
+	<img class="shrink" src="https://github.com/dreamfactorysoftware/dsp-blog-posts/blob/master/20131031-portal/figure6.png">
 	<figcaption>Figure 6: The POST response. Your new provider is now ready</figcaption>
 </figure>
 <p>What we did was create a new "provider" resource with an API name of "fbportal". This is the name you will use to access your portal. But before you, or your users, can use the portal, you must authenticate. To do this, simply fire up your DSP, log in, and go to the portal URL:<code>https://dsp-name.cloud.dreamfactory.com/portal/fbportal/me?app_name=blog</code></p>
