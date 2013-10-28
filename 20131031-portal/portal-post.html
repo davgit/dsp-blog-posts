@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Opening The Portal...</title>
+	<style type="text/css">
+		body {
+			font-family: HelveticaNeue-Light, Arial, sans-serif;
+			font-size:   16px;
+		}
+
+		p, h2, h3, h4, ul {
+			margin-left: 25px;
+		}
+
+		ul {
+			list-style: square;
+		}
+
+		img.picture {
+			float:              left;
+			-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.54);
+			-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.54);
+			box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.54);
+			-webkit-transform:  rotate(356deg);
+			-moz-transform:     rotate(356deg);
+			-o-transform:       rotate(356deg);
+			width:              250px;
+			height:             250px;
+			border:             5px solid white;
+			margin:             15px 35px 35px 15px;
+		}
+
+		figure img {
+			-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.54);
+			-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.54);
+			box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.54);
+			border:             1px solid rgba(0, 0, 0, .25);
+			margin:             5px auto 5px;
+		}
+
+		figure img.shrink {
+			width: 800px;
+		}
+
+		figcaption {
+			font-size:   80%;
+			font-weight: bold;
+			font-family: HelveticaNeue-Light, Arial, sans-serif;
+		}
+	</style>
+</head>
+<body>
+<H1 style="text-align: center;">Open a Portal and Communicate With The Other Side...</H1>
+
+<IMG SRC="franky.jpg" class="picture">
+
+<H2>Introduction</H2>
+
+<p style="margin-top:25px;">As
+	all developers know, your creations can become tired, bored, and
+	sometimes angry when forced to talk to only a single server or
+	service. Applications are, for all intents and purposes, tiny
+	monsters: they grow hungry to communicate with others to expand their
+	knowledge, reach, and power. We at DreamFactory know this all too
+	well and wanted to create an easy way to allow your monsters to feed
+	their yearning. With the next release of the DreamFactory Services
+	Platform&trade; (version 1.1.3), satisfying that lust will become a whole
+	lot easier. What makes this possible you ask? A new system service called <strong>Portal</strong> does.
+</P>
+
+<p>Fortunately,
+	you won't need to hold hands with your team and/or conduct a séance
+	to open a portal. However, some simple configuration steps are
+	required. In this post, we'll be creating a portal to Facebook and
+	accessing the <A HREF="https://developers.facebook.com/docs/graph-api/">Graph API</A> through your DSP. So read on, if you dare... Muahhahaha!</P>
+
+<H2>Auth and Auth: The Evil Twins</H2>
+
+<p>All good tales have a prologue, and this one is no different. Most remote services and APIs use OAuth to <strong>authenticate</strong>
+	and <strong>authorize</strong> users and usage of their service.
+	We wanted to create a seamless way for your DSP to authenticate and authorize with remote OAuth services, without forcing developers to jump through a deadly row of firey rings.
+</p>
+
+<p>If you're not familiar with the dance that is OAuth, please take a moment to read up on it. You don't need to fully understand the workings, but the concepts are important. Here are few good sites to check:</p>
+
+<ul>
+	<li><a href="http://oauth.net/">The official OAuth site</a></li>
+	<li><a href="http://aaronparecki.com/articles/2012/07/29/1/oauth2-simplified">OAuth Simplified</a></li>
+	<li><a href="https://developers.google.com/accounts/docs/OAuth2">Google APIs and OAuth</a></li>
+</ul>
+<p>OAuth can be used to authenticate a user and authorize various operations. The authentication part is straightforward.
+	Your application requests access to data on a users' behalf. The user will either allow or deny this access. Easy peasy.
+	Authorization, on the other hand, can be more complex as each service defines their own set of authorization rules, or
+	<strong>scopes</strong>. We'll touch on that a bit later.</p>
+
+<p>The important take-away here is the basic concept of a <strong>client ID</strong> and
+	<strong>client secret</strong>. It is with these keys that the power of the portal can be unlocked.</p>
+
+<p>Please note: OAuth comes in two distinct flavors: version 1 and version 2. The portal service only supports version 2 at this time. Version 1 has been deprecated for over a year. However, some services, like
+	<a href="https://twitter.com">Twitter</a>, still use version 1.</p>
+
+<p>The new DSP portal service allows you to authenticate and communicate with these remote APIs with the same REST calls you've been making to use other DSP services. Before this is possible, however, we need to prepare your laboratory with the necessary ingredients to open the portal.</p>
+
+<H2>Preparing Your Laboratory</H2>
+
+<p>There are three key ingredients needed to open a portal on your DSP. The first is a running DSP upon which to tinker. The second, a set of keys (client ID and secret) from the remote service. And lastly, the third is telling your DSP about the remote service. In this tutorial, we will be opening a portal to Facebook on your DSP.</p>
+
+<p>Before you can proceed in procuring your ingredients from Facebook, you'll need to be registered as a developer. Go to the <a
+		href="https://developers.facebook.com/">Facebook Developers</a> web site and register as a developer if you have not already. You will have to have a regular Facebook account to do this.
+</p>
+
+<H3>Obtaining a Set of Keys</H3>
+
+<p>Getting a set of keys from Facebook is a simple process: create an app. For each application you create on the <a
+		href="https://developers.facebook.com/apps">Facebook Developer console</a> you will receive a set of keys. You could, should you choose to do so, create multiple applications on Facebook and link them to different portals on your DSP. But that is beyond the scope of this article.
+</p>
+
+<figure>
+	<img class="shrink" src="figure1.png">
+	<figcaption>Figure 1: The Facebook Developer App Center</figcaption>
+</figure>
+
+<p>Click on the "Create New App" button and you'll be presented with the new application screen as shown in figure 2.</p>
+
+<figure>
+	<img src="figure2.png">
+	<figcaption>Figure 2: New App Screen</figcaption>
+</figure>
+
+<p>Here you'll enter the name of your application and the category. Utility or Other are good categories for portal applications. Once you've entered the required information, press the "Continue" button. The next screen, as shown in figure 3, will reveal your application keys.</p>
+
+<figure>
+	<img src="figure3.png">
+	<figcaption>Figure 3: Your keys revealed</figcaption>
+</figure>
+
+<p>In order to complete the setup of your application, you'll need to enter some more information. Three fields on this screen (figure 3) are required for our purposes. These are the "Contact Email", "App Domains", and your "Site URL".</p>
+
+<p>In figure 3 you'll see a completed form with some example data. This configuration is for a Free Edition of the DreamFactory Services Platform&trade;. If you're running your DSP locally or on a remote virtual provider, you'll need to change the "App Domains" and "Site URL" to point to your DSP's domain and full URL respectively.</p>
+
+<p>Once you've completed filling out this form, press the "Save Changes" button at the bottom. Once that's completed, copy the App ID and App Secret from the application page. These are your client ID and secret respectively. You'll need these to create the portal provider in the next section.</p>
+
+<H3>Opening The Portal...</H3>
+
+<p>With the advent of version 1.1.3, the DreamFactory Services Platform&trade; has two new system tables/resources. These are called "Provider" and "ProviderUser". The provider resource securely stores application key sets for your OAuth providers. One row per key set. The provider user resource stores your DSP's users' tokens once they've authenticated. This warrants a bit of explanation.</p>
+<h4>Per-User Token Storage</h4>
+
+<p>When you create your application on Facebook, you're merely creating a pathway for your DSP to access Facebook's APIs. However, that is only the first step towards OAuth integration. You, or one of your users, must actually authenticate using the keys obtained in the previous section. Once the authentication completes, Facebook (or any OAuth provider you choose) will return an
+	<strong>access token</strong>. This token is then used to make API calls on behalf of the owning user, NOT the Facebook application owner. The portal will coordinate and handle this token passing for you, so not to worry.
+</p>
+
+<p>When one of your DSP users authenticates against a portal provider and is issued an access token, this token and expiration information is stored securely in your DSP's MySQL database (in the provider user table). This frees you, the developer, from having to manage and maintain the tokens for each of your users. It also allows you some flexibility in your security and permissions configuration.</p>
+<h4>Creating the Portal Provider</h4>
+
+<p>Because of the sensitive nature of client IDs, secrets, and access tokens (OH MY!); there is no "admin" screen for providers and provider users. You must use the DSP REST API to manipulate this data. This can be done with any REST utility (Postman in Chrome, or REST Client in FireFox) or from the command line with cURL. This API call is like any other REST API call you make to your DSP. For example, to get the list of providers configured in your DSP, issue a GET with no ID to
+<code>https://dsp-name.cloud.dreamfactory.com/rest/system/provider</code> as shown in figure 4.</p>
+<figure>
+	<img class="shrink" src="figure4.png">
+	<figcaption>Figure 4: Getting a list of your providers with Postman</figcaption>
+</figure>
+<p>You've undoubtedly noticed that nothing was returned in that example. That's because we haven't created any providers. So let's do that now. Issue a POST request to the same URL, but this time we need to provide a payload which includes your keys.
+</p>
+<figure>
+	<img class="shrink" src="figure5.png">
+	<figcaption>Figure 5: The POST request</figcaption>
+</figure>
+<p>After you POST the text in figure 5 (with your keys obviously) you'll see the result as shown in figure 6. Don't use the keys shown in this article as they will not be available once this article is published.</p>
+<figure>
+	<img class="shrink" src="figure6.png">
+	<figcaption>Figure 6: The POST response. Your new provider is now ready</figcaption>
+</figure>
+<p>What we did was create a new "provider" resource with an API name of "fbportal". This is the name you will use to access your portal. But before you, or your users, can use the portal, you must authenticate. To do this, simply fire up your DSP, log in, and go to the portal URL:<code>https://dsp-name.cloud.dreamfactory.com/portal/fbportal/me?app_name=blog</code></p>
+
+<H2>Communicating with the Other Side</H2>
+
+<h2>Resources</h2>
+<ul>
+	<li><a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?utm_source=gmail" target="_blank">Postman REST Client</a></li>
+</ul>
+</body>
+</html>
