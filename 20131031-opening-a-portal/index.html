@@ -153,7 +153,7 @@
 <h4>Creating the Portal Provider</h4>
 
 <p>Because of the sensitive nature of client IDs, secrets, and access tokens (OH MY!); there is no "admin" screen for providers and provider users. You must use the DSP REST API to manipulate this data. This can be done with any REST utility (Postman in Chrome, or REST Client in FireFox) or from the command line with cURL. This API call is like any other REST API call you make to your DSP. For example, to get the list of providers configured in your DSP, issue a GET with no ID to
-<code>https://dsp-name.cloud.dreamfactory.com/rest/system/provider</code> as shown in figure 4.</p>
+	<code>https://dsp-name.cloud.dreamfactory.com/rest/system/provider</code> as shown in figure 4.</p>
 <figure>
 	<img class="shrink" src="figure4.png">
 	<figcaption>Figure 4: Getting a list of your providers with Postman</figcaption>
@@ -169,13 +169,16 @@
 	<img class="shrink" src="figure6.png">
 	<figcaption>Figure 6: The POST response. Your new provider is now ready</figcaption>
 </figure>
-<p>What we did was create a new "provider" resource with an API name of "fbportal". This is the name you will use to access your portal. But before you, or your users, can use the portal, you must authenticate. To do this, simply fire up your DSP, log in, and go to the portal URL:<code>https://dsp-name.cloud.dreamfactory.com/portal/fbportal/me?app_name=blog</code></p>
+<p>What we did was create a new "provider" resource with an API name of "fbportal". This is the name you will use to access your portal. But before you, or your users, can use the portal, you must authenticate. To do this, simply fire up your DSP, log in, and go to the portal URL:<code>https://dsp-name.cloud.dreamfactory.com/portal/fbportal/me?app_name=blog</code>
+</p>
 
 <H2>Communicating with the Other Side</H2>
 
 <h2>Resources</h2>
+
 <ul>
-	<li><a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?utm_source=gmail" target="_blank">Postman REST Client</a></li>
+	<li><a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?utm_source=gmail"
+		   target="_blank">Postman REST Client</a></li>
 </ul>
 </body>
 </html>
