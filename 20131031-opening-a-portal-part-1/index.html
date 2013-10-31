@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Open a Portal and Communicate With The Other Side...</title>
+	<title>Open a Portal and Communicate With The Other Side... (Part 1)</title>
 	<script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 	<style type="text/css">
 		@import url(http://fonts.googleapis.com/css?family=Open+Sans);
@@ -39,6 +39,7 @@
 		}
 
 		pre.prettyprint {
+			white-space:        pre-line;
 			font-size:          12px;
 			padding:            20px;
 			-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
@@ -183,6 +184,7 @@
 			height:         200px;
 			box-shadow:     0 0 10px #aaa;
 			display:        inline-block;
+			margin-top:     15px;
 		}
 
 	</style>
@@ -472,37 +474,19 @@ $ curl -s GET https://dsp-name.cloud.dreamfactory.com/rest/portal?app_name=admin
 
 	<h3>New Resources</h3>
 
-	<p>We also have included two new system resources: <code>provider</code> and <code>provider_user</code>.</p>
-
-	<h3>Manipulation</h3>
+	<p>We also have added two new system resources: <code>provider</code> and
+		<code>provider_user</code>. These can be manipulated like any other system resource via the
+		<code>/rest/system/provider</code>
+		and
+		<code>/rest/system/provider_user</code>
+		endpoints.</p>
 
 </section>
 
 <section class="flush-left">
-	<H2>Communicating with the Other Side</H2>
+	<H2>To Be Continued...</H2>
 
-	<p>The flow here is as follows. Calling the Portal API relays your remote API request out to the appropriate provider. If there are no credentials stored for the user requesting the resource, most sites present a login dialog to authenticate the user making the request. The Facebook authentication dialog is show in figure 7.</p>
-	<figure>
-		<img src="figure7.png">
-		<figcaption>Figure 7: Authenticate and Authorize</figcaption>
-	</figure>
-	<p>Once you answer "Ok"/"Continue" to one of these login dialogs, the provider redirects back to the configured URL (this varies per service) with a
-		<strong>code</strong>. This code is then exchanged for an actual
-		<strong>access token</strong> which is used for all subsequent communication to the API on the authenticating users' behalf.</p>
-
-	<p>The token and any other provider-specific information is then stored along with the user's ID and the ID of the provider in your DSP's local database. This information is in the
-		<strong>provider user</strong> resource/table.</p>
-
-	<h2>Resources</h2>
-
-	<ul>
-		<li><a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?utm_source=gmail"
-			   target="_blank">Postman REST Client</a></li>
-		<li>
-			<a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?utm_source=gmail"
-			   target="_blank">Postman REST Client</a>
-		</li>
-	</ul>
+	<p>That wraps up part 1 of this tutorial. Look for part 2 coming soon!</p>
 </section>
 </body>
 </html>
