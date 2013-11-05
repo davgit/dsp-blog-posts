@@ -1,0 +1,182 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+html > * {
+	font-family: "Open Sans", Arial, sans-serif;
+	font-size:   16px;
+	font-weight: 300;
+}
+
+blockquote {
+	border:             1px solid burlywood;
+	border-right-width: 4px;
+	border-left-width:  4px;
+	font-size:          14px;
+	width:              50%;
+	-moz-box-shadow:    0 0 10px rgba(51, 51, 51, 0.5);
+	-webkit-box-shadow: 0 0 10px rgba(51, 51, 51, 0.5);
+	box-shadow:         0 0 10px rgba(51, 51, 51, 0.5);
+	font-family:        "Open Sans", "Helvetica Neue Light", 'Arial', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: "Open Sans", Arial, "Lucida Grande", sans-serif;
+}
+
+p, h2, h3, h4, ul, pre, ol {
+	margin-left:  25px;
+	margin-right: 25px;
+}
+
+h4, h5, section > h4 + p, section > h5 + p {
+	margin-left:  50px;
+	margin-right: 50px;
+}
+
+pre.prettyprint {
+	white-space:        pre-line;
+	font-size:          12px;
+	padding:            20px;
+	-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
+	-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
+	box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
+	margin:             25px;
+}
+
+pre.prettyprint ol {
+	padding-right: 8px;
+}
+
+pre.prettyprint ol li:first-child {
+	padding-top: 8px;
+}
+
+pre.prettyprint ol li:last-child {
+	padding-bottom: 8px;
+}
+
+ol.linenums {
+	font-size: 12px;
+}
+
+h1.title {
+	text-align:     center;
+	border-bottom:  1px solid #ddd;
+	margin:         auto 25px 30px;
+	text-shadow:    -1px -1px #ccc;
+	letter-spacing: -1.5px;
+}
+
+h2, h3, h4, h5 {
+	border-bottom: 1px solid #eee;
+	text-shadow:   -1px -1px #ccc;
+}
+
+ul, ol {
+	list-style: square;
+}
+
+ol.steps {
+	list-style: decimal;
+}
+
+img.picture {
+	float:              left;
+	-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
+	-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
+	box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
+	-webkit-transform:  rotate(356deg);
+	-moz-transform:     rotate(356deg);
+	-o-transform:       rotate(356deg);
+	width:              250px;
+	height:             250px;
+	border:             5px solid white;
+	margin:             15px 35px 35px 15px;
+}
+
+figure img {
+	-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
+	-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
+	box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
+	border:             1px solid rgba(0, 0, 0, .25);
+	margin:             5px auto 5px;
+}
+
+figure pre {
+}
+
+figure img.shrink {
+	width: 800px;
+}
+
+figcaption {
+	font-size:   80%;
+	font-weight: bold;
+}
+
+p {
+	text-align: justify;
+}
+
+code {
+	font-size:        12px;
+	border:           1px dotted #e0e0e0;
+	background-color: #efefef;
+	padding:          2px 3px;
+	line-height:      inherit;
+	vertical-align:   middle;
+	display:          inline-block;
+	font-weight:      bold;
+}
+
+section {
+	margin-left: 25px;
+}
+
+section h2 {
+	margin-left: 25px;
+}
+
+section.flush-left {
+	margin-left: 5px;
+}
+
+.fatal {
+	color:       darkred;
+	font-weight: 700;
+}
+
+blockquote .title {
+	font-size:      18px;
+	font-weight:    bold;
+	text-shadow:    none;
+	border-bottom:  1px solid antiquewhite;
+	padding-top:    8px;
+	padding-bottom: 0;
+	margin-left:    24px;
+	margin-right:   25px;
+	display:        block;
+}
+
+blockquote > .title + p {
+	margin-top: 8px;
+}
+
+div.inset {
+	float:       right;
+	padding:     10px 10px 6px;
+	margin-left: 14px;
+}
+
+blockquote.inset {
+	padding:    10px 10px 6px;
+	min-height: 250px;
+	font-size:  16px;
+}
+
+div.inset img {
+	vertical-align: text-bottom;
+	height:         200px;
+	box-shadow:     0 0 10px #aaa;
+	display:        inline-block;
+	margin-top:     15px;
+}

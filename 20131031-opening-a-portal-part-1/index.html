@@ -1,194 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<base href="https://raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/master" />
 	<title>Open a Portal and Communicate With The Other Side... (Part 1)</title>
-	<script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-	<style type="text/css">
-		@import url(http://fonts.googleapis.com/css?family=Open+Sans);
-
-		html > * {
-			font-family: "Open Sans", Arial, sans-serif;
-			font-size:   16px;
-			font-weight: 300;
-		}
-
-		blockquote {
-			border:             1px solid burlywood;
-			border-right-width: 4px;
-			border-left-width:  4px;
-			font-size:          14px;
-			width:              50%;
-			-moz-box-shadow:    0 0 10px rgba(51, 51, 51, 0.5);
-			-webkit-box-shadow: 0 0 10px rgba(51, 51, 51, 0.5);
-			box-shadow:         0 0 10px rgba(51, 51, 51, 0.5);
-			font-family:        "Open Sans", "Helvetica Neue Light", 'Arial', sans-serif;
-		}
-
-		h1, h2, h3, h4, h5 {
-			font-family: "Open Sans", Arial, "Lucida Grande", sans-serif;
-		}
-
-		p, h2, h3, h4, ul, pre, ol {
-			margin-left:  25px;
-			margin-right: 25px;
-		}
-
-		h4, h5, section > h4 + p, section > h5 + p {
-			margin-left:  50px;
-			margin-right: 50px;
-		}
-
-		pre.prettyprint {
-			white-space:        pre-line;
-			font-size:          12px;
-			padding:            20px;
-			-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
-			-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
-			box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
-			margin:             25px;
-		}
-
-		pre.prettyprint ol {
-			padding-right: 8px;
-		}
-
-		pre.prettyprint ol li:first-child {
-			padding-top: 8px;
-		}
-
-		pre.prettyprint ol li:last-child {
-			padding-bottom: 8px;
-		}
-
-		ol.linenums {
-			font-size: 12px;
-		}
-
-		h1.title {
-			text-align:     center;
-			border-bottom:  1px solid #ddd;
-			margin:         auto 25px 30px;
-			text-shadow:    -1px -1px #ccc;
-			letter-spacing: -1.5px;
-		}
-
-		h2, h3, h4, h5 {
-			border-bottom: 1px solid #eee;
-			text-shadow:   -1px -1px #ccc;
-		}
-
-		ul, ol {
-			list-style: square;
-		}
-
-		ol.steps {
-			list-style: decimal;
-		}
-
-		img.picture {
-			float:              left;
-			-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
-			-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
-			box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
-			-webkit-transform:  rotate(356deg);
-			-moz-transform:     rotate(356deg);
-			-o-transform:       rotate(356deg);
-			width:              250px;
-			height:             250px;
-			border:             5px solid white;
-			margin:             15px 35px 35px 15px;
-		}
-
-		figure img {
-			-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
-			-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
-			box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
-			border:             1px solid rgba(0, 0, 0, .25);
-			margin:             5px auto 5px;
-		}
-
-		figure pre {
-		}
-
-		figure img.shrink {
-			width: 800px;
-		}
-
-		figcaption {
-			font-size:   80%;
-			font-weight: bold;
-		}
-
-		p {
-			text-align: justify;
-		}
-
-		code {
-			font-size:        12px;
-			border:           1px dotted #e0e0e0;
-			background-color: #efefef;
-			padding:          2px 3px;
-			line-height:      inherit;
-			vertical-align:   middle;
-			display:          inline-block;
-			font-weight:      bold;
-		}
-
-		section {
-			margin-left: 25px;
-		}
-
-		section h2 {
-			margin-left: 25px;
-		}
-
-		section.flush-left {
-			margin-left: 5px;
-		}
-
-		.fatal {
-			color:       darkred;
-			font-weight: 700;
-		}
-
-		blockquote .title {
-			font-size:      18px;
-			font-weight:    bold;
-			text-shadow:    none;
-			border-bottom:  1px solid antiquewhite;
-			padding-top:    8px;
-			padding-bottom: 0;
-			margin-left:    24px;
-			margin-right:   25px;
-			display:        block;
-		}
-
-		blockquote > .title + p {
-			margin-top: 8px;
-		}
-
-		div.inset {
-			float:       right;
-			padding:     10px 10px 6px;
-			margin-left: 14px;
-		}
-
-		blockquote.inset {
-			padding:    10px 10px 6px;
-			min-height: 250px;
-			font-size:  16px;
-		}
-
-		div.inset img {
-			vertical-align: text-bottom;
-			height:         200px;
-			box-shadow:     0 0 10px #aaa;
-			display:        inline-block;
-			margin-top:     15px;
-		}
-
-	</style>
+	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/blog.css">
 </head>
 <body>
 <section id="introduction" class="flush-left">
@@ -196,7 +11,7 @@
 
 	<div class="lead">
 
-		<IMG SRC="portal.jpg" class="picture">
+		<IMG SRC="https://raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/portal.jpg" class="picture">
 
 		<H2>Introduction</H2>
 
@@ -275,21 +90,21 @@
 	</p>
 
 	<figure>
-		<img class="shrink" src="figure1.png">
+		<img class="shrink" src="https://raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/figure1.png">
 		<figcaption>Figure 1: The Facebook Developer App Center</figcaption>
 	</figure>
 
 	<p>Click on the "Create New App" button and you'll be presented with the new application screen as shown in figure 2.</p>
 
 	<figure>
-		<img src="figure2.png">
+		<img src="https://raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/figure2.png">
 		<figcaption>Figure 2: New App Screen</figcaption>
 	</figure>
 
 	<p>Here you'll enter the name of your application and the category. Utility or Other are good categories for portal applications. Once you've entered the required information, press the "Continue" button. The next screen, as shown in figure 3, will reveal your application keys.</p>
 
 	<figure>
-		<img src="figure3.png">
+		<img src="https://raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/figure3.png">
 		<figcaption>Figure 3: Your keys revealed</figcaption>
 	</figure>
 
@@ -322,12 +137,12 @@
 	<p>Because of the sensitive nature of client IDs, secrets, and access tokens (OH MY!); there is no "admin" screen for providers and provider users. You must use the DSP REST API to manipulate this data. This can be done with any REST utility (Postman in Chrome, or REST Client in FireFox) or from the command line with cURL. This API call is like any other REST API call you make to your DSP. For example, to get the list of providers configured in your DSP, issue a GET with no ID to
 		<code>https://dsp-name.cloud.dreamfactory.com/rest/system/provider</code> as shown in figure 4.</p>
 	<figure>
-		<img class="shrink" src="figure4.png">
+		<img class="shrink" src="https://raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/figure4.png">
 		<figcaption>Figure 4: Getting a list of your providers with Postman</figcaption>
 	</figure>
 	<p>You've undoubtedly noticed that nothing was returned in that example. That's because we haven't created any providers. So let's do that now. Issue a POST request to the same URL, but this time we need to provide a payload which includes your keys. </p>
 	<figure>
-		<img class="shrink" src="figure5.png">
+		<img class="shrink" src="https://raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/figure5.png">
 		<figcaption>Figure 5: The POST request</figcaption>
 	</figure>
 	<p>The <code>config_text</code> field in the new
@@ -362,7 +177,7 @@
 
 	<p>After you POST the text in figure 5 (with your keys obviously) you'll see the result as shown in figure 6. Don't use the keys shown in this article as they will not be available once this article is published. </p>
 	<figure>
-		<img class="shrink" src="figure6.png">
+		<img class="shrink" src="https://raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/figure6.png">
 		<figcaption>Figure 6: The POST response. Your new provider is now ready</figcaption>
 	</figure>
 	<p>What we did was create a new "provider" resource with an API name of <code>fbportal</code>
@@ -451,7 +266,8 @@ $ curl -s GET https://dsp-name.cloud.dreamfactory.com/rest/portal?app_name=admin
 	<blockquote class="inset">
 		<span class="title">Lumbergh Says...</span>
 
-		<div class="inset"><img src="lumbergh.jpg"></div>
+		<div class="inset"><img src="https://raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/lumbergh.jpg">
+		</div>
 		<p>Yeah... so... I'm going to have to go ahead, and ask you, to make a backup -- or snapshot if you're using a hosted DSP -- of your database
 			<strong>BEFORE</strong>
 			goofing with sensitive information. Since this data is encrypted, any stored keys will be difficult (if not impossible) to recover.<br /><br /> Yes, even we at DreamFactory can't see your keys once the product is released.
@@ -467,7 +283,7 @@ $ curl -s GET https://dsp-name.cloud.dreamfactory.com/rest/portal?app_name=admin
 	<p>This table encrypts and stores local portal and remote login provider credentials for each user who has authenticated against the portal. As you'll recall, once you've created your Facebook application, users still need to log into Facebook with their own Facebook accounts and allow of their personal information to your DSP. We'll get into the mechanics of that in a bit.</p>
 
 	<figure>
-		<img src="figure8.png">
+		<img src="https://raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/figure8.png">
 		<figcaption>Figure 8: New Tables</figcaption>
 	</figure>
 
