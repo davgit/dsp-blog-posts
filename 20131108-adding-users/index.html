@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Adding Users to Your DSP</title>
+	<script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+	<style type="text/css">
+		@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+		html > * {
+			font-family: "Open Sans", Arial, sans-serif;
+			font-size:   16px;
+			font-weight: 300;
+		}
+
+		blockquote {
+			border:             1px solid burlywood;
+			border-right-width: 4px;
+			border-left-width:  4px;
+			font-size:          14px;
+			width:              50%;
+			-moz-box-shadow:    0 0 10px rgba(51, 51, 51, 0.5);
+			-webkit-box-shadow: 0 0 10px rgba(51, 51, 51, 0.5);
+			box-shadow:         0 0 10px rgba(51, 51, 51, 0.5);
+			font-family:        "Open Sans", "Helvetica Neue Light", 'Arial', sans-serif;
+		}
+
+		h1, h2, h3, h4, h5 {
+			font-family: "Open Sans", Arial, "Lucida Grande", sans-serif;
+		}
+
+		p, h2, h3, h4, ul, pre, ol {
+			margin-left:  25px;
+			margin-right: 25px;
+		}
+
+		h4, h5, section > h4 + p, section > h5 + p {
+			margin-left:  50px;
+			margin-right: 50px;
+		}
+
+		pre.prettyprint {
+			font-size:          12px;
+			padding:            20px;
+			-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
+			-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
+			box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
+			margin:             25px;
+		}
+
+		pre.prettyprint ol {
+			padding-right: 8px;
+		}
+
+		pre.prettyprint ol li:first-child {
+			padding-top: 8px;
+		}
+
+		pre.prettyprint ol li:last-child {
+			padding-bottom: 8px;
+		}
+
+		ol.linenums {
+			font-size: 12px;
+		}
+
+		h1.title {
+			text-align:     center;
+			border-bottom:  1px solid #ddd;
+			margin:         auto 25px 30px;
+			text-shadow:    -1px -1px #ccc;
+			letter-spacing: -1.5px;
+		}
+
+		h2, h3, h4, h5 {
+			border-bottom: 1px solid #eee;
+			text-shadow:   -1px -1px #ccc;
+		}
+
+		ul, ol {
+			list-style: square;
+		}
+
+		ol.steps {
+			list-style: decimal;
+		}
+
+		img.picture {
+			float:              left;
+			border:             1px solid white;
+			margin:             5px 5px 5px 5px;
+		}
+
+		figure img {
+			-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
+			-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
+			box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
+			border:             1px solid rgba(0, 0, 0, .25);
+			margin:             5px auto 5px;
+		}
+
+		figure pre {
+		}
+
+		figure img.shrink {
+			width: 800px;
+		}
+
+		figcaption {
+			font-size:   80%;
+			font-weight: bold;
+		}
+
+		p {
+			text-align: justify;
+		}
+
+		code {
+			font-size:        12px;
+			border:           1px dotted #e0e0e0;
+			background-color: #efefef;
+			padding:          2px 3px;
+			line-height:      inherit;
+			vertical-align:   middle;
+			display:          inline-block;
+			font-weight:      bold;
+		}
+
+		section {
+			margin-left: 25px;
+		}
+
+		section h2 {
+			margin-left: 25px;
+			clear:both;
+		}
+
+		section.flush-left {
+			margin-left: 5px;
+		}
+
+		.fatal {
+			color:       darkred;
+			font-weight: 700;
+		}
+
+		blockquote .title {
+			font-size:      18px;
+			font-weight:    bold;
+			text-shadow:    none;
+			border-bottom:  1px solid antiquewhite;
+			padding-top:    8px;
+			padding-bottom: 0;
+			margin-left:    24px;
+			margin-right:   25px;
+			display:        block;
+		}
+
+		blockquote > .title + p {
+			margin-top: 8px;
+		}
+
+		div.inset {
+			float:       right;
+			padding:     10px 10px 6px;
+			margin-left: 14px;
+		}
+
+		blockquote.inset {
+			padding:    10px 10px 6px;
+			min-height: 250px;
+			font-size:  16px;
+		}
+
+		div.inset img {
+			vertical-align: text-bottom;
+			height:         200px;
+			box-shadow:     0 0 10px #aaa;
+			display:        inline-block;
+		}
+
+	</style>
+</head>
+<body>
+<section id="introduction" class="flush-left">
+	<H1 class="title">Adding Users to Your DSP</H1>
+
+	<H2>Introduction</H2>
+
+	<IMG SRC="User_Icon.png" class="picture">
+
+	<p style="margin-top:25px;">So, you have your DSP setup and an idea for an awesome app, now what?
+		Well, unless you are type that likes to be the sole beneficiary of your work and/or you like working all by your lonesome,
+		then you are going to need to get other people in the mix.
+	</p>
+	<p>Whether its adding consumers, collaborators, or customers, DreamFactory DSP provides several ways to add users to your DSP.
+		Once added, you control what they can do by provisioning their role-based accesses.
+	</p>
+	<p>The following is a quick summary of the supported ways in which you can get more users on your DSP.
+		For more information on user and role-based configuration, see our documentation.
+	</p>
+
+</section>
+<div></div>
+<section id="system-admin" class="flush-left">
+
+	<H2>For The Control Freak In All Of Us</H2>
+
+	<p>The administrator account on your DSP has complete control over how users are added to the system.
+		By default, only those with system administrator privileges can add users to the system.
+		This is the most restrictive case. A system administrator logs into the DSP,
+		goes to the admin view by selecting the gear in the upper right,
+		selects the <strong>User</strong> section from the menu at left, and clicks <strong>Create New User</strong>.
+	</p>
+
+	<figure>
+		<img src="Create_User.png">
+		<figcaption>Figure 1: Create User Screen</figcaption>
+	</figure>
+
+	<p>Select the system administrator checkbox or the desired role,
+		select whether or not you want to activate this user for access via login,
+		and finally, to assign the password directly, select "Skip email confirmation..." and set the desired password.
+		You can return to this user to change the password directly later if needed.
+		Similarly, an admin can send a request to the REST API to create a user by posting the similar data to
+		/rest/system/user as follows.
+		</p>
+
+	<figure>
+		<pre class="prettyprint">
+curl -X POST https://dsp-mydsp.cloud.dreamfactory.com/rest/system/user/ \
+-H 'X-DreamFactory-Application-Name: admin' \
+-d ' \
+{ \
+	"display_name":"Joe Smith", \
+	"first_name":"Joe", \
+	"last_name":"Smith", \
+	"email":"joe.smith@acme.com", \
+	"phone":"555-666-7777", \
+	"is_active":true, \
+	"is_sys_admin":false, \
+	"role_id":1, \
+	"password":"password" \
+}'
+		</pre>
+		<figcaption>Example 1: cURL command and payload for creating a user with password</figcaption>
+	</figure>
+
+	<p>Note that using this part of the REST API requires a valid session from an administrator account.
+		Also note that the password can only be set and never retrieved via the API for security reasons.
+	</p>
+	<p>This is useful for creating consumer accounts for things like other web server or test account access,
+		or for creating specific users with default passwords, which they can change later.
+	</p>
+
+</section>
+
+<section id="invite-friends" class="flush-left">
+
+	<H2>Invite Only the Friends You Really Like</H2>
+
+	<p>In the aforementioned example of adding a user, for "real person" user accounts,
+		the system admin is usually not concerned with directly managing user's passwords.
+		A more popular way to add users would be to invite them and let them manage their own passwords.
+		In this case, the admin still creates the user with email address, role, etc, but does not set a password.
+		This user is created in a suspended state until a password is set. If a default email service is setup,
+		the email service, or your own built into your app, can be used to notify the user via their email address
+		that they are invited to the system. That user can then go to your DSP and complete the password requirement.
+		Keep reading for more on the email service and password reset capabilities of the DSP.
+	</p>
+
+</section>
+
+<section id="sign-up" class="flush-left">
+
+	<H2>Sign Me Up</H2>
+
+	<p>So maybe you have developed an app and want more of an open approach to adding users,
+		no individual invites or manual data entry, but you still want to know who they are
+		and control their access via roles, etc. Well, that is what we call <strong>Open Registration</strong>.
+		This feature, once enabled, allows visitors to your DSP or app to have the opportunity
+		to sign up to be a user and access your app and services.
+	</p>
+	<p>To enable Open Registration, a system administrator logs into the DSP,
+		goes to the admin view by selecting the gear in the upper right,
+		selects the <strong>Config</strong> section from the bottom of the menu at left,
+		and checks the "Allow open registration" checkbox.
+	</p>
+	<figure>
+		<img src="Config_Open_Reg.png">
+		<figcaption>Figure 2: Configure open registration via UI</figcaption>
+	</figure>
+
+	<p>Once selected, you will see the option to assign every new user who comes in through the registration process
+		a default role. Obviously you will want to limit what the users can do at first and then possibly
+		upgrade them later to a different role that allows for more permissions.
+	</p>
+	<figure>
+		<pre class="prettyprint">
+curl -X PUT https://dsp-mydsp.cloud.dreamfactory.com/rest/system/config/ \
+-H 'X-DreamFactory-Application-Name: admin' \
+-d '{ "allow_open_registration": true, "open_reg_role_id": 1 }'
+		</pre>
+		<figcaption>Example 2: Configure open registration via REST API</figcaption>
+	</figure>
+	<p>Refresh the Launchpad view and you will see a new button called <strong>Create Account</strong>.
+		Clicking this button will take you to a page to sign up for an account.
+	</p>
+	<figure>
+		<img src="LaunchPad_Open_Reg.png">
+		<figcaption>Figure 3: Launchpad with Open Registration enabled</figcaption>
+	</figure>
+	<p>By default, when Open Registration is enabled, email validation for registration is disabled. This means that
+		the user that wants to sign up gives their email address, etc. and password all in one shot without any kind
+		of verification.
+	</p>
+	<figure>
+		<img src="Register_Full.png">
+		<figcaption>Figure 4: Registration with password directly</figcaption>
+	</figure>
+	<figure>
+		<pre class="prettyprint">
+curl -X POST https://dsp-mydsp.cloud.dreamfactory.com/rest/user/register/ \
+-H 'X-DreamFactory-Application-Name: admin' \
+-d ' \
+{ \
+	"display_name":"Joe Smith", \
+	"first_name":"Joe", \
+	"last_name":"Smith", \
+	"email":"joe.smith@acme.com", \
+	"password":"password" \
+}'
+		</pre>
+		<figcaption>Example 3: Registration via REST API</figcaption>
+	</figure>
+	<p>This is useful when you don't really care if the email/username is a valid email or not.
+		In most cases, especially where the email address is used for other contact purposes, you will want to
+		validate the email address given. To do this, go back to the Open Registration configuration and see the
+		"Select an email service..." section. Select an email service from the drop down list.
+		Note that a default email service comes with your DSP, but you may wish to add or change its configuration
+		to meet your needs. See our documentation for <strong>Services</strong> options. The system comes with a
+		default email template internally. To customize, create your own template at the bottom of this configuration
+		screen and select it here. More on email templates can be found in our documentation.
+	</p>
+	<figure>
+		<img src="Config_Open_Reg_w_Email.png">
+		<figcaption>Figure 5: Configure Open Registration with Email Validation</figcaption>
+	</figure>
+	<p>With this configuration, no password is required initially. Once registered, an email is sent,
+		if following our template guidelines, with a confirmation code and a link to a confirmation page where that
+		code will be entered along with the desired password for the account.
+	</p>
+	<figure>
+		<img src="Register.png">
+		<figcaption>Figure 6: Registration requiring email validation</figcaption>
+	</figure>
+	<p>The link in the email will take the user to a confirmation page where the code and password are applied.
+	</p>
+	<figure>
+		<img src="Register_Confirmation.png">
+		<figcaption>Figure 7: Registration confirmation</figcaption>
+	</figure>
+	<figure>
+		<pre class="prettyprint">
+curl -X POST https://dsp-mydsp.cloud.dreamfactory.com/rest/user/register/ \
+-H 'X-DreamFactory-Application-Name: admin' \
+-d ' \
+{ \
+	"email":"joe.smith@acme.com", \
+	"code":"08dda8621c8fc3434646432dbbab51a6", \
+	"password":"password" \
+}'
+		</pre>
+		<figcaption>Example 4: Registration confirmation via REST API</figcaption>
+	</figure>
+	<p>Once confirmed, this new user will automatically be logged in with the role given for open registration.
+	</p>
+
+</section>
+
+<section id="password-reset" class="flush-left">
+
+	<H2>A word about passwords...</H2>
+
+	<p>On the <strong>Config</strong> screen mentioned early, you may have seen a <strong>Password Reset</strong>
+		section. By default, password resets are performed using a security question and answer setup that can be
+		provisioned via a user's profile (see the user icon on the LaunchPad bar once logged in).
+		However, very much like Open Registration, if you would like a more secure way to handle password resets,
+		you can enable email confirmation by selecting an email service and optionally a template.
+	</p>
+	<figure>
+		<img src="Password_Reset_Config.png">
+		<figcaption>Figure 8: Password reset configuration</figcaption>
+	</figure>
+	<p>In the sign in dialog, to initiate a password reset, type in your email address and click the
+		<strong>Forgot Password</strong> button.
+	</p>
+	<figure>
+		<img src="Forgot_Password.png">
+		<figcaption>Figure 9: Initiating password reset</figcaption>
+	</figure>
+	<p>Like registration, an email is sent with a link and a confirmation code.
+		Enter the code, and a new password to reset the existing password.
+	</p>
+	<figure>
+		<img src="Reset_Confirmation.png">
+		<figcaption>Figure 10: Password reset confirmation</figcaption>
+	</figure>
+	<p>Once confirmed, this user will automatically be logged in with the new password.
+	</p>
+
+</section>
+
+<section id="oauth-setup" class="flush-left">
+
+	<H2>Ticket Please</H2>
+
+	<p>As with many websites today, sometimes it is easier if someone else handles the user confirmation and
+		password maintenance, like the most popular social or enterprise websites. For these cases,
+		DreamFactory can be configured to allow access via an OAuth service. This is currently tied to
+		Open Registration being activated. Once provisioned, your allowed OAuth services will show up on
+		the login screen. For more information on OAuth provisioning, see this blog.
+	</p>
+	<figure>
+		<img src="OAuth_Login.png">
+		<figcaption>Figure 10: OAuth provider login</figcaption>
+	</figure>
+
+</section>
+
+<section id="guest-access" class="flush-left">
+
+	<H2>The Door's Open, Come On In</H2>
+
+	<p>There may be some functionality in your app that you want everyone to see or be able to use.
+		If that is the case, we have a configuration for that as well. It is called <strong>Guest Users</strong>.
+		Again, on the config screen in the admin view, there is a place to allow guest access and assign them
+		a specific restrictive access role.
+	</p>
+	<figure>
+		<img src="Guest_Config.png">
+		<figcaption>Figure 10: Configure guest user</figcaption>
+	</figure>
+	<figure>
+		<pre class="prettyprint">
+curl -X PUT https://dsp-mydsp.cloud.dreamfactory.com/rest/system/config/ \
+-H 'X-DreamFactory-Application-Name: admin' \
+-d '{ "allow_guest_user": true, "guest_role_id": 1 }'
+		</pre>
+		<figcaption>Example 2: Configure guest user via REST API</figcaption>
+	</figure>
+	<p>Once enabled, you will see that when accessing your DSP, you are not immediately met with a login prompt,
+		but the <strong>Sign In</strong> button (and optionally a Create Account button) are also there allowing
+		returning users to gain access as their assigned role.
+	</p>
+
+</section>
+
+<p>Check out our video tutorials and documentation for more information on these topics.
+	As always, we welcome your comments.
+</p>
+
+</body>
+</html>
