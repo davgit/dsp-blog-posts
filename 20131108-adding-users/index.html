@@ -186,7 +186,7 @@
 
 	<H2>Introduction</H2>
 
-	<IMG SRC="User_Icon.png" class="picture">
+	<IMG SRC="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/User_Icon.png" class="picture">
 
 	<p style="margin-top:25px;">So, you have your DSP setup and an idea for an awesome app, now what?
 		Well, unless you are type that likes to be the sole beneficiary of your work and/or you like working all by your lonesome,
@@ -213,7 +213,7 @@
 	</p>
 
 	<figure>
-		<img src="Create_User.png">
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Create_User.png">
 		<figcaption>Figure 1: Create User Screen</figcaption>
 	</figure>
 
@@ -262,8 +262,9 @@ curl -X POST https://dsp-mydsp.cloud.dreamfactory.com/rest/system/user/ \
 		the system admin is usually not concerned with directly managing user's passwords.
 		A more popular way to add users would be to invite them and let them manage their own passwords.
 		In this case, the admin still creates the user with email address, role, etc, but does not set a password.
-		This user is created in a suspended state until a password is set. If a default email service is setup,
-		the email service, or your own built into your app, can be used to notify the user via their email address
+		This user is created in a suspended state until a password is set.
+	</p>
+	<p>If a default email service is setup,	the email service can be used to notify the user via their email address
 		that they are invited to the system. That user can then go to your DSP and complete the password requirement.
 		Keep reading for more on the email service and password reset capabilities of the DSP.
 	</p>
@@ -277,8 +278,8 @@ curl -X POST https://dsp-mydsp.cloud.dreamfactory.com/rest/system/user/ \
 	<p>So maybe you have developed an app and want more of an open approach to adding users,
 		no individual invites or manual data entry, but you still want to know who they are
 		and control their access via roles, etc. Well, that is what we call <strong>Open Registration</strong>.
-		This feature, once enabled, allows visitors to your DSP or app to have the opportunity
-		to sign up to be a user and access your app and services.
+		This feature, once enabled, gives visitors to your DSP the opportunity to sign up to be a user
+		and access your app and services.
 	</p>
 	<p>To enable Open Registration, a system administrator logs into the DSP,
 		goes to the admin view by selecting the gear in the upper right,
@@ -286,7 +287,7 @@ curl -X POST https://dsp-mydsp.cloud.dreamfactory.com/rest/system/user/ \
 		and checks the "Allow open registration" checkbox.
 	</p>
 	<figure>
-		<img src="Config_Open_Reg.png">
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Config_Open_Reg.png">
 		<figcaption>Figure 2: Configure open registration via UI</figcaption>
 	</figure>
 
@@ -306,7 +307,7 @@ curl -X PUT https://dsp-mydsp.cloud.dreamfactory.com/rest/system/config/ \
 		Clicking this button will take you to a page to sign up for an account.
 	</p>
 	<figure>
-		<img src="LaunchPad_Open_Reg.png">
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/LaunchPad_Open_Reg.png">
 		<figcaption>Figure 3: Launchpad with Open Registration enabled</figcaption>
 	</figure>
 	<p>By default, when Open Registration is enabled, email validation for registration is disabled. This means that
@@ -314,7 +315,7 @@ curl -X PUT https://dsp-mydsp.cloud.dreamfactory.com/rest/system/config/ \
 		of verification.
 	</p>
 	<figure>
-		<img src="Register_Full.png">
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Register_Full.png">
 		<figcaption>Figure 4: Registration with password directly</figcaption>
 	</figure>
 	<figure>
@@ -342,7 +343,7 @@ curl -X POST https://dsp-mydsp.cloud.dreamfactory.com/rest/user/register/ \
 		screen and select it here. More on email templates can be found in our documentation.
 	</p>
 	<figure>
-		<img src="Config_Open_Reg_w_Email.png">
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Config_Open_Reg_w_Email.png">
 		<figcaption>Figure 5: Configure Open Registration with Email Validation</figcaption>
 	</figure>
 	<p>With this configuration, no password is required initially. Once registered, an email is sent,
@@ -350,13 +351,13 @@ curl -X POST https://dsp-mydsp.cloud.dreamfactory.com/rest/user/register/ \
 		code will be entered along with the desired password for the account.
 	</p>
 	<figure>
-		<img src="Register.png">
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Register.png">
 		<figcaption>Figure 6: Registration requiring email validation</figcaption>
 	</figure>
 	<p>The link in the email will take the user to a confirmation page where the code and password are applied.
 	</p>
 	<figure>
-		<img src="Register_Confirmation.png">
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Register_Confirmation.png">
 		<figcaption>Figure 7: Registration confirmation</figcaption>
 	</figure>
 	<figure>
@@ -388,21 +389,21 @@ curl -X POST https://dsp-mydsp.cloud.dreamfactory.com/rest/user/register/ \
 		you can enable email confirmation by selecting an email service and optionally a template.
 	</p>
 	<figure>
-		<img src="Password_Reset_Config.png">
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Password_Reset_Config.png">
 		<figcaption>Figure 8: Password reset configuration</figcaption>
 	</figure>
 	<p>In the sign in dialog, to initiate a password reset, type in your email address and click the
 		<strong>Forgot Password</strong> button.
 	</p>
 	<figure>
-		<img src="Forgot_Password.png">
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Forgot_Password.png">
 		<figcaption>Figure 9: Initiating password reset</figcaption>
 	</figure>
 	<p>Like registration, an email is sent with a link and a confirmation code.
 		Enter the code, and a new password to reset the existing password.
 	</p>
 	<figure>
-		<img src="Reset_Confirmation.png">
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Reset_Confirmation.png">
 		<figcaption>Figure 10: Password reset confirmation</figcaption>
 	</figure>
 	<p>Once confirmed, this user will automatically be logged in with the new password.
@@ -421,7 +422,7 @@ curl -X POST https://dsp-mydsp.cloud.dreamfactory.com/rest/user/register/ \
 		the login screen. For more information on OAuth provisioning, see this blog.
 	</p>
 	<figure>
-		<img src="OAuth_Login.png">
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/OAuth_Login.png">
 		<figcaption>Figure 10: OAuth provider login</figcaption>
 	</figure>
 
@@ -437,7 +438,7 @@ curl -X POST https://dsp-mydsp.cloud.dreamfactory.com/rest/user/register/ \
 		a specific restrictive access role.
 	</p>
 	<figure>
-		<img src="Guest_Config.png">
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Guest_Config.png">
 		<figcaption>Figure 10: Configure guest user</figcaption>
 	</figure>
 	<figure>
