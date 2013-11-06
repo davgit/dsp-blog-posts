@@ -1,38 +1,31 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
-html > * {
-	font-family: "Open Sans", Arial, sans-serif;
-	font-size:   16px;
-	font-weight: 300;
-}
-
-blockquote {
+/** Custom blog styles 2013-11-06 GHA **/
+.df-blog blockquote {
 	border:             1px solid burlywood;
 	border-right-width: 4px;
 	border-left-width:  4px;
 	font-size:          14px;
-	width:              50%;
+	width:              80%;
 	-moz-box-shadow:    0 0 10px rgba(51, 51, 51, 0.5);
 	-webkit-box-shadow: 0 0 10px rgba(51, 51, 51, 0.5);
 	box-shadow:         0 0 10px rgba(51, 51, 51, 0.5);
 	font-family:        "Open Sans", "Helvetica Neue Light", 'Arial', sans-serif;
 }
 
-h1, h2, h3, h4, h5 {
+.df-blog h1, .df-blog h2, .df-blog h3, .df-blog h4, .df-blog h5 {
 	font-family: "Open Sans", Arial, "Lucida Grande", sans-serif;
 }
 
-p, h2, h3, h4, ul, pre, ol {
+.df-blog p, .df-blog h2, .df-blog h3, .df-blog h4, .df-blog ul, .df-blog pre, .df-blog ol {
 	margin-left:  25px;
 	margin-right: 25px;
 }
 
-h4, h5, section > h4 + p, section > h5 + p {
+.df-blog h4, .df-blog h5, .df-blog section h4 + p, .df-blog section h5 + p {
 	margin-left:  50px;
 	margin-right: 50px;
 }
 
-pre.prettyprint {
+.df-blog pre.prettyprint {
 	white-space:        pre-line;
 	font-size:          12px;
 	padding:            20px;
@@ -42,23 +35,23 @@ pre.prettyprint {
 	margin:             25px;
 }
 
-pre.prettyprint ol {
+.df-blog pre.prettyprint ol {
 	padding-right: 8px;
 }
 
-pre.prettyprint ol li:first-child {
+.df-blog pre.prettyprint ol li:first-child {
 	padding-top: 8px;
 }
 
-pre.prettyprint ol li:last-child {
+.df-blog pre.prettyprint ol li:last-child {
 	padding-bottom: 8px;
 }
 
-ol.linenums {
+.df-blog ol.linenums {
 	font-size: 12px;
 }
 
-h1.title {
+.df-blog h1.title {
 	text-align:     center;
 	border-bottom:  1px solid #ddd;
 	margin:         auto 25px 30px;
@@ -66,58 +59,65 @@ h1.title {
 	letter-spacing: -1.5px;
 }
 
-h2, h3, h4, h5 {
+.df-blog h2, .df-blog h3, .df-blog h4, .df-blog h5 {
 	border-bottom: 1px solid #eee;
 	text-shadow:   -1px -1px #ccc;
 }
 
-ul, ol {
+.df-blog ul, .df-blog ol {
 	list-style: square;
 }
 
-ol.steps {
+.df-blog ol.steps {
 	list-style: decimal;
 }
 
-img.picture {
-	float:              left;
+.post-body .df-blog > img.picture {
+	float:              left !important;
 	-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
 	-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
 	box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
 	-webkit-transform:  rotate(356deg);
 	-moz-transform:     rotate(356deg);
 	-o-transform:       rotate(356deg);
-	width:              250px;
-	height:             250px;
+	width:              250px !important;
+	height:             250px !important;
 	border:             5px solid white;
-	margin:             15px 35px 35px 15px;
+	margin:             15px 35px 35px 15px !important;
+	max-width:          250px !important;
 }
 
-figure img {
+.blog-listing-wrapper .post-listing .post-item .post-body .df-blog figure img {
 	-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
 	-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
 	box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
 	border:             1px solid rgba(0, 0, 0, .25);
-	margin:             5px auto 5px;
+	margin:             5px auto 5px !important;
+	float:              none !important;
+	width:              auto !important;
+	height:             auto !important;
+	max-width:          100% !important;
 }
 
-figure pre {
+.blog-listing-wrapper .post-listing .post-item .post-body .df-blog div.inset img {
+	vertical-align: text-bottom;
+	height:         200px !important;
+	box-shadow:     0 0 10px #aaa;
+	display:        inline-block;
+	margin-top:     15px !important;
+	max-width:      100% !important;
 }
 
-figure img.shrink {
-	width: 800px;
+.blog-listing-wrapper .post-listing .post-item .post-body .df-blog figure img.shrink {
+	width: 80% !important;
 }
 
-figcaption {
+.df-blog figcaption {
 	font-size:   80%;
 	font-weight: bold;
 }
 
-p {
-	text-align: justify;
-}
-
-code {
+.df-blog code {
 	font-size:        12px;
 	border:           1px dotted #e0e0e0;
 	background-color: #efefef;
@@ -128,24 +128,24 @@ code {
 	font-weight:      bold;
 }
 
-section {
+.df-blog section {
 	margin-left: 25px;
 }
 
-section h2 {
+.df-blog section h2 {
 	margin-left: 25px;
 }
 
-section.flush-left {
+.df-blog section.flush-left {
 	margin-left: 5px;
 }
 
-.fatal {
+.df-blog .fatal {
 	color:       darkred;
 	font-weight: 700;
 }
 
-blockquote .title {
+.df-blog blockquote .title {
 	font-size:      18px;
 	font-weight:    bold;
 	text-shadow:    none;
@@ -157,26 +157,18 @@ blockquote .title {
 	display:        block;
 }
 
-blockquote > .title + p {
+.df-blog blockquote > .title + p {
 	margin-top: 8px;
 }
 
-div.inset {
+.df-blog div.inset {
 	float:       right;
 	padding:     10px 10px 6px;
 	margin-left: 14px;
 }
 
-blockquote.inset {
+.df-blog blockquote.inset {
 	padding:    10px 10px 6px;
 	min-height: 250px;
 	font-size:  16px;
-}
-
-div.inset img {
-	vertical-align: text-bottom;
-	height:         200px;
-	box-shadow:     0 0 10px #aaa;
-	display:        inline-block;
-	margin-top:     15px;
 }
