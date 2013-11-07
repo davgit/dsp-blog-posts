@@ -3,9 +3,180 @@
 <head>
 	<title>Adding Users to Your DSP</title>
 	<script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-	<link rel="stylesheet"
-		  type="text/css"
-		  href="../common/blog.css">
+	<style>.df-blog blockquote {
+		border:             1px solid burlywood;
+		border-right-width: 4px;
+		border-left-width:  4px;
+		font-size:          14px;
+		width:              80%;
+		-moz-box-shadow:    0 0 10px rgba(51, 51, 51, 0.5);
+		-webkit-box-shadow: 0 0 10px rgba(51, 51, 51, 0.5);
+		box-shadow:         0 0 10px rgba(51, 51, 51, 0.5);
+		font-family:        "Open Sans", "Helvetica Neue Light", 'Arial', sans-serif;
+	}
+
+	.df-blog h1, .df-blog h2, .df-blog h3, .df-blog h4, .df-blog h5 {
+		font-family: "Open Sans", Arial, "Lucida Grande", sans-serif;
+	}
+
+	.df-blog p, .df-blog h2, .df-blog h3, .df-blog h4, .df-blog ul, .df-blog pre, .df-blog ol {
+		margin-left:  25px;
+		margin-right: 25px;
+	}
+
+	.df-blog h4, .df-blog h5, .df-blog section h4 + p, .df-blog section h5 + p {
+		margin-left:  50px;
+		margin-right: 50px;
+	}
+
+	.df-blog pre.prettyprint {
+		white-space:        pre-line;
+		font-size:          12px;
+		padding:            20px;
+		-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
+		-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
+		box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
+		margin:             25px;
+	}
+
+	.df-blog pre.prettyprint ol {
+		padding-right: 8px;
+	}
+
+	.df-blog pre.prettyprint ol li:first-child {
+		padding-top: 8px;
+	}
+
+	.df-blog pre.prettyprint ol li:last-child {
+		padding-bottom: 8px;
+	}
+
+	.df-blog ol.linenums {
+		font-size: 12px;
+	}
+
+	.df-blog h1.title {
+		text-align:     center;
+		border-bottom:  1px solid #ddd;
+		margin:         auto 25px 30px;
+		text-shadow:    -1px -1px #ccc;
+		letter-spacing: -1.5px;
+	}
+
+	.df-blog h2, .df-blog h3, .df-blog h4, .df-blog h5 {
+		border-bottom: 1px solid #eee;
+		text-shadow:   -1px -1px #ccc;
+	}
+
+	.df-blog ul, .df-blog ol {
+		list-style: square;
+	}
+
+	.df-blog ol.steps {
+		list-style: decimal;
+	}
+
+	.post-body .df-blog > img.picture, .df-blog > img.picture {
+		float:              left !important;
+		-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
+		-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
+		box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
+		-webkit-transform:  rotate(356deg);
+		-moz-transform:     rotate(356deg);
+		-o-transform:       rotate(356deg);
+		width:              250px !important;
+		height:             250px !important;
+		border:             5px solid white;
+		margin:             15px 35px 35px 15px !important;
+		max-width:          250px !important;
+	}
+
+	.blog-listing-wrapper .post-listing .post-item .post-body .df-blog figure img, .df-blog figure img {
+		-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
+		-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
+		box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
+		border:             1px solid rgba(0, 0, 0, .25);
+		margin:             5px auto 5px !important;
+		float:              none !important;
+		width:              auto !important;
+		height:             auto !important;
+		max-width:          100% !important;
+	}
+
+	.blog-listing-wrapper .post-listing .post-item .post-body .df-blog div.inset img, .df-blog div.inset img {
+		vertical-align: text-bottom;
+		height:         200px !important;
+		box-shadow:     0 0 10px #aaa;
+		display:        inline-block;
+		margin-top:     15px !important;
+		max-width:      100% !important;
+	}
+
+	.blog-listing-wrapper .post-listing .post-item .post-body .df-blog figure img.shrink, .df-blog figure img.shrink {
+		width: 80% !important;
+	}
+
+	.df-blog figcaption {
+		font-size:   80%;
+		font-weight: bold;
+	}
+
+	.df-blog code {
+		font-size:        12px;
+		border:           1px dotted #e0e0e0;
+		background-color: #efefef;
+		padding:          2px 3px;
+		line-height:      inherit;
+		vertical-align:   middle;
+		display:          inline-block;
+		font-weight:      bold;
+	}
+
+	.df-blog section {
+		margin-left: 25px;
+	}
+
+	.df-blog section h2 {
+		margin-left: 25px;
+	}
+
+	.df-blog section.flush-left {
+		margin-left: 5px;
+	}
+
+	.df-blog .fatal {
+		color:       darkred;
+		font-weight: 700;
+	}
+
+	.df-blog blockquote .title {
+		font-size:      18px;
+		font-weight:    bold;
+		text-shadow:    none;
+		border-bottom:  1px solid antiquewhite;
+		padding-top:    8px;
+		padding-bottom: 0;
+		margin-left:    24px;
+		margin-right:   25px;
+		display:        block;
+	}
+
+	.df-blog blockquote > .title + p {
+		margin-top: 8px;
+	}
+
+	.df-blog div.inset {
+		float:       right;
+		padding:     10px 10px 6px;
+		margin-left: 14px;
+	}
+
+	.df-blog blockquote.inset {
+		padding:    10px 10px 6px;
+		min-height: 250px;
+		font-size:  16px;
+	}
+	</style>
 </head>
 <body>
 <div class="hs-migrated-cms-post df-blog">
@@ -36,7 +207,7 @@
 	</p>
 
 	<figure>
-		<img class="shrink" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Create_User.png">
+		<img class="" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Create_User.png">
 		<figcaption>Figure 1: Create User Screen</figcaption>
 	</figure>
 
@@ -113,7 +284,7 @@
 		and checks the "Allow open registration" checkbox.
 	</p>
 	<figure>
-		<img class="shrink" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Config_Open_Reg.png">
+		<img class="" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Config_Open_Reg.png">
 		<figcaption>Figure 2: Configure open registration via UI</figcaption>
 	</figure>
 
@@ -133,7 +304,7 @@
 		Clicking this button will take you to a page to sign up for an account.
 	</p>
 	<figure>
-		<img class="shrink" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/LaunchPad_Open_Reg.png">
+		<img class="" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/LaunchPad_Open_Reg.png">
 		<figcaption>Figure 3: Launchpad with Open Registration enabled</figcaption>
 	</figure>
 	<p>By default, when Open Registration is enabled, email validation for registration is disabled. This means that
@@ -141,7 +312,7 @@
 		of verification.
 	</p>
 	<figure>
-		<img class="shrink" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Register_Full.png">
+		<img class="" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Register_Full.png">
 		<figcaption>Figure 4: Registration with password directly</figcaption>
 	</figure>
 	<figure>
@@ -169,7 +340,7 @@
 		screen and select it here. More on email templates can be found in our documentation.
 	</p>
 	<figure>
-		<img class="shrink" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Config_Open_Reg_w_Email.png">
+		<img class="" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Config_Open_Reg_w_Email.png">
 		<figcaption>Figure 5: Configure Open Registration with Email Validation</figcaption>
 	</figure>
 	<p>With this configuration, no password is required initially. Once registered, an email is sent,
@@ -177,13 +348,13 @@
 		code will be entered along with the desired password for the account.
 	</p>
 	<figure>
-		<img class="shrink" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Register.png">
+		<img class="" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Register.png">
 		<figcaption>Figure 6: Registration requiring email validation</figcaption>
 	</figure>
 	<p>The link in the email will take the user to a confirmation page where the code and password are applied.
 	</p>
 	<figure>
-		<img class="shrink" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Register_Confirmation.png">
+		<img class="" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Register_Confirmation.png">
 		<figcaption>Figure 7: Registration confirmation</figcaption>
 	</figure>
 	<figure>
@@ -215,21 +386,21 @@
 		you can enable email confirmation by selecting an email service and optionally a template.
 	</p>
 	<figure>
-		<img class="shrink" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Password_Reset_Config.png">
+		<img class="" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Password_Reset_Config.png">
 		<figcaption>Figure 8: Password reset configuration</figcaption>
 	</figure>
 	<p>In the sign in dialog, to initiate a password reset, type in your email address and click the
 		<strong>Forgot Password</strong> button.
 	</p>
 	<figure>
-		<img class="shrink" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Forgot_Password.png">
+		<img class="" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Forgot_Password.png">
 		<figcaption>Figure 9: Initiating password reset</figcaption>
 	</figure>
 	<p>Like registration, an email is sent with a link and a confirmation code.
 		Enter the code, and a new password to reset the existing password.
 	</p>
 	<figure>
-		<img class="shrink" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Reset_Confirmation.png">
+		<img class="" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Reset_Confirmation.png">
 		<figcaption>Figure 10: Password reset confirmation</figcaption>
 	</figure>
 	<p>Once confirmed, this user will automatically be logged in with the new password.
@@ -248,7 +419,7 @@
 		the login screen. For more information on OAuth provisioning, see this blog.
 	</p>
 	<figure>
-		<img class="shrink" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/OAuth_Login.png">
+		<img class="" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/OAuth_Login.png">
 		<figcaption>Figure 10: OAuth provider login</figcaption>
 	</figure>
 
@@ -264,7 +435,7 @@
 		a specific restrictive access role.
 	</p>
 	<figure>
-		<img class="shrink" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Guest_Config.png">
+		<img class="" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Guest_Config.png">
 		<figcaption>Figure 10: Configure guest user</figcaption>
 	</figure>
 	<figure>
