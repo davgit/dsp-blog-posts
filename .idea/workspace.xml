@@ -26,6 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb65a168-fb53-4b52-b7c8-1cf78f0a3473" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/20131108-adding-users/blog.css" afterPath="$PROJECT_DIR$/common/blog.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/20131108-adding-users/index.html" afterPath="$PROJECT_DIR$/20131108-adding-users/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -55,77 +56,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/20131031-opening-a-portal-part-1/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="147" column="0" selection-start="11872" selection-end="11872" vertical-scroll-proportion="-32.52" vertical-offset="1539" max-vertical-offset="4400">
-              <folding>
-                <element signature="tag#head#0;tag#html#0" expanded="true" />
-                <element signature="tag#link#0;tag#head#0;tag#html#0" expanded="true" />
-                <element signature="tag#img#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="tag#p#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="n#style#0;n#h2#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="tag#p#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#ul#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#li#0;tag#ul#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#li#1;tag#ul#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#li#2;tag#ul#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#2;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#3;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#4;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#ol#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#1;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#blockquote#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#0;tag#blockquote#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#2;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#1;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#2;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#3;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#5;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#6;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#3;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#8;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#pre#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#pre#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#li#0;tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#li#1;tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#ol#0;tag#li#1;tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#li#3;tag#ol#0;tag#li#1;tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#2;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#code#0;tag#p#2;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#a#0;tag#code#0;tag#p#2;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#3;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#4;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#blockquote#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#div#0;tag#blockquote#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#img#0;tag#div#0;tag#blockquote#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#0;tag#blockquote#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#8;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#section#4;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/20131108-adding-users/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="49" selection-start="207" selection-end="207" vertical-scroll-proportion="0.093457945" vertical-offset="0" max-vertical-offset="4672">
+            <state line="4" column="4" selection-start="72" selection-end="72" vertical-scroll-proportion="0.07476635" vertical-offset="0" max-vertical-offset="4704">
               <folding>
+                <element signature="tag#link#0;tag#head#0;tag#html#0" expanded="true" />
                 <element signature="tag#body#0;tag#html#0" expanded="true" />
                 <element signature="tag#div#0;tag#body#0;tag#html#0" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -277,6 +213,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dsp-blog-posts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blogs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="20131108-adding-users" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -403,6 +353,9 @@
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/20131031-opening-a-portal" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/common" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -498,6 +451,8 @@
           <folding>
             <element signature="tag#head#0;tag#html#0" expanded="true" />
             <element signature="tag#link#0;tag#head#0;tag#html#0" expanded="true" />
+            <element signature="tag#body#0;tag#html#0" expanded="true" />
+            <element signature="tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#img#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="tag#p#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
@@ -521,6 +476,7 @@
             <element signature="tag#figure#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#figure#1;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#figure#2;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
+            <element signature="tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
@@ -528,6 +484,8 @@
             <element signature="tag#figure#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#figure#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#5;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
+            <element signature="tag#figure#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
+            <element signature="tag#pre#0;tag#figure#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#6;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#figure#3;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#8;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
@@ -562,6 +520,8 @@
           <folding>
             <element signature="tag#head#0;tag#html#0" expanded="true" />
             <element signature="tag#link#0;tag#head#0;tag#html#0" expanded="true" />
+            <element signature="tag#body#0;tag#html#0" expanded="true" />
+            <element signature="tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#img#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="tag#p#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
@@ -585,6 +545,7 @@
             <element signature="tag#figure#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#figure#1;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#figure#2;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
+            <element signature="tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
@@ -592,6 +553,8 @@
             <element signature="tag#figure#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#figure#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#5;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
+            <element signature="tag#figure#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
+            <element signature="tag#pre#0;tag#figure#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#6;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#figure#3;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#8;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
@@ -626,6 +589,8 @@
           <folding>
             <element signature="tag#head#0;tag#html#0" expanded="true" />
             <element signature="tag#link#0;tag#head#0;tag#html#0" expanded="true" />
+            <element signature="tag#body#0;tag#html#0" expanded="true" />
+            <element signature="tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#img#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="tag#p#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
@@ -649,6 +614,7 @@
             <element signature="tag#figure#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#figure#1;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#figure#2;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
+            <element signature="tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
@@ -656,6 +622,8 @@
             <element signature="tag#figure#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#figure#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#5;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
+            <element signature="tag#figure#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
+            <element signature="tag#pre#0;tag#figure#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#6;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#figure#3;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#8;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
@@ -755,13 +723,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/20131031-opening-a-portal-part-1/blog.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="20" selection-start="3605" selection-end="3605" vertical-scroll-proportion="0.0" vertical-offset="1922" max-vertical-offset="2880">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/20131108-adding-users/User_Icon.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -774,10 +735,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/20131031-opening-a-portal-part-1/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="0" selection-start="11872" selection-end="11872" vertical-scroll-proportion="-32.52" vertical-offset="1539" max-vertical-offset="4400">
+        <state line="10" column="0" selection-start="377" selection-end="377" vertical-scroll-proportion="0.18979834" vertical-offset="0" max-vertical-offset="4400">
           <folding>
             <element signature="tag#head#0;tag#html#0" expanded="true" />
             <element signature="tag#link#0;tag#head#0;tag#html#0" expanded="true" />
+            <element signature="tag#body#0;tag#html#0" expanded="true" />
+            <element signature="tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#img#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="tag#p#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
@@ -801,6 +764,7 @@
             <element signature="tag#figure#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#figure#1;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#figure#2;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
+            <element signature="tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
@@ -808,6 +772,8 @@
             <element signature="tag#figure#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#figure#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#5;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
+            <element signature="tag#figure#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
+            <element signature="tag#pre#0;tag#figure#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#6;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#figure#3;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#p#8;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
@@ -836,10 +802,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/20131031-opening-a-portal-part-1/blog.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="131" column="20" selection-start="3605" selection-end="3605" vertical-scroll-proportion="0.19750284" vertical-offset="1922" max-vertical-offset="2880">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/20131108-adding-users/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="49" selection-start="207" selection-end="207" vertical-scroll-proportion="0.093457945" vertical-offset="0" max-vertical-offset="4672">
+        <state line="4" column="4" selection-start="72" selection-end="72" vertical-scroll-proportion="0.07476635" vertical-offset="0" max-vertical-offset="4704">
           <folding>
+            <element signature="tag#link#0;tag#head#0;tag#html#0" expanded="true" />
             <element signature="tag#body#0;tag#html#0" expanded="true" />
             <element signature="tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
