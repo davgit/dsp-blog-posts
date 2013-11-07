@@ -72,7 +72,7 @@
 	list-style: decimal;
 }
 
-.post-body .df-blog > img.picture {
+.post-body .df-blog > img.picture, .df-blog > img.picture {
 	float:              left !important;
 	-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
 	-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
@@ -87,7 +87,7 @@
 	max-width:          250px !important;
 }
 
-.blog-listing-wrapper .post-listing .post-item .post-body .df-blog figure img {
+.blog-listing-wrapper .post-listing .post-item .post-body .df-blog figure img, .df-blog figure img {
 	-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
 	-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
 	box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
@@ -99,7 +99,7 @@
 	max-width:          100% !important;
 }
 
-.blog-listing-wrapper .post-listing .post-item .post-body .df-blog div.inset img {
+.blog-listing-wrapper .post-listing .post-item .post-body .df-blog div.inset img, .df-blog div.inset img {
 	vertical-align: text-bottom;
 	height:         200px !important;
 	box-shadow:     0 0 10px #aaa;
@@ -108,7 +108,7 @@
 	max-width:      100% !important;
 }
 
-.blog-listing-wrapper .post-listing .post-item .post-body .df-blog figure img.shrink {
+.blog-listing-wrapper .post-listing .post-item .post-body .df-blog figure img.shrink, .df-blog figure img.shrink {
 	width: 80% !important;
 }
 
