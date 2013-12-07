@@ -25,8 +25,17 @@
     <option name="FILTER_BY_CURRENT_PROJECT" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb65a168-fb53-4b52-b7c8-1cf78f0a3473" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/20131108-adding-users/index.html" afterPath="$PROJECT_DIR$/20131108-adding-users/index.html" />
+    <list default="true" id="cb65a168-fb53-4b52-b7c8-1cf78f0a3473" name="Default" comment="Updated">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/20131031-opening-a-portal-part-2/provider.create.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/20131031-opening-a-portal-part-2/.idea/scopes/scope_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/20131031-opening-a-portal-part-2/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/20131031-opening-a-portal-part-2/franky.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/20131031-opening-a-portal-part-2/lumbergh.jpg" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/20131031-opening-a-portal-part-1/blog.css" afterPath="$PROJECT_DIR$/20131031-opening-a-portal-part-1/blog.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/20131031-opening-a-portal-part-1/index.html" afterPath="$PROJECT_DIR$/20131031-opening-a-portal-part-1/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/20131031-opening-a-portal-part-2/index.html" afterPath="$PROJECT_DIR$/20131031-opening-a-portal-part-2/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/jablan.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/jablan.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dsp-blog-posts.iws" />
@@ -56,65 +65,22 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/20131108-adding-users/index.html">
+        <entry file="file://$PROJECT_DIR$/20131031-opening-a-portal-part-1/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="437" column="27" selection-start="16806" selection-end="16806" vertical-scroll-proportion="3.4053738" vertical-offset="4077" max-vertical-offset="7440">
+            <state line="111" column="39" selection-start="3787" selection-end="3787" vertical-scroll-proportion="0.27816093" vertical-offset="1534" max-vertical-offset="8752">
               <folding>
-                <element signature="tag#head#0;tag#html#0" expanded="true" />
-                <element signature="tag#style#0;tag#head#0;tag#html#0" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="tag#p#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#1;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#1;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#pre#0;tag#figure#1;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#2;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#3;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#1;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#pre#0;tag#figure#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#3;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#4;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#3;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#4;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#pre#0;tag#figure#4;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#5;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#5;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#6;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#6;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#7;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#7;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#8;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#pre#0;tag#figure#8;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#8;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#1;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#1;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#2;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#2;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#3;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#section#4;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#0;tag#section#4;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#0;tag#section#4;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#0;tag#section#5;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#figure#1;tag#section#5;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#pre#0;tag#figure#1;tag#section#5;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-                <element signature="tag#p#1;tag#section#5;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
+                <element signature="n#style#0;n#h2#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="blog.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/20131031-opening-a-portal-part-1/blog.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="13" selection-start="856" selection-end="856" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2912">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -142,10 +108,11 @@
         <option value="db-console:/332bac74/93092efb-53fd-4ffd-ab79-dff6a4211bd6/" />
         <option value="$PROJECT_DIR$/20131031-opening-a-portal/index-part-2.html" />
         <option value="$PROJECT_DIR$/20131031-opening-a-portal/index.html" />
+        <option value="$PROJECT_DIR$/common/blog.css" />
+        <option value="$PROJECT_DIR$/20131031-opening-a-portal-part-2/provider.create.json" />
+        <option value="$PROJECT_DIR$/20131108-adding-users/index.html" />
         <option value="$PROJECT_DIR$/20131031-opening-a-portal-part-1/blog.css" />
         <option value="$PROJECT_DIR$/20131031-opening-a-portal-part-1/index.html" />
-        <option value="$PROJECT_DIR$/common/blog.css" />
-        <option value="$PROJECT_DIR$/20131108-adding-users/index.html" />
       </list>
     </option>
   </component>
@@ -181,7 +148,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -196,7 +162,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="blogs" />
+              <option name="myItemId" value="blog" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -206,25 +172,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="blogs" />
+              <option name="myItemId" value="blog" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dsp-blog-posts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="20131108-adding-users" />
+              <option name="myItemId" value="20131031-opening-a-portal-part-2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -234,7 +186,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="blogs" />
+              <option name="myItemId" value="blog" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -244,6 +196,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -256,94 +209,6 @@
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
-  </component>
-  <component name="PublishConfig">
-    <servers>
-      <server id="08fed7ef-b75f-42c2-ad60-d6db1c2f163e">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-      <server id="149e8371-3161-4907-80cc-69baa49b8352">
-        <serverdata />
-      </server>
-      <server id="1fab4a56-92b6-4c5c-af74-b844512ff080">
-        <serverdata />
-      </server>
-      <server id="40c90cea-a0f6-4eb8-b4ba-47575afaeab3">
-        <serverdata />
-      </server>
-      <server id="43971990-aa29-426e-b485-ae1e6885d2fe">
-        <serverdata />
-      </server>
-      <server id="4c6b4d8a-3eef-4b87-af4e-c47472511f14">
-        <serverdata />
-      </server>
-      <server id="66719f12-cfe1-407f-af06-1df7b8d7a8f0">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-      <server id="7bf5ac3c-9813-4056-9757-2f8181f60960">
-        <serverdata />
-      </server>
-      <server id="88fc2a8f-4f23-4ef3-86b9-87ee3c64e082">
-        <serverdata />
-      </server>
-      <server id="8d03eaac-8100-4ee7-b91b-91a37d54e235">
-        <serverdata />
-      </server>
-      <server id="8da9ca69-9244-4807-9b20-343f6cadfa8f">
-        <serverdata />
-      </server>
-      <server id="a6e8ab6f-c5dd-45e3-aefa-1d0b66e8e6cf">
-        <serverdata />
-      </server>
-      <server id="aa799b44-ece0-4e57-8dbc-3540d5086e5e">
-        <serverdata />
-      </server>
-      <server id="ae4a57ae-a252-4e75-8c87-f002a7ef0721">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-      <server id="af3b3e9b-91c1-479f-a26e-6bf41aae8982">
-        <serverdata />
-      </server>
-      <server id="b2a42ed5-1b36-4f22-a3e7-5e8da3d3527c">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-      <server id="bcc0133f-79bb-42f3-9748-672e871b572e">
-        <serverdata />
-      </server>
-      <server id="ce7eb43d-a512-4d14-8ceb-2797eaa18a9e">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-      <server id="d3a5a741-31d8-4bc4-8277-63dd533f89a2">
-        <serverdata />
-      </server>
-      <server id="d6a47aaa-d1bc-4bdd-afa1-c006b55df584">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-    </servers>
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -363,6 +228,10 @@
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <browser start="false" url="" with-js-debugger="false" />
       <method />
     </configuration>
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
@@ -399,26 +268,31 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32657418" sideWeight="0.67103827" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32968238" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="CSS-X-Fire" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1736111" sideWeight="0.67103827" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17518637" sideWeight="0.67103827" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32968238" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32968238" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USERS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -444,71 +318,23 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/20131108-adding-users/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="437" column="8" selection-start="17040" selection-end="17040" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8320">
+          <folding>
+            <element signature="n#style#0;n#img#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#section#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/20131031-opening-a-portal-part-1/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="5" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="128">
           <folding>
-            <element signature="tag#head#0;tag#html#0" expanded="true" />
-            <element signature="tag#link#0;tag#head#0;tag#html#0" expanded="true" />
-            <element signature="tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#img#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="tag#p#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="n#style#0;n#h2#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="tag#p#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#ul#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#0;tag#ul#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#1;tag#ul#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#2;tag#ul#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#2;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#3;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#4;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#ol#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#1;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#blockquote#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#0;tag#blockquote#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#2;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#1;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#2;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#3;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#5;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#pre#0;tag#figure#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#6;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#3;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#8;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#pre#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#pre#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#0;tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#1;tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#ol#0;tag#li#1;tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#3;tag#ol#0;tag#li#1;tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#2;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#code#0;tag#p#2;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#a#0;tag#code#0;tag#p#2;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#3;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#4;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#blockquote#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#div#0;tag#blockquote#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#img#0;tag#div#0;tag#blockquote#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#0;tag#blockquote#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#8;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#4;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -517,67 +343,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5040">
           <folding>
-            <element signature="tag#head#0;tag#html#0" expanded="true" />
-            <element signature="tag#link#0;tag#head#0;tag#html#0" expanded="true" />
-            <element signature="tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#img#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="tag#p#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="n#style#0;n#h2#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="tag#p#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#ul#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#0;tag#ul#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#1;tag#ul#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#2;tag#ul#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#2;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#3;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#4;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#ol#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#1;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#blockquote#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#0;tag#blockquote#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#2;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#1;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#2;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#3;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#5;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#pre#0;tag#figure#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#6;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#3;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#8;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#pre#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#pre#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#0;tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#1;tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#ol#0;tag#li#1;tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#3;tag#ol#0;tag#li#1;tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#2;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#code#0;tag#p#2;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#a#0;tag#code#0;tag#p#2;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#3;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#4;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#blockquote#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#div#0;tag#blockquote#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#img#0;tag#div#0;tag#blockquote#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#0;tag#blockquote#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#8;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#4;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -586,77 +353,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7968">
           <folding>
-            <element signature="tag#head#0;tag#html#0" expanded="true" />
-            <element signature="tag#link#0;tag#head#0;tag#html#0" expanded="true" />
-            <element signature="tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#img#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="tag#p#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
             <element signature="n#style#0;n#h2#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="tag#p#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#ul#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#0;tag#ul#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#1;tag#ul#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#2;tag#ul#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#2;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#3;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#4;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#ol#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#1;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#blockquote#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#0;tag#blockquote#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#2;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#1;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#2;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#3;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#5;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#pre#0;tag#figure#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#6;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#3;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#8;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#pre#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#pre#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#0;tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#1;tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#ol#0;tag#li#1;tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#3;tag#ol#0;tag#li#1;tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#2;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#code#0;tag#p#2;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#a#0;tag#code#0;tag#p#2;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#3;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#4;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#blockquote#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#div#0;tag#blockquote#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#img#0;tag#div#0;tag#blockquote#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#0;tag#blockquote#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#8;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#4;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="158" selection-end="158" vertical-scroll-proportion="0.0" vertical-offset="80" max-vertical-offset="176" />
-      </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="158" selection-end="158" vertical-scroll-proportion="0.0" vertical-offset="80" max-vertical-offset="176" />
       </provider>
     </entry>
     <entry file="uml://DATABASE/93092efb-53fd-4ffd-ab79-dff6a4211bd6.table:hpp_next.df_sys_provider_user">
@@ -704,22 +412,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/20131031-opening-a-portal-part-2/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="887" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/20131115-knuckle-slapper/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="887" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="158" selection-end="158" vertical-scroll-proportion="0.09280743" vertical-offset="0" max-vertical-offset="862" />
-      </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="158" selection-end="158" vertical-scroll-proportion="0.09280743" vertical-offset="0" max-vertical-offset="862" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/20131108-adding-users/User_Icon.png">
@@ -732,82 +435,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/20131031-opening-a-portal-part-1/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="377" selection-end="377" vertical-scroll-proportion="0.18979834" vertical-offset="0" max-vertical-offset="4400">
-          <folding>
-            <element signature="tag#head#0;tag#html#0" expanded="true" />
-            <element signature="tag#link#0;tag#head#0;tag#html#0" expanded="true" />
-            <element signature="tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#img#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="tag#p#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="n#style#0;n#h2#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="tag#p#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#ul#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#0;tag#ul#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#1;tag#ul#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#2;tag#ul#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#2;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#3;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#4;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#ol#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#1;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#blockquote#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#0;tag#blockquote#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#2;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#1;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#2;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#3;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#5;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#pre#0;tag#figure#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#6;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#3;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#8;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#pre#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#pre#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#0;tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#1;tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#ol#0;tag#li#1;tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#li#3;tag#ol#0;tag#li#1;tag#ol#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#2;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#code#0;tag#p#2;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#a#0;tag#code#0;tag#p#2;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#3;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#4;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#blockquote#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#div#0;tag#blockquote#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#img#0;tag#div#0;tag#blockquote#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#0;tag#blockquote#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#8;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#4;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/20131031-opening-a-portal-part-1/blog.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="20" selection-start="3605" selection-end="3605" vertical-scroll-proportion="0.19750284" vertical-offset="1922" max-vertical-offset="2880">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/blog.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2880">
@@ -815,64 +442,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/20131031-opening-a-portal-part-2/provider.create.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="49" selection-start="77" selection-end="77" vertical-scroll-proportion="0.03678161" vertical-offset="0" max-vertical-offset="870">
+          <folding>
+            <element signature="n#!!block;n#config_text#0;n#!!top" expanded="true" />
+            <element signature="e#281#397#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/20131108-adding-users/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="437" column="27" selection-start="16806" selection-end="16806" vertical-scroll-proportion="3.4053738" vertical-offset="4077" max-vertical-offset="7440">
+        <state line="176" column="25" selection-start="4638" selection-end="4638" vertical-scroll-proportion="0.1831972" vertical-offset="2659" max-vertical-offset="8320">
           <folding>
-            <element signature="tag#head#0;tag#html#0" expanded="true" />
-            <element signature="tag#style#0;tag#head#0;tag#html#0" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#section#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/20131031-opening-a-portal-part-2/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="302" selection-end="302" vertical-scroll-proportion="-5.76" vertical-offset="0" max-vertical-offset="3840">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/20131031-opening-a-portal-part-1/blog.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="13" selection-start="856" selection-end="856" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2912">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/20131031-opening-a-portal-part-1/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="111" column="39" selection-start="3787" selection-end="3787" vertical-scroll-proportion="0.27816093" vertical-offset="1534" max-vertical-offset="8752">
+          <folding>
             <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="tag#p#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#0;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#1;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#1;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#pre#0;tag#figure#1;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#2;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#3;tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#0;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#1;tag#section#1;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#0;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#pre#0;tag#figure#1;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#3;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#2;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#4;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#3;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#4;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#pre#0;tag#figure#4;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#5;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#5;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#6;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#6;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#7;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#7;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#8;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#pre#0;tag#figure#8;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#8;tag#section#2;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#0;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#1;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#1;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#2;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#2;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#3;tag#section#3;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#section#4;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#0;tag#section#4;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#0;tag#section#4;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#0;tag#section#5;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#figure#1;tag#section#5;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#pre#0;tag#figure#1;tag#section#5;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
-            <element signature="tag#p#1;tag#section#5;tag#div#0;tag#body#0;tag#html#0" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -26,8 +26,7 @@
 }
 
 .df-blog pre.prettyprint {
-	white-space:        pre-line;
-	font-size:          12px;
+	/*font-size:          12px;*/
 	padding:            20px;
 	-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
 	-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
@@ -36,19 +35,19 @@
 }
 
 .df-blog pre.prettyprint ol {
-	padding-right: 8px;
+	/*padding-right: 8px;*/
 }
 
 .df-blog pre.prettyprint ol li:first-child {
-	padding-top: 8px;
+	/*padding-top: 8px;*/
 }
 
 .df-blog pre.prettyprint ol li:last-child {
-	padding-bottom: 8px;
+	/*padding-bottom: 8px;*/
 }
 
 .df-blog ol.linenums {
-	font-size: 12px;
+	/*font-size: 12px;*/
 }
 
 .df-blog h1.title {
@@ -72,7 +71,7 @@
 	list-style: decimal;
 }
 
-.post-body .df-blog > img.picture {
+.df-blog img.picture {
 	float:              left !important;
 	-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
 	-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
@@ -87,7 +86,10 @@
 	max-width:          250px !important;
 }
 
-.blog-listing-wrapper .post-listing .post-item .post-body .df-blog figure img {
+.df-blog figure {
+}
+
+.df-blog figure img {
 	-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
 	-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
 	box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
@@ -99,7 +101,7 @@
 	max-width:          100% !important;
 }
 
-.blog-listing-wrapper .post-listing .post-item .post-body .df-blog div.inset img {
+.df-blog div.inset img {
 	vertical-align: text-bottom;
 	height:         200px !important;
 	box-shadow:     0 0 10px #aaa;
@@ -108,7 +110,7 @@
 	max-width:      100% !important;
 }
 
-.blog-listing-wrapper .post-listing .post-item .post-body .df-blog figure img.shrink {
+.df-blog figure img.shrink {
 	width: 80% !important;
 }
 
