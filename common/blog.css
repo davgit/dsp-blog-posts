@@ -1,8 +1,16 @@
-/** Custom blog styles 2013-11-06 GHA **/
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+/** Custom blog styles 2013-12-01 GHA **/
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,700|Open+Sans:700,300,400);
+
+/**************************************************************************
+** DF Blog Styles
+**************************************************************************/
 
 .df-blog > * {
 	font-family: "Open Sans", Arial, "Lucida Grande", sans-serif;
+}
+
+.df-blog a:hover {
+	text-decoration: underline;
 }
 
 .df-blog blockquote {
@@ -21,7 +29,7 @@
 	font-family: "Open Sans", Arial, "Lucida Grande", sans-serif;
 }
 
-.df-blog p, .df-blog h2, .df-blog h3, .df-blog h4, .df-blog ul, .df-blog pre, .df-blog ol {
+.df-blog p, .df-blog h2, .df-blog h3, .df-blog h4, .df-blog ul, .df-blog ul li, .df-blog pre, .df-blog ol, .df-blog li {
 	margin-left:  25px;
 	margin-right: 25px;
 }
@@ -32,12 +40,15 @@
 }
 
 .df-blog pre.prettyprint {
-	/*font-size:          12px;*/
 	padding:            20px;
 	-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
 	-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
 	box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
 	margin:             25px;
+	font-family:        "Source Code Pro", "Consolas", "Monaco", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+	font-weight:        normal;
+	font-size:          13px;
+	border-radius:      4px;
 }
 
 .df-blog pre.prettyprint ol {

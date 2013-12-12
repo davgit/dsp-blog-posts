@@ -2,69 +2,80 @@
 <html>
 <head>
 	<title>Open a Portal and Communicate With The Other Side... (Part 2)</title>
-	<script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+	<script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=doxy"
+			type="text/javascript"></script>
+	<link type="text/css" rel="stylesheet" href="../common/blog.css">
 	<style type="text/css">
-		@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+		/** Custom blog styles 2013-12-01 GHA **/
+		@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,700|Open+Sans:700,300,400);
 
-		html > * {
-			font-family: "Open Sans", Arial, sans-serif;
-			font-size:   16px;
-			font-weight: 300;
+		/**************************************************************************
+		** DF Blog Styles
+		**************************************************************************/
+
+		.df-blog > * {
+			font-family: "Open Sans", Arial, "Lucida Grande", sans-serif;
 		}
 
-		blockquote {
+		.df-blog a:hover {
+			text-decoration: underline;
+		}
+
+		.df-blog blockquote {
 			border:             1px solid burlywood;
 			border-right-width: 4px;
 			border-left-width:  4px;
 			font-size:          14px;
-			width:              50%;
+			width:              80%;
 			-moz-box-shadow:    0 0 10px rgba(51, 51, 51, 0.5);
 			-webkit-box-shadow: 0 0 10px rgba(51, 51, 51, 0.5);
 			box-shadow:         0 0 10px rgba(51, 51, 51, 0.5);
 			font-family:        "Open Sans", "Helvetica Neue Light", 'Arial', sans-serif;
 		}
 
-		h1, h2, h3, h4, h5 {
+		.df-blog h1, .df-blog h2, .df-blog h3, .df-blog h4, .df-blog h5 {
 			font-family: "Open Sans", Arial, "Lucida Grande", sans-serif;
 		}
 
-		p, h2, h3, h4, ul, pre, ol {
+		.df-blog p, .df-blog h2, .df-blog h3, .df-blog h4, .df-blog ul, .df-blog ul li, .df-blog pre, .df-blog ol, .df-blog li {
 			margin-left:  25px;
 			margin-right: 25px;
 		}
 
-		h4, h5, section > h4 + p, section > h5 + p {
+		.df-blog h4, .df-blog h5, .df-blog section h4 + p, .df-blog section h5 + p {
 			margin-left:  50px;
 			margin-right: 50px;
 		}
 
-		pre.prettyprint {
-			white-space:        pre-line;
-			font-size:          12px;
+		.df-blog pre.prettyprint {
 			padding:            20px;
 			-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
 			-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
 			box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
 			margin:             25px;
+			font-family:        "Source Code Pro", "Consolas", "Monaco", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+			font-weight:        normal;
+			font-size:          13px;
+			border-radius:      4px;
 		}
 
-		pre.prettyprint ol {
-			padding-right: 8px;
+		.df-blog pre.prettyprint ol {
+			/*padding-right: 8px;*/
 		}
 
-		pre.prettyprint ol li:first-child {
-			padding-top: 8px;
+		.df-blog pre.prettyprint ol li:first-child {
+			/*padding-top: 8px;*/
 		}
 
-		pre.prettyprint ol li:last-child {
-			padding-bottom: 8px;
+		.df-blog pre.prettyprint ol li:last-child {
+			/*padding-bottom: 8px;*/
 		}
 
-		ol.linenums {
-			font-size: 12px;
+		.df-blog ol.linenums {
+			/*font-size: 12px;*/
 		}
 
-		h1.title {
+		.df-blog h1.title {
 			text-align:     center;
 			border-bottom:  1px solid #ddd;
 			margin:         auto 25px 30px;
@@ -72,58 +83,68 @@
 			letter-spacing: -1.5px;
 		}
 
-		h2, h3, h4, h5 {
+		.df-blog h2, .df-blog h3, .df-blog h4, .df-blog h5 {
 			border-bottom: 1px solid #eee;
 			text-shadow:   -1px -1px #ccc;
 		}
 
-		ul, ol {
+		.df-blog ul, .df-blog ol {
 			list-style: square;
 		}
 
-		ol.steps {
+		.df-blog ol.steps {
 			list-style: decimal;
 		}
 
-		img.picture {
-			float:              left;
+		.post-body .df-blog > img.picture, .df-blog > img.picture, .df-blog img.picture {
+			float:              left !important;
 			-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
 			-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
 			box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
 			-webkit-transform:  rotate(356deg);
 			-moz-transform:     rotate(356deg);
 			-o-transform:       rotate(356deg);
-			width:              250px;
-			height:             250px;
+			width:              250px !important;
+			height:             250px !important;
 			border:             5px solid white;
-			margin:             15px 35px 35px 15px;
+			margin:             15px 35px 35px 15px !important;
+			max-width:          250px !important;
 		}
 
-		figure img {
+		.df-blog figure {
+		}
+
+		.df-blog figure img {
 			-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
 			-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
 			box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
 			border:             1px solid rgba(0, 0, 0, .25);
-			margin:             5px auto 5px;
+			margin:             5px auto 5px !important;
+			float:              none !important;
+			width:              auto !important;
+			height:             auto !important;
+			max-width:          100% !important;
 		}
 
-		figure pre {
+		.blog-listing-wrapper .post-listing .post-item .post-body .df-blog div.inset img, .df-blog div.inset img {
+			vertical-align: text-bottom;
+			height:         200px !important;
+			box-shadow:     0 0 10px #aaa;
+			display:        inline-block;
+			/*margin-top:     15px !important;*/
+			max-width:      100% !important;
 		}
 
-		figure img.shrink {
-			width: 800px;
+		.blog-listing-wrapper .post-listing .post-item .post-body .df-blog figure img.shrink, .df-blog figure img.shrink {
+			width: 80% !important;
 		}
 
-		figcaption {
+		.df-blog figcaption {
 			font-size:   80%;
 			font-weight: bold;
 		}
 
-		p {
-			text-align: justify;
-		}
-
-		code {
+		.df-blog code {
 			font-size:        12px;
 			border:           1px dotted #e0e0e0;
 			background-color: #efefef;
@@ -134,24 +155,24 @@
 			font-weight:      bold;
 		}
 
-		section {
+		.df-blog section {
 			margin-left: 25px;
 		}
 
-		section h2 {
+		.df-blog section h2 {
 			margin-left: 25px;
 		}
 
-		section.flush-left {
+		.df-blog section.flush-left {
 			margin-left: 5px;
 		}
 
-		.fatal {
+		.df-blog .fatal {
 			color:       darkred;
 			font-weight: 700;
 		}
 
-		blockquote .title {
+		.df-blog blockquote .title {
 			font-size:      18px;
 			font-weight:    bold;
 			text-shadow:    none;
@@ -163,72 +184,97 @@
 			display:        block;
 		}
 
-		blockquote > .title + p {
+		.df-blog blockquote > .title + p {
 			margin-top: 8px;
 		}
 
-		div.inset {
+		.df-blog div.inset {
 			float:       right;
 			padding:     10px 10px 6px;
 			margin-left: 14px;
 		}
 
-		blockquote.inset {
+		.df-blog blockquote.inset {
 			padding:    10px 10px 6px;
 			min-height: 250px;
 			font-size:  16px;
 		}
-
-		div.inset img {
-			vertical-align: text-bottom;
-			height:         200px;
-			box-shadow:     0 0 10px #aaa;
-			display:        inline-block;
-			margin-top:     15px;
-		}
-
 	</style>
 </head>
 <body>
 
-<section id="introduction" class="flush-left">
-	<H1 class="title">Open a Portal and Communicate With The Other Side...</H1>
+<div class="hs-migrated-cms-post df-blog">
+	<div class="pull-left">
+		<img class="picture"
+			 src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/portal.jpg">
+	</div>
 
-	<div class="lead">
-		<IMG SRC="portal.jpg" class="picture">
-
+	<section id="introduction" class="flush-left">
 		<H2>Are we there yet?</H2>
 
-		<p style="margin-top:25px;">This post picks up where part 1 left off... I apologize for the delay. My original post was too long so I split it into two parts. In reviewing the second installment I realized that the concepts would be better conveyed through an actual application.</P>
-        <p>The application is called <strong>Portal Sandbox</strong> and the full source code is available on
-            <a href="https://github.com/dreamfactorysoftware/portal-sandbox" target="_blank">GitHub</a>. Go ahead and clone a copy so you can follow along. I'll wait...</p>
-	</div>
-</section>
-<section class="flush-left">
-	<H2>First Installment Recap & Checklist</H2>
-</section>
+		<p style="margin-top:25px;">This post picks up where part 1 left off... I apologize for the delay. My original post was too long so I split it into two parts. In reviewing
+			the second installment, I realized that the concepts would be better conveyed through an actual application.</p>
 
-<section class="flush-left">
-	<H2>Communicating with the Other Side</H2>
+		<p>The application is called <strong>Portal Sandbox</strong> and the full source code is available on
+			<a href="https://github.com/dreamfactorysoftware/portal-sandbox" target="_blank">GitHub</a>. Go ahead and clone a copy so you can follow along. I'll wait...</p>
+	</section>
 
-	<p>The flow here is as follows. Calling the Portal API relays your remote API request out to the appropriate provider. If there are no credentials stored for the user requesting the resource, most sites present a login dialog to authenticate the user making the request. The Facebook authentication dialog is show in figure 7.</p>
-	<figure>
-		<img src="figure7.png">
-		<figcaption>Figure 7: Authenticate and Authorize</figcaption>
-	</figure>
-	<p>Once you answer "Ok"/"Continue" to one of these login dialogs, the provider redirects back to the configured URL (this varies per service) with a
-		<strong>code</strong>. This code is then exchanged for an actual
-		<strong>access token</strong> which is used for all subsequent communication to the API on the authenticating users' behalf.</p>
+	<section id="recap" class="flush-left">
+		<H2>First Installment Recap & Checklist</H2>
 
-	<p>The token and any other provider-specific information is then stored along with the user's ID and the ID of the provider in your DSP's local database. This information is in the
-		<strong>provider user</strong> resource/table.</p>
+		<p>So in <a target="_blank" href="http://blog.dreamfactory.com/blog/bid/341114/OAuth-Tutorial-Part-One">Using OAuth with the New Portal Service</a>, I introduced the
+			concept of the portal.
+			To recap, the new <strong>Portal</strong>
+			service provides access to authenticated services and API on a per-user basis. The portal service requires that you create <strong>Providers</strong>, or endpoints and
+			keys for a particular service. For the purposes of this blog, I chose Facebook's
+			<a href="https://developers.facebook.com/docs/graph-api/" target="_blank">Graph API</a>
+			as the example provider.</p>
 
-	<h2>Resources</h2>
+		<p>When a user authenticates with a <strong>provider</strong>, the returned access credentials (an OAuth token in the case of Facebook) are encrypted and stored in the
+			<strong>ProviderUser</strong> resource. These are accessible via the DSP's REST API using the <code>/rest/system/provider</code> and
+			<code>/rest/system/provider_user</code> endpoints respectively.
+			<code>provider</code>.</p>
 
-	<ul>
-		<li><a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?utm_source=gmail"
-			   target="_blank">Postman REST Client</a></li>
-	</ul>
-</section>
+		<h4>Key Concepts from Part One:</h4>
+
+		<ul>
+			<li>The new <strong>Portal</strong> service provides your DSP with access to authenticated services and APIs on a per-user basis.</li>
+			<li>No providers are supplied with the DSP. You must create them yourself.</li>
+			<li>No UI exists to maninpulate providers or provider users. This will be available in a future update (at the time of this writing the current version is
+				<a href="https://github.com/dreamfactorysoftware/dsp-core" target="_blank">1.2.3</a>
+				).
+			</li>
+		</ul>
+
+		<h4>Checklist:</h4>
+
+		<ul>
+			<li>The new <strong>Portal</strong> service provides your DSP with access to authenticated services and APIs on a per-user basis.</li>
+			<li>No providers are supplied with the DSP. You must create them yourself.</li>
+			<li>No UI exists to maninpulate providers or provider users. This will be available in a future update (at the time of this writing the current version is
+				<a href="https://github.com/dreamfactorysoftware/dsp-core" target="_blank">1.2.3</a>
+				).
+			</li>
+		</ul>
+	</section>
+
+	<section id="portal-sandbox">
+		<H2>Enter Sandbox (We're off to never never-land)</H2>
+
+		<p>The flow here is as follows. Calling the Portal API relays your remote API request out to the appropriate provider. If there are no credentials stored for the user
+			requesting the resource, most sites present a login dialog to authenticate the user making the request. The Facebook authentication dialog is show in figure 7.</p>
+		<figure>
+			<img src="figure7.png">
+			<figcaption>Figure 7: Authenticate and Authorize</figcaption>
+		</figure>
+		<p>Once you answer "Ok"/"Continue" to one of these login dialogs, the provider redirects back to the configured URL (this varies per service) with a
+			<strong>code</strong>. This code is then exchanged for an actual
+			<strong>access token</strong> which is used for all subsequent communication to the API on the authenticating users' behalf.</p>
+
+		<p>The token and any other provider-specific information is then stored along with the user's ID and the ID of the provider in your DSP's local database. This information
+			is in
+			the
+			<strong>provider user</strong> resource/table.</p>
+	</section>
 </body>
 </html>
