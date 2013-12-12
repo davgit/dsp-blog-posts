@@ -290,7 +290,8 @@
     <MESSAGE value="Changed css url" />
     <MESSAGE value="Updated CSS to handle non-hubspot viewing" />
     <MESSAGE value="Updated blog CSS in common and fixed errors in original post." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated blog CSS in common and fixed errors in original post." />
+    <MESSAGE value="Updated blog CSS in common and fixed errors in original post.&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated blog CSS in common and fixed errors in original post.&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
