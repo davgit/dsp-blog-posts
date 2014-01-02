@@ -42,14 +42,13 @@
 }
 
 .df-blog pre.prettyprint {
-	padding:            20px;
-	-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
-	-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
-	box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
-	margin:             25px;
+	padding:            20px 0 20px 20px;
+	-moz-box-shadow:    0 0 10px rgba(51, 51, 51, 0.5);
+	-webkit-box-shadow: 0 0 10px rgba(51, 51, 51, 0.5);
+	box-shadow:         0 0 10px rgba(51, 51, 51, 0.5);
+	margin:             20px;
 	font-family:        "Source Code Pro", "Consolas", "Monaco", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
 	font-weight:        normal;
-	font-size:          13px;
 	border-radius:      4px;
 }
 
@@ -293,98 +292,97 @@
 ** Custom blog prettify styles 2013-12-01 GHA
 **************************************************************************/
 
-.str {
-	color: #080;
-}
+/*.str {*/
+/*color: #080;*/
+/*}*/
 
-.kwd {
-	color: #008;
-}
+/*.kwd {*/
+/*color: #008;*/
+/*}*/
 
-.com {
-	color: #800;
-}
+/*.com {*/
+/*color: #800;*/
+/*}*/
 
-.typ {
-	color: #606;
-}
+/*.typ {*/
+/*color: #606;*/
+/*}*/
 
-.lit {
-	color: #066;
-}
+/*.lit {*/
+/*color: #066;*/
+/*}*/
 
-.pun {
-	color: #660;
-}
+/*.pun {*/
+/*color: #660;*/
+/*}*/
 
-.pln {
-	color: #000;
-}
+/*.pln {*/
+/*color: #000;*/
+/*}*/
 
-.tag {
-	color: #008;
-}
+/*.tag {*/
+/*color: #008;*/
+/*}*/
 
-.atn {
-	color: #606;
-}
+/*.atn {*/
+/*color: #606;*/
+/*}*/
 
-.atv {
-	color: #080;
-}
+/*.atv {*/
+/*color: #080;*/
+/*}*/
 
-.dec {
-	color: #606;
-}
+/*.dec {*/
+/*color: #606;*/
+/*}*/
 
-pre.prettyprint {
-	padding: 2px;
-	border:  1px solid #888;
-}
+/*pre.prettyprint {*/
+/*padding: 2px;*/
+/*border:  1px solid #888;*/
+/*}*/
 
-@media print {
-	.str {
-		color: #060;
-	}
+/*@media print {*/
+/*.str {*/
+/*color: #060;*/
+/*}*/
 
-	.kwd {
-		color:       #006;
-		font-weight: bold;
-	}
+/*.kwd {*/
+/*color:       #006;*/
+/*font-weight: bold;*/
+/*}*/
 
-	.com {
-		color:      #600;
-		font-style: italic;
-	}
+/*.com {*/
+/*color:      #600;*/
+/*font-style: italic;*/
+/*}*/
 
-	.typ {
-		color:       #404;
-		font-weight: bold;
-	}
+/*.typ {*/
+/*color:       #404;*/
+/*font-weight: bold;*/
+/*}*/
 
-	.lit {
-		color: #044;
-	}
+/*.lit {*/
+/*color: #044;*/
+/*}*/
 
-	.pun {
-		color: #440;
-	}
+/*.pun {*/
+/*color: #440;*/
+/*}*/
 
-	.pln {
-		color: #000;
-	}
+/*.pln {*/
+/*color: #000;*/
+/*}*/
 
-	.tag {
-		color:       #006;
-		font-weight: bold;
-	}
+/*.tag {*/
+/*color:       #006;*/
+/*font-weight: bold;*/
+/*}*/
 
-	.atn {
-		color: #404;
-	}
+/*.atn {*/
+/*color: #404;*/
+/*}*/
 
-	.atv {
-		color: #060;
-	}
-}
-
+/*.atv {*/
+/*color: #060;*/
+/*}*/
+/*}*/

@@ -6,106 +6,159 @@
 	<link type="text/css" rel="stylesheet" href="../common/blog.css">
 </head>
 <body>
-	<div class="hs-migrated-cms-post df-blog">
-		<div class="pull-left">
-			<img class="picture"
-				 src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/portal.jpg">
-		</div>
-
-		<section id="introduction" class="flush-left">
-			<H2>Are we there yet?</H2>
-
-			<p style="margin-top:25px;">This post picks up where part 1 left off... I apologize for the delay. My original post was too long so I split it into two parts. In
-				reviewing
-				the second installment, I realized that the concepts would be better conveyed through an actual application.</p>
-
-			<p>The application is called <strong>Portal Sandbox</strong> and the full source code is available on
-				<a href="https://github.com/dreamfactorysoftware/portal-sandbox" target="_blank">GitHub</a>. Go ahead and clone a copy so you can follow along. I'll wait...</p>
-		</section>
-
-		<section id="recap" class="flush-left">
-			<H2>First Installment Recap & Checklist</H2>
-
-			<p>So in <a target="_blank" href="http://blog.dreamfactory.com/blog/bid/341114/OAuth-Tutorial-Part-One">Using OAuth with the New Portal Service</a>, I introduced the
-				concept of the portal.
-				To recap, the new <strong>Portal</strong>
-				service provides access to authenticated services and API on a per-user basis. The portal service requires that you create <strong>Providers</strong>, or endpoints
-				and
-				keys for a particular service. For the purposes of this blog, I chose Facebook's
-				<a href="https://developers.facebook.com/docs/graph-api/" target="_blank">Graph API</a>
-				as the example provider.</p>
-
-			<p>When a user authenticates with a <strong>provider</strong>, the returned access credentials (an OAuth token in the case of Facebook) are encrypted and stored in the
-				<strong>ProviderUser</strong> resource. These are accessible via the DSP's REST API using the <code>/rest/system/provider</code> and
-				<code>/rest/system/provider_user</code> endpoints respectively. The following flow chart in figure 1 shows the process in broad strokes.</p>
-			<figure><img style="width: 600px !important;"
-						 src="figure1.png"
-						 alt="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-2/figure1.png">
-				<figcaption>Figure 1: The basic flow</figcaption>
-			</figure>
-
-			<hr style="margin: 25px; border-color: #efefef;" />
-
-			<p style="clear:both;">Confused? Don't be, it'll all become quite clear once we fire up the sandbox. With that said, let's recap the key concepts and make sure you've
-				got
-				all your ducks in a row.</p>
-
-			<h4>Key Concepts from Part One:</h4>
-
-			<ul>
-				<li>The new <strong>Portal</strong> service provides your DSP with access to authenticated services and APIs on a per-user basis.</li>
-				<li>No providers are supplied with the DSP. You must create them yourself.
-					<section class="callout warning-block"><h4>Of Note...</h4>
-
-						<p>No UI exists to manipulate providers or provider users. You need to do this through the This will be available in a future update (at the time of this
-							writing the current version is
-							<a href="https://github.com/dreamfactorysoftware/dsp-core" target="_blank">1.2.3</a>).</p>
-					</section>
-				</li>
-				<li>Each call to a portal service is relayed verbatim (less any DSP-specific parameters) to the provider.
-					<section class="callout changed-block"><h2>A Real-World Example</h2>
-
-						<p>Here is an actual portal call to retrieve the current user's profile from Facebook:</p>
-						<pre class="prettyprint">https://dsp-yours.cloud.dreamfactory.com/rest/portal/fbportal/<span class="str">me?app_name=admin</span></pre>
-						<p>The portal service translates this call into:</p>
-						<pre class="prettyprint">https://graph.facebook.com/<span class="str">me?access_token=&lt;user's token inserted here for you&gt;</span></pre>
-						<p>The service makes this request, which is an HTTP GET, and returns the results:</p>
-						<pre class="prettyprint">
-
-						</pre>
-					</section>
-				</li>
-			</ul>
-
-			<h4>Checklist:</h4>
-
-			<ul>
-				<li>The new <strong>Portal</strong> service provides your DSP with access to authenticated services and APIs on a per-user basis.</li>
-				<li>No providers are supplied with the DSP. You must create them yourself.</li>
-				<li>
-				</li>
-			</ul>
-		</section>
-
-		<section id="portal-sandbox">
-			<H2>Enter Sandbox (We're off to never never-land)</H2>
-
-			<p>The flow here is as follows. Calling the Portal API relays your remote API request out to the appropriate provider. If there are no credentials stored for the user
-				requesting the resource, most sites present a login dialog to authenticate the user making the request. The Facebook authentication dialog is show in figure 7.</p>
-			<figure>
-				<img src="">
-				<figcaption>Figure 7: Authenticate and Authorize</figcaption>
-			</figure>
-			<p>Once you answer "Ok"/"Continue" to one of these login dialogs, the provider redirects back to the configured URL (this varies per service) with a
-				<strong>code</strong>. This code is then exchanged for an actual
-				<strong>access token</strong> which is used for all subsequent communication to the API on the authenticating users' behalf.</p>
-
-			<p>The token and any other provider-specific information is then stored along with the user's ID and the ID of the provider in your DSP's local database. This
-				information
-				is in
-				the
-				<strong>provider user</strong> resource/table.</p>
-		</section>
+<div class="hs-migrated-cms-post df-blog">
+	<div class="pull-left">
+		<img class="picture"
+			 src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/portal.jpg">
 	</div>
+
+	<section id="introduction" class="flush-left">
+		<H2>Are we there yet?</H2>
+
+		<p style="margin-top:25px;">This post picks up where part 1 left off... I apologize for the delay. My original post was too long so I split it into two parts. In
+			reviewing the second installment, I realized that the concepts were a bit vague and would be better conveyed through an actual application.</p>
+
+		<p>Thus, the <strong>Portal Sandbox</strong> was born! The full source code is available on
+			<a href="https://github.com/dreamfactorysoftware/portal-sandbox" target="_blank">GitHub</a>. Go ahead and clone a copy so you can follow along. I'll wait...</p>
+	</section>
+
+	<section id="recap" class="flush-left">
+		<H2>First Installment Recap & Checklist</H2>
+
+		<p>So in <a target="_blank" href="http://blog.dreamfactory.com/blog/bid/341114/OAuth-Tutorial-Part-One">Using OAuth with the New Portal Service</a>, I introduced the
+			concept of the portal. As you will most certainly recall, the new <strong>Portal</strong> service provides centralized access to authenticated services and API on a
+			per-user basis.
+			To use the portal service, you must create <strong>Providers</strong>, or endpoints; and any associated keys for said provider(s).
+
+			<section class="callout warning-block"><h4>Pssst...</h4>
+
+				<p>Currently, the portal service only supports providers who accept OAuth 2 authentication. LDAP and OpenID are next to be integrated. In any case, if your provider
+					authenticates via OAuth 2 you can access it via the portal service. With that said, for the purposes of this blog, Facebook's
+					<a href="https://developers.facebook.com/docs/graph-api/" target="_blank">Graph API</a> was chosen for the example provider.</p>
+			</section>
+
+		<p>When a user authenticates with a <strong>provider</strong>, the returned access credentials (an OAuth token in the case of Facebook) are encrypted and stored in the
+			<strong>ProviderUser</strong> resource. These are accessible via the DSP's REST API using the <code>/rest/system/provider</code> and
+			<code>/rest/system/provider_user</code> endpoints respectively. The following flow chart in figure 1 shows the process in broad strokes.</p>
+		<figure><img style="width: 600px !important;"
+					 src="figure1.png"
+					 alt="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-2/figure1.png">
+			<figcaption>Figure 1: The basic flow</figcaption>
+		</figure>
+
+		<hr style="margin: 25px; border-color: #efefef;" />
+
+		<p style="clear:both;">Confused? Don't be, it'll all become quite clear once we fire up the sandbox. With that said, let's recap the key concepts and make sure you've got
+			all your ducks in a row.</p>
+
+		<h4>Key Concepts from Part One:</h4>
+
+		<ul>
+			<li>The new <strong>Portal</strong> service provides your DSP with access to authenticated services and APIs on a per-user basis.</li>
+
+			<li>No providers are supplied with the DSP. You must create them yourself. And, if you want to play along at home, you must register as a Facebook developer (if you're
+				not already), and create a new application for your DSP's portal. Go back
+				and read part one for info on how this is done.
+
+				<section class="callout highlight-block"><h4>Say What?!</h4>
+
+					<p>Yes, sadly, no UI currently exists to manipulate providers or provider users. This will be available in a future update (at the time of this
+						writing the current version is <a href="https://github.com/dreamfactorysoftware/dsp-core" target="_blank">1.2.3</a>).You need to do this through one of
+						myriad methods including, but not limited to: curl, in-browser REST clients, and or IDE REST clients.</p>
+
+					<p>Here is a JSON template to use with your favorite client.</p>
+
+					<pre class="prettyprint">
+{
+	"api_name":          "fbportal",
+	"provider_name":     "Facebook",
+	"is_active":         true,
+	"is_system":         false,
+	"is_login_provider": false,
+	"config_text":       {
+		"client_id":     "<strong>PUT YOUR CLIENT ID HERE</strong>",
+		"client_secret": "<strong>PUT YOUR CLIENT SECRET HERE</strong>",
+		"scope":         [
+			"user_about_me",
+			"email",
+			"user_birthday",
+			"user_groups"
+		]
+	}
+}
+</pre>
+					<section class="callout warning-block">
+						<h4>Breaking Change Notice</h4>
+
+						<p>If you created this provider this while reading part one, please note the following change:</p>
+
+						<p>The <code>provider.provider_name</code>
+							value must be changed from <strong>Facebook Portal</strong> to <strong>Facebook</strong> as shown in the template above.</p>
+					</section>
+
+				</section>
+			</li>
+
+			<li>Each call to a portal service is relayed verbatim (less any DSP-specific parameters) to the provider.
+				<section class="callout changed-block"><h2>A Real-World Example</h2>
+
+					<p>Here is an actual portal call to retrieve the current user's profile from Facebook:</p>
+					<pre class="prettyprint">https://dsp-yours.cloud.dreamfactory.com/rest/portal/fbportal/<span class="str">me?app_name=admin</span></pre>
+					<p>The portal service translates this call into:</p>
+					<pre class="prettyprint">https://graph.facebook.com/<span class="str">me?access_token=&lt;user's token inserted here for you&gt;</span></pre>
+					<p>The service makes this request, which is an HTTP GET, and returns the results:</p>
+						<pre class="prettyprint">
+{
+	"result": {
+		"id": "10929849342",
+		"name": "Rain Man",
+		"first_name": "Ray",
+		"last_name": "Monde",
+		"link": "https://www.facebook.com/rainman",
+		"username": "rainman",
+		"about": "I'm an excellent driver.",
+		"birthday": "06/06/1966",
+		"hometown": {
+			"id": "108659242498155",
+			"name": "Chicago, Illinois"
+		},
+		"location": {
+			"id": "107991659233606",
+			"name": "Atlanta, Georgia"
+		},
+		"bio": "I love Wopner.",
+		"gender": "male",
+		"email": "rainman@example.com",
+		"timezone": -5,
+		"locale": "en_US",
+		"verified": true,
+		"updated_time": "2013-12-09T18:46:57+0000"
+	},
+	"code": 200,
+	"content_type": "application/json; charset=UTF-8"
+}						</pre>
+				</section>
+			</li>
+		</ul>
+
+		<p>That pretty much sums it up. In this installment, we are going to use the portal service to get some data.</p>
+	</section>
+
+	<section id="portal-sandbox" class="flush-left">
+		<H2>Enter Sandbox (We're off to never never-land)</H2>
+	</section>
+
+	<section id="identity-crisis" class="flush-left">
+		<H2>Who Are You?</H2>
+	</section>
+
+	<section id="social-misfit" class="flush-left">
+		<H2>Got Friends?</H2>
+	</section>
+
+	<section id="the-other-side" class="flush-left">
+		<H2>Portals and Beyond...</H2>
+	</section>
+</div>
 </body>
 </html>
