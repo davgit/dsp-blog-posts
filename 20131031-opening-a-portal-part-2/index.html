@@ -197,18 +197,60 @@
 	<figure><img style="width: 600px !important;" src="figure2.png" alt="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-2/figure2.png">
 		<figcaption>Figure 2: The sandbox in the app list</figcaption>
 	</figure>
+
+	<p>Opening the sandbox shows the main screen of the sandbox app as shown in figure 3.</p>
+	<figure><img style="width: 600px !important;" src="figure3.png" alt="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-2/figure3.png">
+		<figcaption>Figure 3: The sandbox app</figcaption>
+	</figure>
 </section>
 
 <section id="identity-crisis" class="flush-left">
 	<H2>Who Are You?</H2>
+
+	<p>If you've created a provider you should see it selected in the drop-down. Next to it is a link to authorize. Click this link to begin the Facebook authentication process.
+		This will redirect you to the generic Facebook login page as shown in figure 4. Enter your credentials and click <strong>Log In</strong> to authenticate and continue.</p>
+
+	<p>The next page will ask you to authorize the application to have access to your account. Change anything you'd like and press the <strong>Allow</strong> button.</p>
+
+	<figure><img style="width: 600px !important;" src="figure4.png" alt="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-2/figure4.png">
+		<figcaption>Figure 4: Facebook Login</figcaption>
+	</figure>
+
+	<p>The page will redirect back to your DSP and automatically load the Portal Sandbox application. What you should see is shown in figure 5.</p>
+
+	<figure><img style="width: 600px !important;" src="figure5.png" alt="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-2/figure5.png">
+		<figcaption>Figure 5: Authorized Provider Ready</figcaption>
+	</figure>
 </section>
 
 <section id="social-misfit" class="flush-left">
-	<H2>Got Friends?</H2>
+	<H2>Me, Myself, and My Friends</H2>
+
+	<p>Now you have access to Facebook's Graph API via the portal service for the authorized user. So, let's exercise the Graph API by pulling the friends list of this user.</p>
+
+	<p>The second section of the sandbox application, Call Settings, allow you to experiment with the provider API. The sandbox has no knowledge of the API specifics so it is up to
+		you to provide the proper endpoints and parameters (other than the OAuth parameters that is). By default, the app sets the endpoint to the identity or profile URL of the
+		currently selected provider. For Facebook, this endpoint is <code>/me</code>. Go ahead and click the <strong>Send Request</strong> button to make the call. Figure 6 shows
+		what my account returns.</p>
+	<figure><img style="width: 600px !important;" src="figure6.png" alt="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-2/figure6.png">
+		<figcaption>Figure 6: Calling <code>/me</code></figcaption>
+	</figure>
+	<p>Now, let's see my friends. Change the endpoint from <code>/me</code> to <code>/me/friends</code>, then click <strong>Send Results</strong>. As you can see in figure 7, I
+		have no friends. :( Hopefully, you'll have some returned.</p>
+	<figure><img style="width: 600px !important;" src="figure7.png" alt="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-2/figure7.png">
+		<figcaption>Figure 7: Calling <code>/me/friends</code></figcaption>
+	</figure>
+	<p>As an extra-added bonus, the sandbox app displays the total elapsed time for the call. This is the full round-trip time. It's more eye candy than anything else, but
+		definitely shows that the portal service doesn't add too much latency to your API calls.</p>
 </section>
 
 <section id="the-other-side" class="flush-left">
 	<H2>Portals and Beyond...</H2>
+
+	<p>This short series has provided only a glimpse of what the new portal service can do. Access to remote APIs with secure credential storage handled for your app automatically?
+		Uhm, yeah! And if you are anything like me, I'm sure your mind is awash with the possibilities this powerful tool can give to you and your applications.</p>
+
+	<p>Good luck finding your way to the other side!</p>
 </section>
 </div>
 </body>
