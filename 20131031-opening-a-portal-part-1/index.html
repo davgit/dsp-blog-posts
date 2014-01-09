@@ -2,70 +2,54 @@
 <html>
 <head>
 	<title>Open a Portal and Communicate With The Other Side... (Part 1)</title>
-	<script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=doxy"
-			type="text/javascript"></script>
+	<script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=doxy" type="text/javascript"></script>
 	<link type="text/css" rel="stylesheet" href="../common/blog.css">
 </head>
 <body>
 <div class="hs-migrated-cms-post df-blog">
-<img class="picture"
-	 src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/portal.jpg">
+<img class="picture" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/portal.jpg">
 
-<p style="margin-left: 0; margin-top: 25px;">As all developers know, your creations can become tired, bored, and
-	sometimes angry when forced to talk to only a single server or service. Applications are, for all intents and
-	purposes, tiny monsters: they grow hungry to communicate with others to expand their knowledge, reach, and power. We
-	at DreamFactory know this all too well and wanted to create an easy way to allow your monsters to feed their
-	yearning. With the next release of the DreamFactory Services Platform™ (version 1.1.3), satisfying that need will
-	become a whole lot easier. What makes this possible you ask? A new system service called
-	<strong>Portal</strong> does.</p>
+<p style="margin-left: 0; margin-top: 25px;">As all developers know, your creations can become tired, bored, and sometimes angry when forced to talk to only a single server or
+	service. Applications are, for all intents and purposes, tiny monsters: they grow hungry to communicate with others to expand their knowledge, reach, and power. We at
+	DreamFactory know this all too well and wanted to create an easy way to allow your monsters to feed their yearning. With the next release of the DreamFactory Services Platform™
+	(version 1.1.3), satisfying that need will become a whole lot easier. What makes this possible you ask? A new system service called <strong>Portal</strong> does.</p>
 
-<p>Fortunately, you won't need to hold hands with your team and/or conduct a séance to open a portal. However, some
-	simple configuration steps are required. In this post, we'll be creating a portal to Facebook and accessing the
-	<a href="https://developers.facebook.com/docs/graph-api/" target="_blank">Graph API</a> through your DSP. So read
-	on, if you dare....Muahhahaha!
-</p>
+<p>Fortunately, you won't need to hold hands with your team and/or conduct a séance to open a portal. However, some simple configuration steps are required. In this post, we'll be
+	creating a portal to Facebook and accessing the <a href="https://developers.facebook.com/docs/graph-api/" target="_blank">Graph API</a> through your DSP. So read on, if you
+	dare....Muahhahaha! </p>
 <section id="introduction" class="flush-left">
 	<h2 style="margin-top: 30px;">Auth and Auth: The Evil Twins</h2>
 
-	<p>All good tales have a prologue, and this one is no different. Most remote services and APIs use OAuth to <strong>authenticate</strong>
-		and
-		<strong>authorize</strong> users and usage of their service. We wanted to create a seamless way for your DSP to
-		authenticate and authorize with remote OAuth services, without forcing developers to jump through a deadly row
-		of firey rings.
-	</p>
+	<p>All good tales have a prologue, and this one is no different. Most remote services and APIs use OAuth to <strong>authenticate</strong> and <strong>authorize</strong> users
+		and usage of their service. We wanted to create a seamless way for your DSP to authenticate and authorize with remote OAuth services, without forcing developers to jump
+		through a deadly row of firey rings. </p>
 
-	<p>If you're not familiar with the dance that is OAuth, please take a moment to read up on it. You don't need to
-		fully understand the workings, but the concepts are important. Here are few good sites to check:</p>
+	<p>If you're not familiar with the dance that is OAuth, please take a moment to read up on it. You don't need to fully understand the workings, but the concepts are important.
+		Here are few good sites to check:</p>
 
 	<ul>
 		<li>
 			<a href="http://oauth.net/" target="_blank">The official OAuth site</a>
 		</li>
 		<li>
-			<a href="http://aaronparecki.com/articles/2012/07/29/1/oauth2-simplified" target="_blank">OAuth
-				Simplified</a>
+			<a href="http://aaronparecki.com/articles/2012/07/29/1/oauth2-simplified" target="_blank">OAuth Simplified</a>
 		</li>
 		<li>
 			<a href="https://developers.google.com/accounts/docs/OAuth2" target="_blank">Google APIs and OAuth</a>
 		</li>
 	</ul>
-	<p>OAuth can be used to authenticate a user and authorize various operations. The authentication part is
-		straightforward. Your application requests access to data on a user's behalf. The user will either allow or deny
-		this access. Easy peasy. Authorization, on the other hand, can be more complex as each service defines their own
-		set of authorization rules, or
-		<strong>scopes</strong>. We'll touch on that a bit later.</p>
+	<p>OAuth can be used to authenticate a user and authorize various operations. The authentication part is straightforward. Your application requests access to data on a user's
+		behalf. The user will either allow or deny this access. Easy peasy. Authorization, on the other hand, can be more complex as each service defines their own set of
+		authorization rules, or <strong>scopes</strong>. We'll touch on that a bit later.</p>
 
-	<p>The important take-away here is the basic concept of a <strong>client ID</strong> and
-		<strong>client secret</strong>. It is with these keys that the power of the portal can be unlocked.</p>
+	<p>The important take-away here is the basic concept of a <strong>client ID</strong> and <strong>client secret</strong>. It is with these keys that the power of the portal can
+		be unlocked.</p>
 
-	<p>Please note: OAuth comes in two distinct flavors: version 1 and version 2. The portal service only supports
-		version 2 at this time. Version 1 has been deprecated for over a year. However, some services, like
-		<a href="https://twitter.com" target="_blank">Twitter</a>, still use version 1.
-	</p>
+	<p>Please note: OAuth comes in two distinct flavors: version 1 and version 2. The portal service only supports version 2 at this time. Version 1 has been deprecated for over a
+		year. However, some services, like <a href="https://twitter.com" target="_blank">Twitter</a>, still use version 1. </p>
 
-	<p>The new DSP portal service allows you to authenticate and communicate with these remote APIs with the same REST
-		calls you've been making to use other DSP services. Before this is possible, however, we need to prepare your
-		configuration with the necessary tools to open the portal properly.</p>
+	<p>The new DSP portal service allows you to authenticate and communicate with these remote APIs with the same REST calls you've been making to use other DSP services. Before
+		this is possible, however, we need to prepare your configuration with the necessary tools to open the portal properly.</p>
 </section>
 <section id="ritual-preparation" class="flush-left">
 	<h2>Ritual Preparations</h2>
@@ -76,119 +60,78 @@
 		<li>A set of keys (client ID and secret) from the remote service to which you wish to portal.</li>
 		<li>And lastly, creating a <strong>Provider</strong> resource in your DSP with the keys procured.</li>
 	</ol>
-	<p>In this tutorial, we will be opening a portal to
-		<a href="https://facebook.com" target="_blank">Facebook</a> on your DSP.
-	</p>
+	<p>In this tutorial, we will be opening a portal to <a href="https://facebook.com" target="_blank">Facebook</a> on your DSP. </p>
 	<blockquote>
 		<span class="title">Of Note...</span>
 
-		<p>Before you can register an application with Facebook and get a set of keys, you must be registered as a
-			<a href="https://developers.facebook.com/docs/" target="_blank">Facebook developer</a>. Go to the <a
-				href="https://developers.facebook.com/" target="_blank">Facebook Developers</a>
-			web site and register as a developer if you have not already. To become a Facebook developer,
-			you must already have a regular Facebook account. In addition, and this kinda sucks, your developer account
-			(if different) must use your
-			<strong>real name</strong>. You will have to have a regular old Facebook account to do this.
-		</p>
+		<p>Before you can register an application with Facebook and get a set of keys, you must be registered as a <a href="https://developers.facebook.com/docs/" target="_blank">Facebook
+			developer</a>. Go to the <a href="https://developers.facebook.com/" target="_blank">Facebook Developers</a> web site and register as a developer if you have not
+			already. To become a Facebook developer, you must already have a regular Facebook account. In addition, and this kinda sucks, your developer account (if different) must
+			use your <strong>real name</strong>. You will have to have a regular old Facebook account to do this. </p>
 	</blockquote>
 	<h3>Obtaining a Set of Keys</h3>
 
-	<p>Getting a set of keys from Facebook is a simple process: create an app. For each application you create on the
-		<a href="https://developers.facebook.com/apps" target="_blank">Facebook Developer console</a> you will receive a
-		set of keys. You could, should you choose to do so, create multiple applications
-		on Facebook and link them to different portals on your DSP. But that is beyond the scope of this article.
-	</p>
-	<figure><img class="shrink"
-				 src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/figure1.png"
-				 alt="">
+	<p>Getting a set of keys from Facebook is a simple process: create an app. For each application you create on the <a href="https://developers.facebook.com/apps"
+																														 target="_blank">Facebook Developer console</a> you will
+		receive a set of keys. You could, should you choose to do so, create multiple applications on Facebook and link them to different portals on your DSP. But that is beyond
+		the scope of this article. </p>
+	<figure><img class="shrink" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/figure1.png" alt="">
 		<figcaption>Figure 1: The Facebook Developer App Center</figcaption>
 	</figure>
-	<p>Click on the "Create New App" button and you'll be presented with the new application screen as shown in figure
-		2.</p>
-	<figure><img
-		src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/figure2.png"
-		alt="">
+	<p>Click on the "Create New App" button and you'll be presented with the new application screen as shown in figure 2.</p>
+	<figure><img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/figure2.png" alt="">
 		<figcaption>Figure 2: New App Screen</figcaption>
 	</figure>
-	<p>Here you'll enter the name of your application and the category. Utility or Other are good categories for portal
-		applications. Once you've entered the required information, press the "Continue" button. The next screen, as
-		shown in figure 3, will reveal your application keys.</p>
-	<figure><img
-		src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/figure3.png"
-		alt="">
+	<p>Here you'll enter the name of your application and the category. Utility or Other are good categories for portal applications. Once you've entered the required information,
+		press the "Continue" button. The next screen, as shown in figure 3, will reveal your application keys.</p>
+	<figure><img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/figure3.png" alt="">
 		<figcaption>Figure 3: Your keys revealed</figcaption>
 	</figure>
-	<p>In order to complete the setup of your application, you'll need to enter some more information. Three fields on
-		this screen (figure 3) are required for our purposes. These are the "Contact Email", "App Domains", and your
-		"Site URL".</p>
+	<p>In order to complete the setup of your application, you'll need to enter some more information. Three fields on this screen (figure 3) are required for our purposes. These
+		are the "Contact Email", "App Domains", and your "Site URL".</p>
 
-	<p>In figure 3 you'll see a completed form with some example data. This configuration is for a Free Edition of the
-		DreamFactory Services Platform™. If you're running your DSP locally or on a remote virtual provider, you'll need
-		to change the "App Domains" and "Site URL" to point to your DSP's domain and full URL respectively.</p>
+	<p>In figure 3 you'll see a completed form with some example data. This configuration is for a Free Edition of the DreamFactory Services Platform™. If you're running your DSP
+		locally or on a remote virtual provider, you'll need to change the "App Domains" and "Site URL" to point to your DSP's domain and full URL respectively.</p>
 
-	<p>Once you've completed filling out this form, press the "Save Changes" button at the bottom. Once that's
-		completed, copy the App ID and App Secret from the application page. These are your client ID and secret
-		respectively. You'll need these to create the portal provider in the next section.</p>
+	<p>Once you've completed filling out this form, press the "Save Changes" button at the bottom. Once that's completed, copy the App ID and App Secret from the application page.
+		These are your client ID and secret respectively. You'll need these to create the portal provider in the next section.</p>
 </section>
 <section id="creating-the-portal" class="flush-left">
 	<h2>Creating The Portal...</h2>
 
-	<p>With the advent of version
-		<a href="https://github.com/dreamfactorysoftware/dsp-core/tree/1.1.3" target="_blank">1.1.3</a>, the
-		DreamFactory Services Platform™ has two new system tables/resources. These are called <strong>Provider</strong>
-		and <strong>ProviderUser</strong>. The provider resource securely stores application key sets for your OAuth
-		providers. One row per key set. The provider user resource stores your DSP's users' tokens once they've
-		authenticated. This warrants a bit of explanation.
-	</p>
+	<p>With the advent of version <a href="https://github.com/dreamfactorysoftware/dsp-core/tree/1.1.3" target="_blank">1.1.3</a>, the DreamFactory Services Platform™ has two new
+		system tables/resources. These are called <strong>Provider</strong> and <strong>ProviderUser</strong>. The provider resource securely stores application key sets for your
+		OAuth providers. One row per key set. The provider user resource stores your DSP's users' tokens once they've authenticated. This warrants a bit of explanation. </p>
 	<h4>Per-User Token Storage</h4>
 
-	<p>When you create your application on Facebook, you're merely creating a pathway for your DSP to access Facebook's
-		APIs. However, that is only the first step towards OAuth integration. You, or one of your users, must actually
-		authenticate using the keys obtained in the previous section. Once the authentication completes, Facebook (or
-		any OAuth provider you choose) will return an
-		<strong>access token</strong>. This token is then used to make API calls on behalf of the owning user, NOT the
-		Facebook application owner. The portal will coordinate and handle this token passing for you, so not to worry.
-	</p>
+	<p>When you create your application on Facebook, you're merely creating a pathway for your DSP to access Facebook's APIs. However, that is only the first step towards OAuth
+		integration. You, or one of your users, must actually authenticate using the keys obtained in the previous section. Once the authentication completes, Facebook (or any
+		OAuth provider you choose) will return an <strong>access token</strong>. This token is then used to make API calls on behalf of the owning user, NOT the Facebook
+		application owner. The portal will coordinate and handle this token passing for you, so not to worry. </p>
 
-	<p>When one of your DSP users authenticates against a portal provider and is issued an
-		<strong>access token</strong> , this token and expiration information is stored securely in your DSP's MySQL
-		database (in the provider user table). This frees you, the developer, from having to manage and maintain the
-		tokens for each of your users. It also allows you some flexibility in your security and permissions
-		configuration.
-	</p>
+	<p>When one of your DSP users authenticates against a portal provider and is issued an <strong>access token</strong> , this token and expiration information is stored securely
+		in your DSP's MySQL database (in the provider user table). This frees you, the developer, from having to manage and maintain the tokens for each of your users. It also
+		allows you some flexibility in your security and permissions configuration. </p>
 	<h4>Creating the Portal Provider</h4>
 
-	<p>Because of the sensitive nature of client IDs, secrets, and access tokens (OH MY!); there is no "admin" screen
-		for providers and provider users. You must use the DSP REST API to manipulate this data. This can be done with
-		any REST utility (Postman in Chrome, or REST Client in FireFox) or from the command line with cURL. This API
-		call is like any other REST API call you make to your DSP. For example, to get the list of providers configured
-		in your DSP, issue a GET with no ID to
-		<code>https://dsp-name.cloud.dreamfactory.com/rest/system/provider</code> as shown in figure 4.</p>
-	<figure><img class="shrink"
-				 src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/figure4.png"
-				 alt="">
+	<p>Because of the sensitive nature of client IDs, secrets, and access tokens (OH MY!); there is no "admin" screen for providers and provider users. You must use the DSP REST
+		API to manipulate this data. This can be done with any REST utility (Postman in Chrome, or REST Client in FireFox) or from the command line with cURL. This API call is like
+		any other REST API call you make to your DSP. For example, to get the list of providers configured in your DSP, issue a GET with no ID to <code>https://dsp-name.cloud.dreamfactory.com/rest/system/provider</code>
+		as shown in figure 4.</p>
+	<figure><img class="shrink" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/figure4.png" alt="">
 		<figcaption>Figure 4: Getting a list of your providers with Postman</figcaption>
 	</figure>
-	<p>You've undoubtedly noticed that nothing was returned in that example. That's because we haven't created any
-		providers. So let's do that now. Issue a POST request to the same URL, but this time we need to provide a
-		payload which includes your keys.</p>
-	<figure><img class="shrink"
-				 src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/figure5.png"
-				 alt="">
+	<p>You've undoubtedly noticed that nothing was returned in that example. That's because we haven't created any providers. So let's do that now. Issue a POST request to the same
+		URL, but this time we need to provide a payload which includes your keys.</p>
+	<figure><img class="shrink" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/figure5.png" alt="">
 		<figcaption>Figure 5: The POST request</figcaption>
 	</figure>
-	<p>The <code>config_text</code> field in the new
-		<strong>Provider</strong> resource is designed to contain an object of data. It accepts a JSON document and
-		you're free to store any additional settings or configuration information for the provider you're creating. It
-		is then securely encrypted and stored as a blob in the Provider table. Just include the additional properties
-		and values in your POST/PUT payloads. Of note, however, is that each type of provider (i.e. OAuth1, OAuth2,
-		OpenId, etc.) have a default set of required configuration settings. These are defined in the authentication
-		library we developed for this purpose. It's called
-		<a href="https://github.com/dreamfactorysoftware/oasys" target="_blank">Oasys</a> and available on GitHub. For
-		that reason, we strongly suggest that you namespace your settings
-		within the
-		<code>config_text</code> object. Your domain name works well if nothing else:
-	</p>
+	<p>The <code>config_text</code> field in the new <strong>Provider</strong> resource is designed to contain an object of data. It accepts a JSON document and you're free to
+		store any additional settings or configuration information for the provider you're creating. It is then securely encrypted and stored as a blob in the Provider table. Just
+		include the additional properties and values in your POST/PUT payloads. Of note, however, is that each type of provider (i.e. OAuth1, OAuth2, OpenId, etc.) have a default
+		set of required configuration settings. These are defined in the authentication library we developed for this purpose. It's called
+		<a href="https://github.com/dreamfactorysoftware/oasys" target="_blank">Oasys</a> and available on GitHub. For that reason, we strongly suggest that you namespace your
+		settings within the <code>config_text</code> object. Your domain name works well if nothing else: </p>
 	<figure>
 <pre class="prettyprint">
 {
@@ -209,23 +152,17 @@
 </pre>
 		<figcaption>Listing 1: Example payload with extra settings for a provider</figcaption>
 	</figure>
-	<p>To retrieve these values from Javascript, they can be dereferenced like any other object property:
-		<code>data.config_text.mydomain.settings.a</code> would contain the value of <code>1</code>. All
-		<code>config_text</code> data is returned in an object when pulled from the API as shown in listing 2.</p>
+	<p>To retrieve these values from Javascript, they can be dereferenced like any other object property: <code>data.config_text.mydomain.settings.a</code> would contain the value
+		of <code>1</code>. All <code>config_text</code> data is returned in an object when pulled from the API as shown in listing 2.</p>
 
-	<p>After you POST the text in figure 5 (with your keys obviously) you'll see the result as shown in figure 6. Don't
-		use the keys shown in this article as they will not be available once this article is published.</p>
-	<figure><img class="shrink"
-				 src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/figure6.png"
-				 alt="">
+	<p>After you POST the text in figure 5 (with your keys obviously) you'll see the result as shown in figure 6. Don't use the keys shown in this article as they will not be
+		available once this article is published.</p>
+	<figure><img class="shrink" src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/figure6.png" alt="">
 		<figcaption>Figure 6: The POST response. Your new provider is now ready</figcaption>
 	</figure>
-	<p>What we did was create a new "provider" resource with an API name of <code>fbportal</code>
-		. This is the name you will use to access your portal. But before you, or your users, can use the portal, you
-		must authenticate. To do this, simply fire up your DSP, log in, and hit the portal URL
-		<code>http[s]://[dsp-name]/rest/portal/&lt;portal-api-name&gt;/me?app_name=blog</code>. Replacing
-		<code>dsp-name.cloud.dreamfactory.com</code> with the URL to your DSP.
-	</p>
+	<p>What we did was create a new "provider" resource with an API name of <code>fbportal</code> . This is the name you will use to access your portal. But before you, or your
+		users, can use the portal, you must authenticate. To do this, simply fire up your DSP, log in, and hit the portal URL <code>http[s]://[dsp-name]/rest/portal/&lt;portal-api-name&gt;/me?app_name=blog</code>.
+		Replacing <code>dsp-name.cloud.dreamfactory.com</code> with the URL to your DSP. </p>
 
 	<p>Here's an example using cURL from the command line:</p>
 <pre class="prettyprint lang-sh">
@@ -233,8 +170,7 @@ $ curl -X GET https://dsp-name.cloud.dreamfactory.com/rest/portal?app_name=admin
 {"resource":[{"id":1,"api_name":"fbportal","provider_name":"Facebook","config_text":
     {"client_id":"1411182705780165","client_secret":"053556cdf3960c9b521e35c1d7e8fe40"}}]}
 </pre>
-	<p>If you have Python installed and the <code>json.tool</code> , you can have the output optionally prettified as
-		follows:</p>
+	<p>If you have Python installed and the <code>json.tool</code> , you can have the output optionally prettified as follows:</p>
 <pre class="prettyprint lang-sh">$ curl -s GET https://dsp-name.cloud.dreamfactory.com/rest/portal?app_name=admin | python -m json.tool
 {
     "resource": [
@@ -254,99 +190,71 @@ $ curl -X GET https://dsp-name.cloud.dreamfactory.com/rest/portal?app_name=admin
 <section id="technical-details" class="flush-left">
 	<h2>The Tech Behind The Portal</h2>
 
-	<p>There's nothing spooky about the portal service. It merely relays calls from your DSP out to the remote
-		provider's API. The magical part is that the
-		<strong>access token</strong> (or possibly other keys issued to the actual user performing the authentication)
-		is then retrieved by your DSP and secure stored into the database in the
-		<code>df_sys_provider_user</code> table. It never sees the light of the internet's fiber foundation. This is a
-		really cool feature because it allows you, the developer, to create a single application that will essentially
-		create/maintain users local to your DSP for you automatically. In addition, it will allow you (in the case of
-		this blog post) to access any of their
-		<a href="https://facebook.com/" target="_blank">Facebook</a> information via the
-		<a href="https://developers.facebook.com/docs/graph-api/" target="_blank">Graph API</a>.
-	</p>
+	<p>There's nothing spooky about the portal service. It merely relays calls from your DSP out to the remote provider's API. The magical part is that the <strong>access
+		token</strong> (or possibly other keys issued to the actual user performing the authentication) is then retrieved by your DSP and secure stored into the database in the
+		<code>df_sys_provider_user</code> table. It never sees the light of the internet's fiber foundation. This is a really cool feature because it allows you, the developer, to
+		create a single application that will essentially create/maintain users local to your DSP for you automatically. In addition, it will allow you (in the case of this blog
+		post) to access any of their <a href="https://facebook.com/" target="_blank">Facebook</a> information via the <a href="https://developers.facebook.com/docs/graph-api/"
+																														 target="_blank">Graph API</a>. </p>
 
 	<p>The flow works as follows (assuming the provider has been created):</p>
 	<ol class="steps">
-		<li>A portal API request is issued to your DSP (<code>http://localhost:8888/rest/portal/fbportal/me?app_name=admin</code>
-			for instance)
+		<li>A portal API request is issued to your DSP (<code>http://localhost:8888/rest/portal/fbportal/me?app_name=admin</code> for instance)
 		</li>
-		<li>The portal service then performs the following steps. If any of the
-			<span class="fatal">red colored</span>
-			steps fail (the first two for you color-blind folks), an exception is generated and an error is returned:
+		<li>The portal service then performs the following steps. If any of the <span class="fatal">red colored</span> steps fail (the first two for you color-blind folks), an
+			exception is generated and an error is returned:
 			<ol>
-				<li class="fatal">Validate that the requesting user has access to the requested portal (either via
-					roles, custom resources, or other permissions).
+				<li class="fatal">Validate that the requesting user has access to the requested portal (either via roles, custom resources, or other permissions).
 				</li>
 				<li class="fatal">Validate that the portal exists either locally or globally.</li>
 				<li>Retrieves any stored credentials for the requesting user from the provider.</li>
-				<li>If no credentials exist, by default, the portal service will issue an HTTP redirect to the provider
-					requested, and start the authentication/authorization process. This can be returned as an error (via
-					AJAX call for example) for you to handle in your code; or you can let the DSP redirect the current
-					browser window for you. After the user has authenticated, the page that initially started the flow
-					will be called again. Simply re-issue your first call and you will receive an answer. Should you opt
-					to
-					<em>not</em> have the system handle the redirect, the error condition is returned (<code>data.success === false</code>) and contains an additional field called
-					<code>detail.location</code> which is the URL to which the user should be redirected to authenticate.
+				<li>If no credentials exist, by default, the portal service will issue an HTTP redirect to the provider requested, and start the authentication/authorization
+					process. This can be returned as an error (via AJAX call for example) for you to handle in your code; or you can let the DSP redirect the current browser window
+					for you. After the user has authenticated, the page that initially started the flow will be called again. Simply re-issue your first call and you will receive
+					an answer. Should you opt to <em>not</em> have the system handle the redirect, the error condition is returned (<code>data.success === false</code>) and
+					contains an additional field called <code>detail.location</code> which is the URL to which the user should be redirected to authenticate.
 				</li>
 			</ol>
 		</li>
 	</ol>
 	<h3>New Tables</h3>
 
-	<p>To facilitate the portal service and the storage of provider and provider-user level keys, two new tables were
-		added to the base DSP installation. The details of these files, or any other system table, can be found in the
+	<p>To facilitate the portal service and the storage of provider and provider-user level keys, two new tables were added to the base DSP installation. The details of these
+		files, or any other system table, can be found in the
         <code>
-            <a href="//htmlpreview.github.io/?https://github.com/dreamfactorysoftware/dsp-core/master/config/schema/system_schema.json"
-			   target="_blank">/config/schema/system_schema.json
-			</a>
-        </code> file off of your project root directory.
-	</p>
+            <a href="//htmlpreview.github.io/?https://github.com/dreamfactorysoftware/dsp-core/master/config/schema/system_schema.json" target="_blank">/config/schema/system_schema.json </a>
+        </code> file off of your project root directory. </p>
 
-	<p>Figure 8 depicts an ERD of the new tables and how they relate to the existing
-		<code>df_sys_user</code> table, which is, your DSP's user/login table.</p>
+	<p>Figure 8 depicts an ERD of the new tables and how they relate to the existing <code>df_sys_user</code> table, which is, your DSP's user/login table.</p>
 
-	<p>The two new tables are <code>df_sys_provider</code> and
-		<code>df_sys_provider_user</code>. The former, storing provider-level settings and credentials. The latter
-		stores user-level credentials and settings. The database will enforce referential integrity. That is to say, if
-		you delete a provider, all user tokens associated with that provider will be deleted permanently.
-	</p>
+	<p>The two new tables are <code>df_sys_provider</code> and <code>df_sys_provider_user</code>. The former, storing provider-level settings and credentials. The latter stores
+		user-level credentials and settings. The database will enforce referential integrity. That is to say, if you delete a provider, all user tokens associated with that
+		provider will be deleted permanently. </p>
 	<blockquote class="inset">
 		<span class="title">Lumbergh Says...</span>
 
-		<div class="inset"><img
-			src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/lumbergh.jpg"
-			alt=""></div>
-		<p>Yeah... so... I'm going to have to go ahead, and ask you, to make a backup -- or snapshot if you're using a
-			hosted DSP -- of your database
-			<strong>BEFORE</strong> goofing with sensitive information. Since this data is encrypted, any stored keys
-			will be difficult (if not impossible) to recover.<br><br> Yes, even we at DreamFactory can't see your keys
-			once the product is released.
-		</p>
+		<div class="inset"><img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/lumbergh.jpg" alt=""></div>
+		<p>Yeah... so... I'm going to have to go ahead, and ask you, to make a backup -- or snapshot if you're using a hosted DSP -- of your database <strong>BEFORE</strong>
+			goofing with sensitive information. Since this data is encrypted, any stored keys will be difficult (if not impossible) to recover.<br><br> Yes, even we at DreamFactory
+			can't see your keys once the product is released. </p>
 	</blockquote>
 	<h4>The Provider Table</h4>
 
-	<p>This table encrypts and stores local portal and remote login providers for your DSP only. No other DSPs may
-		access or utilize these providers.</p>
+	<p>This table encrypts and stores local portal and remote login providers for your DSP only. No other DSPs may access or utilize these providers.</p>
 	<h4>The Provider User Table</h4>
 
-	<p>This table encrypts and stores local portal and remote login provider credentials for each user who has
-		authenticated against the portal. As you'll recall, once you've created your Facebook application, users still
-		need to log into Facebook with their own Facebook accounts and allow of their personal information to your DSP.
-		We'll get into the mechanics of that in a bit.</p>
-	<figure><img
-		src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/figure8.png"
-		alt="">
+	<p>This table encrypts and stores local portal and remote login provider credentials for each user who has authenticated against the portal. As you'll recall, once you've
+		created your Facebook application, users still need to log into Facebook with their own Facebook accounts and allow of their personal information to your DSP. We'll get
+		into the mechanics of that in a bit.</p>
+	<figure><img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131031-opening-a-portal-part-1/figure8.png" alt="">
 		<figcaption>Figure 8: New Tables</figcaption>
 	</figure>
 	<p>Figure 8 is an ERD of where the Provider and Provider User tables fit and their relationships.</p>
 
 	<h3>New Resources</h3>
 
-	<p>We also have added two new system resources: <code>provider</code> and
-		<code>provider_user</code>. These can be manipulated like any other system resource via the <code>/rest/system/provider</code>
-		and
-		<code>/rest/system/provider_user</code> endpoints.</p>
+	<p>We also have added two new system resources: <code>provider</code> and <code>provider_user</code>. These can be manipulated like any other system resource via the <code>/rest/system/provider</code>
+		and <code>/rest/system/provider_user</code> endpoints.</p>
 </section>
 <section class="flush-left">
 	<h2>To Be Continued...</h2>
