@@ -1,0 +1,75 @@
+/** Custom blog callout styles 2013-12-13 GHA **/
+.df-blog blockquote, .df-blog .callout {
+	margin:             1.5em 0 1.5em -1.5em;
+	padding:            .75em .5em .75em 1em;
+	background:         #fff;
+	-webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow:    0 0 6px rgba(0, 0, 0, 0.5);
+	box-shadow:         0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.column, .columns {
+	margin:      1.5em 0 1.5em -1.5em;
+	padding:     .75em .5em .75em 1em;
+	border-left: .5em solid transparent;
+}
+
+.df-blog .callout {
+	border-left: .5em solid #fff;
+}
+
+.df-blog .callout h2:first-child, .df-blog blockquote h2:first-child {
+	margin: 0 0 1em;
+}
+
+.df-blog .callout h3:first-child, .df-blog blockquote h3:first-child {
+	margin: 0 0 1.2em;
+}
+
+.df-blog .callout h4:first-child, .df-blog blockquote h4:first-child {
+	margin: 0 0 1.3333em;
+}
+
+.df-blog .callout h5:first-child, .df-blog .callout h6:first-child, .df-blog blockquote h5:first-child, .df-blog blockquote h6:first-child {
+	margin: 0 0 1.5em;
+}
+
+.df-blog .callout p {
+	margin: 0;
+}
+
+.df-blog .callout ol, .df-blog .callout ul {
+	margin: .75em 0 .75em 1.5em;
+}
+
+.df-blog .column ol, .df-blog .column ul, .df-blog .columns ol, .df-blog .columns ul {
+	margin-top:    0;
+	margin-bottom: 0;
+}
+
+.df-blog .callout li ol, .df-blog .callout li ul, .df-blog .column li ol, .df-blog .column li ul, .df-blog .columns li ol, .df-blog .columns li ul {
+	margin: 0 0 0 1.5em;
+}
+
+.df-blog .callout p + p {
+	margin-top: 1.5em;
+}
+
+.changed-block {
+	border-left: .5em solid #47ad09;
+}
+
+.highlight-block {
+	/*border: 1px solid #999;*/
+	border-left: .5em solid #d4af37;
+}
+
+.note-block {
+	border-left: .5em solid hsl(5, 50%, 70%);
+	background:  hsla(5, 70%, 70%, .15);
+	font-style:  italic;
+}
+
+.df-blog .callout .book {
+	width: 25%;
+}

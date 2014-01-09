@@ -1,4 +1,20 @@
-/** Custom blog styles 2013-11-06 GHA **/
+/**************************************************************************
+** Custom blog styles 2013-12-01 GHA
+**************************************************************************/
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,700|Open+Sans:700,300,400);
+
+/**************************************************************************
+** DF Blog Styles
+**************************************************************************/
+
+.df-blog > * {
+	font-family: "Open Sans", Arial, "Lucida Grande", sans-serif;
+}
+
+.df-blog a:hover {
+	text-decoration: underline;
+}
+
 .df-blog blockquote {
 	border:             1px solid burlywood;
 	border-right-width: 4px;
@@ -15,7 +31,7 @@
 	font-family: "Open Sans", Arial, "Lucida Grande", sans-serif;
 }
 
-.df-blog p, .df-blog h2, .df-blog h3, .df-blog h4, .df-blog ul, .df-blog pre, .df-blog ol {
+.df-blog p, .df-blog h2, .df-blog h3, .df-blog h4, .df-blog ul, .df-blog ul li, .df-blog pre, .df-blog ol, .df-blog li {
 	margin-left:  25px;
 	margin-right: 25px;
 }
@@ -26,29 +42,31 @@
 }
 
 .df-blog pre.prettyprint {
-	white-space:        pre-line;
-	font-size:          12px;
 	padding:            20px;
-	-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
-	-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
-	box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
-	margin:             25px;
+	-moz-box-shadow:    0 0 10px rgba(51, 51, 51, 0.5);
+	-webkit-box-shadow: 0 0 10px rgba(51, 51, 51, 0.5);
+	box-shadow:         0 0 10px rgba(51, 51, 51, 0.5);
+	margin:             20px;
+	font-family:        "Source Code Pro", "Consolas", "Monaco", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+	font-weight:        normal;
+	border-radius:      4px;
+	width:              auto;
 }
 
 .df-blog pre.prettyprint ol {
-	padding-right: 8px;
+	/*padding-right: 8px;*/
 }
 
 .df-blog pre.prettyprint ol li:first-child {
-	padding-top: 8px;
+	/*padding-top: 8px;*/
 }
 
 .df-blog pre.prettyprint ol li:last-child {
-	padding-bottom: 8px;
+	/*padding-bottom: 8px;*/
 }
 
 .df-blog ol.linenums {
-	font-size: 12px;
+	/*font-size: 12px;*/
 }
 
 .df-blog h1.title {
@@ -72,7 +90,7 @@
 	list-style: decimal;
 }
 
-.post-body .df-blog > img.picture, .df-blog > img.picture {
+.post-body .df-blog > img.picture, .df-blog > img.picture, .df-blog img.picture {
 	float:              left !important;
 	-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
 	-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
@@ -87,7 +105,10 @@
 	max-width:          250px !important;
 }
 
-.blog-listing-wrapper .post-listing .post-item .post-body .df-blog figure img, .df-blog figure img {
+.df-blog figure {
+}
+
+.df-blog figure img {
 	-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
 	-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
 	box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
@@ -104,7 +125,7 @@
 	height:         200px !important;
 	box-shadow:     0 0 10px #aaa;
 	display:        inline-block;
-	margin-top:     15px !important;
+	/*margin-top:     15px !important;*/
 	max-width:      100% !important;
 }
 
@@ -172,3 +193,197 @@
 	min-height: 250px;
 	font-size:  16px;
 }
+
+/**************************************************************************
+** Custom blog callout styles 2013-12-13 GHA
+**************************************************************************/
+
+.df-blog blockquote, .df-blog .callout {
+	margin:             1.5em 6em 1.5em 1.5em;
+	padding:            .75em .5em .75em 1em;
+	background:         #fff;
+	-webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow:    0 0 6px rgba(0, 0, 0, 0.5);
+	box-shadow:         0 0 6px rgba(0, 0, 0, 0.5);
+	border-radius:      0;
+}
+
+.column, .columns {
+	margin:      1.5em 0 1.5em -1.5em;
+	padding:     .75em .5em .75em 1em;
+	border-left: .5em solid transparent;
+}
+
+.df-blog .callout {
+	border-left: .5em solid #fff;
+}
+
+.df-blog .callout h2:first-child, .df-blog blockquote h2:first-child {
+	margin:        0 0 1em;
+	border-bottom: none;
+}
+
+.df-blog .callout h3:first-child, .df-blog blockquote h3:first-child {
+	margin:        0 0 1.2em;
+	border-bottom: none;
+}
+
+.df-blog .callout h4:first-child, .df-blog blockquote h4:first-child {
+	margin:        0 0 1.3333em;
+	border-bottom: none;
+}
+
+.df-blog .callout h5:first-child, .df-blog .callout h6:first-child, .df-blog blockquote h5:first-child, .df-blog blockquote h6:first-child {
+	margin:        0 0 1.5em;
+	border-bottom: none;
+}
+
+.df-blog .callout p {
+	margin: 0;
+}
+
+.df-blog .callout ol, .df-blog .callout ul {
+	margin: .75em 0 .75em 1.5em;
+}
+
+.df-blog .column ol, .df-blog .column ul, .df-blog .columns ol, .df-blog .columns ul {
+	margin-top:    0;
+	margin-bottom: 0;
+}
+
+.df-blog .callout li ol, .df-blog .callout li ul, .df-blog .column li ol, .df-blog .column li ul, .df-blog .columns li ol, .df-blog .columns li ul {
+	margin: 0 0 0 1.5em;
+}
+
+.df-blog .callout p + p {
+	margin-top: 1.5em;
+}
+
+.df-blog .callout .book {
+	width: 25%;
+}
+
+.df-blog .changed-block {
+	border-left: .5em solid #47ad09;
+}
+
+.df-blog .highlight-block {
+	/*border: 1px solid #999;*/
+	border-left: .5em solid #d4af37;
+}
+
+.df-blog .warning-block {
+	border-left: .5em solid #c11100;
+}
+
+.df-blog .note-block {
+	border-left: .5em solid hsl(5, 50%, 70%);
+	background:  hsla(5, 70%, 70%, .15);
+}
+
+.df-blog pre.prettyprint .com {
+	font-style: normal;
+}
+
+.df-blog pre.prettyprint .str .com {
+	color: inherit;
+}
+
+/**************************************************************************
+** Custom blog prettify styles 2013-12-01 GHA
+**************************************************************************/
+
+/*.str {*/
+/*color: #080;*/
+/*}*/
+
+/*.kwd {*/
+/*color: #008;*/
+/*}*/
+
+/*.com {*/
+/*color: #800;*/
+/*}*/
+
+/*.typ {*/
+/*color: #606;*/
+/*}*/
+
+/*.lit {*/
+/*color: #066;*/
+/*}*/
+
+/*.pun {*/
+/*color: #660;*/
+/*}*/
+
+/*.pln {*/
+/*color: #000;*/
+/*}*/
+
+/*.tag {*/
+/*color: #008;*/
+/*}*/
+
+/*.atn {*/
+/*color: #606;*/
+/*}*/
+
+/*.atv {*/
+/*color: #080;*/
+/*}*/
+
+/*.dec {*/
+/*color: #606;*/
+/*}*/
+
+/*pre.prettyprint {*/
+/*padding: 2px;*/
+/*border:  1px solid #888;*/
+/*}*/
+
+/*@media print {*/
+/*.str {*/
+/*color: #060;*/
+/*}*/
+
+/*.kwd {*/
+/*color:       #006;*/
+/*font-weight: bold;*/
+/*}*/
+
+/*.com {*/
+/*color:      #600;*/
+/*font-style: italic;*/
+/*}*/
+
+/*.typ {*/
+/*color:       #404;*/
+/*font-weight: bold;*/
+/*}*/
+
+/*.lit {*/
+/*color: #044;*/
+/*}*/
+
+/*.pun {*/
+/*color: #440;*/
+/*}*/
+
+/*.pln {*/
+/*color: #000;*/
+/*}*/
+
+/*.tag {*/
+/*color:       #006;*/
+/*font-weight: bold;*/
+/*}*/
+
+/*.atn {*/
+/*color: #404;*/
+/*}*/
+
+/*.atv {*/
+/*color: #060;*/
+/*}*/
+/*}*/
