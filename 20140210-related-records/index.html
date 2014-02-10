@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Handling Relations for SQL Data through your DSP</title>
+	<script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=doxy"></script>
+	<link type="text/css" rel="stylesheet" href="../common/blog.css">
+</head>
+<body>
+<div class="hs-migrated-cms-post df-blog">
+
+<section id="introduction" class="flush-left">
+	<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/User_Icon.png" style="float:left">
+
+	<p style="margin-top:25px;">To some, SQL databases and everything that comes with them, is so "old school",
+		but we here at DreamFactory believe there are still some very useful features to SQL databases,
+		not to mention huge amounts of existing data stored in them - data that is critical for your applications.
+		No, I am not going to get into the debate of SQL vs. NoSQL, that's for another time and another place.
+	</p>
+	<p>One of the powerful features of SQL databases is the ability to relate separate data records and perform
+		queries in a way that you can retrieve that related data all at once. The only problem is, this requires
+		a fairly in-depth knowledge of your database, it's schema, and SQL syntax. For the veteran DB
+		engineers (you know who you are), this may not seem like a big deal, but for a lot of front-end developers,
+		that either don't know or don't want to know all that is involved, it is no small feat.
+	</p>
+	<p>As a follow up to our other blog posts on
+		<a href="http://blog.dreamfactory.com/add-a-rest-api-to-any-sql-db-in-minutes">
+			creating a SQL service</a> and
+		<a href="http://blog.dreamfactory.com/blog/bid/316052/Demo-How-to-Make-Relationship-Queries-with-DreamFactory-s-REST-API">
+		retrieving related data</a>,
+		I wanted to describe, in more detail, the power of the "related records" feature of our SQL DB REST API.
+	</p>
+
+</section>
+
+<section id="system-admin" class="flush-left" style="clear:both">
+
+	<H2>Getting the Whole Picture</H2>
+
+	<p>When using related data in your application, you have a couple of choices for getting and managing
+		the data from the database...</p>
+	<ol>
+		<li>you can pull copies of the data from each table in separate queries,
+			keep schema-specific logic in the application to "link" them locally for use or display,
+			and maintain separate copies for updating the database using separate posts for each table.
+		</li>
+		<li>or you can pull the related data in a single query using possibly complicated SQL join,
+			temporary tables, etc.,	also keeping logic in your application as to where the data came from
+			and how to update the individual pieces back on the database when the need arises.
+		</li>
+		<li>or you, or your DB admin, can add views (if they are supported by your database) to pull the
+			related data from various tables and return it all together. Also adding separate views
+			(again if they are supported by your database), for updating portions of that related data
+			back to the database.
+		</li>
+	</ol>
+
+	<p>Well, anyone that has had to do thing the first way, will quickly tell you what a major pain that is,
+		not to mention the bloat that happens to your application to accomplish it. Separate queries,
+		both coming and going also increase network traffic and slow performance. Keeping separate copies
+		of the data obviously requires more memory.</p>
+
+	<p></p>
+
+		Consider Address Book schema showing related data. Contacts have direct children records called ContactInfos. Contacts also have indirect relationship with ContactGroups, via ContactRelationships junction table. Contacts can have many ContactInfos and belong to multiple ContactGroups. ContactInfo can only apply to one Contact. Each ContactGroup "contains" multiple Contacts.
+
+	A full related query would show the existing relationships.
+
+	For example, GET /rest/db/Contacts/12?related=ContactInfos_by_contactId,ContactRelationships_by_contactId,ContactGroups_by_ContactRelationships
+
+	{
+	"contactId": 12,
+	"firstName": "Curtis",
+	"lastName": "Lu",
+	"imageUrl": "",
+	"twitter": "@curtis9",
+	"skype": "curtis9",
+	"ContactInfos_by_contactId": [
+	{
+	"infoId": 34,
+	"ordinal": 0,
+	"contactId": 12,
+	"infoType": "Home",
+	"phone": "500 555-0137",
+	"email": "curtis9@Home.com",
+	"address": "5927 Rainbow Dr",
+	"city": "UPPER TRACT",
+	"state": "WV",
+	"zip": "26866",
+	"country": "USA"
+	},
+	{
+	"infoId": 35,
+	"ordinal": 0,
+	"contactId": 12,
+	"infoType": "Work",
+	"phone": "500 555-0136",
+	"email": "curtis9@Work.com",
+	"address": "5167 Condor Place",
+	"city": "UPPER TRACT",
+	"state": "WV",
+	"zip": "26866",
+	"country": "USA"
+	},
+	{
+	"infoId": 36,
+	"ordinal": 0,
+	"contactId": 12,
+	"infoType": "Mobile",
+	"phone": "500 555-0177",
+	"email": "curtis9@Mobile.com",
+	"address": "1873 Mt. Whitney Dr",
+	"city": "UPPER TRACT",
+	"state": "WV",
+	"zip": "26866",
+	"country": "USA"
+	}
+	],
+	"ContactRelationships_by_contactId": [
+	{
+	"contactRelationshipId": 12,
+	"contactId": 12,
+	"contactGroupId": 3
+	}
+	],
+	"ContactGroups_by_ContactRelationships": [
+	{
+	"contactGroupId": 3,
+	"groupName": "South East"
+	}
+	]
+	}
+	ContactRelationships_by_contactId, the junction table record, can be retrieved and edited just like the others, however, I envision that, once familiar with the process, the junction table will be relegated to behind the scenes only and not accessed much from the API. Currently there is a hard limit of 1000 of each relationship.
+
+	I can make changes to the record snapshot and use the API PUT command to update the record and the related records. I can post the whole record set or just what I want changed. There are two URL parameter to aid in controlling what happens to related records during an update. They are as follows...
+	allow_related_update - Defaults to false. When false, only the relationship itself (the lookup/relationship field on the child or the junction table record) are updated. When true, the related records posted are updated on the server. This is also required to be true to allow creation of new related records.
+	allow_related_delete - Defaults to false. When direct parent-child records, like ContactInfos, are triggered to be unrelated, the relating child field is set to null. When this field schema is set so that allow_null is false, i.e. requires a parent value, this record can not stand alone unrelated and thus must be deleted. As a safety catch, this scenario will return an error unless the parameter is set to true, at which time the child record will be deleted. For records related via junction tables, this scenario can be managed by schema setup (on_update/on_delete properties with settings of SET_NULL or CASCADE).
+
+	For the record below, lets say that Curtis changed his skype account, now works from home with a new address, ditching his work info for his work mobile, was moved from the South East group to the North East group, and was added to a new group called "Sales East Coast".
+
+	See the "Action" comment in update below to see how it works...
+
+	PUT /rest/db/Contacts?allow_related_update=true&allow_related_delete=true
+	{
+	"contactId": 12,
+	"firstName": "Curtis",
+	"lastName": "Lu",
+	"skype": "curtislu",
+	Action: Record fields are updated as usual.
+	"ContactInfos_by_contactId": [
+	{
+	"infoId": 34,
+	"contactId": 12,
+	"infoType": "Home",
+	"address": "5927 Trout Trail",
+	"city": "RIVERTON"
+	Action: Existing related records are updated. If 'contactId' is in the record, the value will be overwritten with the current Contact record's primary key.
+	},
+	{
+	"infoId": 35,
+	"contactId": null,
+	"infoType": "Work"
+	Action: Lookup/relating field is set to null indicating that this child needs to be removed from the relationship.
+	},
+	{
+	"infoType": "Work Mobile",
+	"phone": "500 555-8888"
+	Action: If the 'infoId' primary key of the ContactInfos record is not present the record is created as a new child.
+	}
+	],
+	"ContactGroups_by_ContactRelationships": [
+	{
+	"contactGroupId": 3,
+	"Contacts.contactId": null
+	Action: If primary key of related table (i.e. table being serviced here is Contacts, see dot notation) is set and has a null value, the relationship is removed (entry from junction table is deleted).
+	},
+	{
+	"contactGroupId": 6,
+	"groupName": "North East"
+	Action: System will check if this relationship exists already, if not it is created (entry added to junction table)
+	},
+	{
+	"groupName": "Sales East Coast"
+	Action: No primary key in related record indicates that it is a new record that needs to be created. After creation, the relationship is created (entry added to junction table).
+	}
+	]
+	}
+	To recap...
+	Native record fields are updated as usual. If related records are contained in the request, the fields contained in the request trigger different actions.
+	If the related table's primary key is not included in the related record, it is assumed that this record doesn't exist yet and, if allowed, the related record is created along with the new relationship.
+	For Parent-Child Relationships:
+	Existing related records are updated, if allowed. If parent lookup field is in the record and not set to null, the value will be overwritten with the current parent record's primary key (useful when "adopting" other records).
+	If parent lookup field is in the record and it is set to null, indicating that this child needs to be removed from the relationship, the lookup field is set to null, or if allowed (see above) is deleted.
+	For Many-to-Many Relationships:
+	If primary key of related table (using dot notation) is set and has a null value, the junction table record is deleted thus removing the relationship.
+
+	<p>The administrator account on your DSP has complete control over how users are added to the system.
+		By default, only those with system administrator privileges can add users to the system.
+		This is the most restrictive case. A system administrator logs into the DSP,
+		goes to the admin view by selecting the gear icon in the upper right,
+		selects the <strong>User</strong> section from the menu at left, and clicks <strong>Create New User</strong>.
+	</p>
+
+	<figure>
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Create_User.png">
+		<figcaption>Figure 1: Create a new user</figcaption>
+	</figure>
+
+	<p>Select the system administrator checkbox or the desired role,
+		select whether or not you want to activate this user for access via login,
+		and finally, to assign the password directly, select "Skip email confirmation..." and set the desired password.
+		You can return to this user to change the password directly later if needed.
+	</p>
+	<p>Similarly, an admin, or a user that has been given create user role permissions (see our
+		<strong>Role</strong> documentation), can send a request to the REST API to create a user by posting
+		similar user data to /rest/system/user as follows.
+	</p>
+
+	<figure>
+		<pre class="prettyprint">
+curl -X POST https://dsp-mydsp.cloud.dreamfactory.com/rest/system/user/ \
+-H 'X-DreamFactory-Application-Name: admin' \
+-d ' \
+{ \
+	"display_name":"Joe Smith", \
+	"first_name":"Joe", \
+	"last_name":"Smith", \
+	"email":"joe.smith@acme.com", \
+	"phone":"555-666-7777", \
+	"is_active":true, \
+	"is_sys_admin":false, \
+	"role_id":1, \
+	"password":"password" \
+}'
+		</pre>
+		<figcaption>Example 1: Create a new user via API</figcaption>
+	</figure>
+
+	<p>This is useful for creating consumer accounts for things like opening up services for other web servers
+		or test account access, or for creating specific users with default passwords, which they can change later.
+		Note that using this part of the REST API requires a valid session, i.e. the admin must be logged in.
+		Also note that the password can only be set and never retrieved via the API for security reasons.
+	</p>
+
+</section>
+
+<section id="invite-friends" class="flush-left">
+
+	<H2>Invite Only the Friends You Really Like</H2>
+
+	<p>In the aforementioned example of adding a user, for "real person" user accounts,
+		the system admin is usually not concerned with directly managing user's passwords.
+		A more popular way to add users would be to invite them and let them manage their own passwords.
+		In this case, the admin still creates the user with email address, role, etc, but does not set a password.
+		This user is created in a suspended state until a password is set.
+	</p>
+	<p>If a default email service is setup,	the email service can be used to notify the user via their email address
+		that they are invited to the system. This can be accomplished in the previous <strong>Create User</strong>
+		screen by not selecting the "Skip email confirmation..." checkbox. Likewise, in the API request mentioned
+		earlier, just leave off the "password" in the posted data. Utilizing the email service to invite the user
+		is as follows.
+	</p>
+	<figure>
+		<pre class="prettyprint">
+curl -X POST https://dsp-mydsp.cloud.dreamfactory.com/rest/email/ \
+-H 'X-DreamFactory-Application-Name: admin' \
+-d ' \
+{ \
+	"to": "joe.smith@acme.com", \
+	"subject": "Welcome to DreamFactory", \
+	"body_html": "Hi {first_name},<br/><br/>You have been invited to become a DreamFactory user. Click the confirmation link below to set your password and log in.<br/><br/>{_invite_url_}<br/><br/>Enjoy!<br/><br/>DreamFactory", \
+	"from_name": "DreamFactory", \
+	"from_email": "no-reply@dreamfactory.com", \
+	"reply_to_name": "DreamFactory", \
+	"reply_to_email": "no-reply@dreamfactory.com", \
+	"first_name": "Joe" \
+}'
+		</pre>
+		<figcaption>Example 2: Invite a user via API</figcaption>
+	</figure>
+	<p>That user can then follow the link in the email and complete the password requirement.
+		Keep reading for more on the email service and password reset capabilities of the DSP.
+	</p>
+
+</section>
+
+<section id="sign-up" class="flush-left">
+
+	<H2>Sign Me Up</H2>
+
+	<p>So maybe you have developed an app and want more of an open approach to adding users,
+		no individual invites or manual data entry, but you still want to know who they are
+		and control their access via roles, etc. Well, that is what we call <strong>Open Registration</strong>.
+		This feature, once enabled, gives visitors to your DSP the opportunity to sign up to be a user
+		and access your app and services.
+	</p>
+	<p>To enable Open Registration, a system administrator logs into the DSP,
+		goes to the admin view by selecting the gear icon in the upper right,
+		selects the <strong>Config</strong> section from the bottom of the menu at left,
+		and checks the "Allow open registration" checkbox.
+	</p>
+	<figure>
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Config_Open_Reg.png">
+		<figcaption>Figure 2: Configure open registration</figcaption>
+	</figure>
+
+	<p>Once selected, you will see the option to assign every new user who comes in through the registration process
+		a default role. Obviously you will want to limit what the users can do at first and then possibly
+		upgrade them later to a different role that allows for more permissions.
+		To do the same thing through the API, you would issue the following command.
+	</p>
+	<figure>
+		<pre class="prettyprint">
+curl -X PUT https://dsp-mydsp.cloud.dreamfactory.com/rest/system/config/ \
+-H 'X-DreamFactory-Application-Name: admin' \
+-d '{ "allow_open_registration": true, "open_reg_role_id": 1 }'
+		</pre>
+		<figcaption>Example 3: Configure open registration via API</figcaption>
+	</figure>
+	<p>Refresh the Launchpad view and you will see a new button called <strong>Create Account</strong>.
+		Clicking this button will take you to a page to sign up for an account.
+	</p>
+	<figure>
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/LaunchPad_Open_Reg.png">
+		<figcaption>Figure 3: Launchpad with open registration enabled</figcaption>
+	</figure>
+	<p>By default, when Open Registration is enabled, email validation for registration is disabled. This means that
+		the user that wants to sign up gives their email address, etc. and password all in one shot without any kind
+		of verification.
+	</p>
+	<figure>
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Register_Full.png">
+		<figcaption>Figure 4: Register with password directly</figcaption>
+	</figure>
+	<figure>
+		<pre class="prettyprint">
+curl -X POST https://dsp-mydsp.cloud.dreamfactory.com/rest/user/register/ \
+-H 'X-DreamFactory-Application-Name: admin' \
+-d ' \
+{ \
+	"display_name": "Joe Smith", \
+	"first_name": "Joe", \
+	"last_name": "Smith", \
+	"email": "joe.smith@acme.com", \
+	"password": "password" \
+}'
+		</pre>
+		<figcaption>Example 4: Register via API</figcaption>
+	</figure>
+	<p>This is useful when you don't really care if the email/username is a valid email or not.
+		In most cases, especially where the email address is used for other contact purposes, you will want to
+		validate the email address given. To do this, go back to the Open Registration configuration and see the
+		"Select an email service..." section. Select an email service from the drop down list.
+		Note that a default email service comes with your DSP, but you may wish to add or change its configuration
+		to meet your needs. See our documentation for <strong>Services</strong> options. The system comes with a
+		default email template internally. To customize, create your own template at the bottom of this configuration
+		screen and select it here. More on email templates can be found in our documentation.
+	</p>
+	<figure>
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Config_Open_Reg_w_Email.png">
+		<figcaption>Figure 5: Configure open registration with email validation</figcaption>
+	</figure>
+	<p>With this configuration, no password is required initially. Once registered, an email is sent,
+		if following our template guidelines, with a confirmation code and a link to a confirmation page where that
+		code will be entered along with the desired password for the account.
+	</p>
+	<figure>
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Register.png">
+		<figcaption>Figure 6: Register requiring email validation</figcaption>
+	</figure>
+	<p>The link in the email will take the user to a confirmation page where the code and password are applied.
+	</p>
+	<figure>
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Register_Confirmation.png">
+		<figcaption>Figure 7: Confirm registration</figcaption>
+	</figure>
+	<figure>
+		<pre class="prettyprint">
+curl -X POST https://dsp-mydsp.cloud.dreamfactory.com/rest/user/register/ \
+-H 'X-DreamFactory-Application-Name: admin' \
+-d ' \
+{ \
+	"email": "joe.smith@acme.com", \
+	"code": "08dda8621c8fc3434646432dbbab51a6", \
+	"password": "password" \
+}'
+		</pre>
+		<figcaption>Example 5: Confirm registration via API</figcaption>
+	</figure>
+	<p>Once confirmed, this new user will automatically be logged in with the role given for open registration.
+	</p>
+
+</section>
+
+<section id="password-reset" class="flush-left">
+
+	<H2>A word about passwords...</H2>
+
+	<p>On the <strong>Config</strong> screen mentioned early, you may have seen a <strong>Password Reset</strong>
+		section. By default, password resets are performed using a security question and answer setup that can be
+		provisioned via a user's profile (see the user icon on the LaunchPad bar once logged in).
+		However, very much like Open Registration, if you would like a more secure way to handle password resets,
+		you can enable email confirmation by selecting an email service and optionally a template.
+	</p>
+	<figure>
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Password_Reset_Config.png">
+		<figcaption>Figure 8: Configure password reset</figcaption>
+	</figure>
+	<p>In the sign in dialog, to initiate a password reset, type in your email address and click the
+		<strong>Forgot Password</strong> button.
+	</p>
+	<figure>
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Forgot_Password.png">
+		<figcaption>Figure 9: Initiate password reset</figcaption>
+	</figure>
+	<p>To do this from the API, similarly post a reset request to the user password resource.
+	</p>
+	<figure>
+		<pre class="prettyprint">
+curl -X POST https://dsp-mydsp.cloud.dreamfactory.com/rest/user/password/ \
+-H 'X-DreamFactory-Application-Name: admin' \
+-d '{ "email": "joe.smith@acme.com", "reset": true }'
+		</pre>
+		<figcaption>Example 6: Initiate password reset via API</figcaption>
+	</figure>
+	<p>Like registration, an email is sent with a link and a confirmation code.
+		Enter the code, and a new password to reset the existing password.
+	</p>
+	<figure>
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Reset_Confirmation.png">
+		<figcaption>Figure 10: Confirm password reset</figcaption>
+	</figure>
+	<p>A confirmation request is sent to the API as follows.
+	</p>
+	<figure>
+		<pre class="prettyprint">
+curl -X POST https://dsp-mydsp.cloud.dreamfactory.com/rest/user/password/ \
+-H 'X-DreamFactory-Application-Name: admin' \
+-d ' \
+{ \
+	"email": "joe.smith@acme.com", \
+	"code": "08dda8621c8fc3434646432dbbab51a6", \
+	"password": "password" \
+}'
+		</pre>
+			<figcaption>Example 7: Confirm password reset via API</figcaption>
+	</figure>
+	<p>Once confirmed, this user will automatically be logged in with the new password.
+	</p>
+
+</section>
+
+<section id="oauth-setup" class="flush-left">
+
+	<H2>Ticket Please</H2>
+
+	<p>As with many websites today, sometimes it is easier if someone else handles the user confirmation and
+		password maintenance, like the most popular social or enterprise websites. For these cases,
+		DreamFactory can be configured to allow access via an OAuth service. This is currently tied to
+		Open Registration being activated. Once provisioned, your allowed OAuth services will show up on
+		the login screen. For more information on OAuth provisioning,
+		see <a href="http://blog.dreamfactory.com/blog/bid/341114/OAuth-Tutorial-Part-One">this blog</a>.
+	</p>
+	<figure>
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/OAuth_Login.png">
+		<figcaption>Figure 11: Login with OAuth providers</figcaption>
+	</figure>
+
+</section>
+
+<section id="guest-access" class="flush-left">
+
+	<H2>The Door's Open, Come On In</H2>
+
+	<p>There may be some functionality in your app that you want everyone to see or be able to use.
+		If that is the case, we have a configuration for that as well. It is called <strong>Guest Users</strong>.
+		Again, on the config screen in the admin view, there is a place to allow guest access and assign them
+		a specific restrictive access role.
+	</p>
+	<figure>
+		<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20131108-adding-users/Guest_Config.png">
+		<figcaption>Figure 12: Configure guest user</figcaption>
+	</figure>
+	<figure>
+		<pre class="prettyprint">
+curl -X PUT https://dsp-mydsp.cloud.dreamfactory.com/rest/system/config/ \
+-H 'X-DreamFactory-Application-Name: admin' \
+-d '{ "allow_guest_user": true, "guest_role_id": 1 }'
+		</pre>
+		<figcaption>Example 8: Configure guest user via API</figcaption>
+	</figure>
+	<p>Once enabled, you will see that when accessing your DSP, you are not immediately met with a login prompt,
+		but the <strong>Sign In</strong> button (and optionally a Create Account button) are also there allowing
+		returning users to gain access as their assigned role.
+	</p>
+
+</section>
+
+<p>Check out our video tutorials and documentation for more information on these topics.
+	As always, we welcome your comments.
+</p>
+</div>
+</body>
+</html>
