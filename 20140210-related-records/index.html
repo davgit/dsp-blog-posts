@@ -11,7 +11,7 @@
 <section id="introduction" class="flush-left">
 	<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20140210-related-records/sqldb-icon.png" style="float:left">
 
-	<p style="margin-top:25px;">To some, SQL databases and everything that comes with them, is so "old school",
+	<p style="margin-top:25px;">To some, SQL databases and everything that comes with them, are so "old school",
 		but we here at DreamFactory believe there are still some very useful features to SQL databases,
 		not to mention huge amounts of existing data stored in them - data that is critical for your applications.
 		No, I am not going to get into the debate of SQL vs. NoSQL, that's for another time and another place.
@@ -34,32 +34,34 @@
 
 </section>
 
-<section id="system-admin" class="flush-left" style="clear:both">
+<section id="get-whole-picture" class="flush-left" style="clear:both">
 
 <H2>Getting the Whole Picture</H2>
 
 <p>When using related data in your application, you have a couple of choices for getting and managing
 	the data from the database...</p>
-<ol>
-	<li>you can pull copies of the data from each table in separate queries,
+
+<ul>
+	<li>1) you can pull copies of the data from each table in separate queries,
 		keep schema-specific logic in the application to "link" them locally for use or display,
-		and maintain separate copies for updating the database using separate posts for each table.
+		and maintain separate copies for updating the database using separate posts for each table,
 	</li>
-	<li>or you can pull the related data in a single query using possibly complicated SQL join,
+	<li>or 2) you can pull the related data in a single query using possibly complicated SQL join,
 		temporary tables, etc., also keeping logic in your application as to where the data came from
-		and how to update the individual pieces back on the database when the need arises.
+		and how to update the individual pieces back on the database,
 	</li>
-	<li>or you, or your DB admin, can add views (if they are supported by your database) to pull the
-		related data from various tables and return it all together. Also adding separate views
+	<li>or 3) you, or your DB admin, can add views (if they are supported by your database) to pull the
+		related data from various tables and return it all together, also adding separate views
 		(again if they are supported by your database), for updating portions of that related data
 		back to the database.
 	</li>
-</ol>
+</ul>
 
 <p>Well, anyone that has done it the first way, will quickly tell you what a major pain that is,
-	not to mention the bloat that happens to your application to accomplish it. Separate queries,
-	both coming and going, increase network traffic and slow performance. Keeping separate copies
-	of the data obviously requires more memory. All bad news for client/mobile apps.</p>
+	not to mention the bloat that happens to your application to accomplish it.
+	Separate queries and posts increase network traffic and slow performance.
+	Keeping separate copies of the data obviously requires more memory.
+	All bad news for client/mobile apps.</p>
 
 <p>The second approach is doable if your application uses data as read only. The minute you have to
 	support updating that data back to the database it gets almost as bad as the first.
@@ -76,158 +78,394 @@
 	by the relationship so that all of the related data is in one JSON record.
 </p>
 
-<p>Consider the Address Book schema from the earlier blog showing related data. The schema states that...
+<p>Consider the Contact schema (returned as JSON from our SQL DB SCHEMA service, reduced for clarity)
+	from the earlier blog showing related data.
+</p>
+
+<pre class="prettyprint">
+{
+  "name": "Contacts",
+  "primary_key": "contactId",
+  "field": [
+    {
+      "name": "contactId",
+      "type": "id",
+      "db_type": "int(11)",
+      "default": null,
+      "allow_null": false,
+      "auto_increment": true,
+      "is_primary_key": true,
+      "is_foreign_key": false,
+      "ref_table": "",
+      "ref_fields": ""
+    },
+    ...
+  ],
+  "related": [
+    {
+      "name": "ContactInfos_by_contactId",
+      "type": "has_many",
+      "ref_table": "ContactInfo",
+      "ref_field": "contactId",
+      "field": "contactId"
+    },
+    {
+      "name": "ContactRelationshipss_by_contactId",
+      "type": "has_many",
+      "ref_table": "ContactRelationships",
+      "ref_field": "contactId",
+      "field": "contactId"
+    },
+    {
+      "name": "ContactGroupss_by_ContactRelationships",
+      "type": "many_many",
+      "ref_table": "ContactGroups",
+      "ref_field": "contactGroupId",
+      "join": "ContactRelationships(contactId,contactGroupId)",
+      "field": "contactId"
+    }
+  ]
+}
+
+{
+  "name": "ContactInfo",
+  "primary_key": "infoId",
+  "field": [
+    {
+      "name": "infoId",
+      "type": "id",
+      "db_type": "int(11)",
+      "default": null,
+      "allow_null": false,
+      "auto_increment": true,
+      "is_primary_key": true,
+      "is_foreign_key": false,
+      "ref_table": "",
+      "ref_fields": ""
+    },
+    {
+      "name": "contactId",
+      "type": "reference",
+      "db_type": "int(11)",
+      "default": null,
+      "allow_null": true,
+      "auto_increment": false,
+      "is_primary_key": false,
+      "is_foreign_key": true,
+      "ref_table": "Contacts",
+      "ref_fields": "contactId"
+    },
+...
+  ],
+  "related": [
+    {
+      "name": "Contacts_by_contactId",
+      "type": "belongs_to",
+      "ref_table": "Contacts",
+      "ref_field": "contactId",
+      "field": "contactId"
+    }
+  ]
+}
+
+{
+  "name": "ContactGroups",
+  "primary_key": "contactGroupId",
+  "field": [
+    {
+      "name": "contactGroupId",
+      "type": "id",
+      "db_type": "int(11)",
+      "default": null,
+      "allow_null": false,
+      "auto_increment": true,
+      "is_primary_key": true,
+      "is_foreign_key": false,
+      "ref_table": "",
+      "ref_fields": ""
+    },
+    {
+      "name": "groupName",
+      "type": "string",
+      "db_type": "varchar(128)",
+      "default": null,
+      "allow_null": true,
+      "auto_increment": false,
+      "is_primary_key": false,
+      "is_foreign_key": false,
+      "ref_table": "",
+      "ref_fields": ""
+    }
+  ],
+  "related": [
+    {
+      "name": "ContactRelationshipss_by_contactGroupId",
+      "type": "has_many",
+      "ref_table": "ContactRelationships",
+      "ref_field": "contactGroupId",
+      "field": "contactGroupId"
+    },
+    {
+      "name": "Contactss_by_ContactRelationships",
+      "type": "many_many",
+      "ref_table": "Contacts",
+      "ref_field": "contactId",
+      "join": "ContactRelationships(contactGroupId,contactId)",
+      "field": "contactGroupId"
+    }
+  ]
+}
+
+{
+  "name": "ContactRelationships",
+  "primary_key": "contactRelationshipId",
+  "field": [
+    {
+      "name": "contactRelationshipId",
+      "type": "id",
+      "db_type": "int(11)",
+      "default": null,
+      "allow_null": false,
+      "auto_increment": true,
+      "is_primary_key": true,
+      "is_foreign_key": false,
+      "ref_table": "",
+      "ref_fields": ""
+    },
+    {
+      "name": "contactId",
+      "type": "reference",
+      "db_type": "int(11)",
+      "default": null,
+      "allow_null": true,
+      "auto_increment": false,
+      "is_primary_key": false,
+      "is_foreign_key": true,
+      "ref_table": "Contacts",
+      "ref_fields": "contactId"
+    },
+    {
+      "name": "contactGroupId",
+      "type": "reference",
+      "db_type": "int(11)",
+      "default": null,
+      "allow_null": true,
+      "auto_increment": false,
+      "is_primary_key": false,
+      "is_foreign_key": true,
+      "ref_table": "ContactGroups",
+      "ref_fields": "contactGroupId"
+    }
+  ],
+  "related": [
+    {
+      "name": "ContactGroups_by_contactGroupId",
+      "type": "belongs_to",
+      "ref_table": "ContactGroups",
+      "ref_field": "contactGroupId",
+      "field": "contactGroupId"
+    },
+    {
+      "name": "Contacts_by_contactId",
+      "type": "belongs_to",
+      "ref_table": "Contacts",
+      "ref_field": "contactId",
+      "field": "contactId"
+    }
+  ]
+}
+</pre>
+<p>The schema states that...</p>
 
 <ul>
 	<li>Contacts have direct children records called ContactInfos.</li>
 	<li>Contacts also have indirect relationship with ContactGroups, via ContactRelationships junction table.</li>
 	<li>Contacts can have many ContactInfos and belong to multiple ContactGroups.</li>
-	<li>ContactInfo can only apply to one Contact.</li>
-	<li>Each ContactGroup "contains" multiple Contacts.</li>
+	<li>Each ContactInfo can only apply to one Contact, linked by contactId field.</li>
+	<li>Each ContactGroup "contains" multiple Contacts, linked by rows in ContactRelationships table.</li>
 </ul>
 
-<p>A full related query would show the existing relationships.</p>
-
-<p>For example, GET /rest/db/Contacts/12?related=ContactInfos_by_contactId,ContactRelationships_by_contactId,ContactGroups_by_ContactRelationships</p>
+<p>A full related query would show the existing relationships, using the "related" URL parameter
+	(coming end of February - pass '*' as the value of "related" parameter to get all relationships).
+	For example...
+</p>
 <pre class="prettyprint">
+GET /rest/db/Contacts/12?related=ContactInfos_by_contactId,ContactRelationships_by_contactId,ContactGroups_by_ContactRelationships
+
 {
-"contactId": 12,
-"firstName": "Curtis",
-"lastName": "Lu",
-"imageUrl": "",
-"twitter": "@curtis9",
-"skype": "curtis9",
-"ContactInfos_by_contactId": [
-{
-"infoId": 34,
-"ordinal": 0,
-"contactId": 12,
-"infoType": "Home",
-"phone": "500 555-0137",
-"email": "curtis9@Home.com",
-"address": "5927 Rainbow Dr",
-"city": "UPPER TRACT",
-"state": "WV",
-"zip": "26866",
-"country": "USA"
-},
-{
-"infoId": 35,
-"ordinal": 0,
-"contactId": 12,
-"infoType": "Work",
-"phone": "500 555-0136",
-"email": "curtis9@Work.com",
-"address": "5167 Condor Place",
-"city": "UPPER TRACT",
-"state": "WV",
-"zip": "26866",
-"country": "USA"
-},
-{
-"infoId": 36,
-"ordinal": 0,
-"contactId": 12,
-"infoType": "Mobile",
-"phone": "500 555-0177",
-"email": "curtis9@Mobile.com",
-"address": "1873 Mt. Whitney Dr",
-"city": "UPPER TRACT",
-"state": "WV",
-"zip": "26866",
-"country": "USA"
-}
-],
-"ContactRelationships_by_contactId": [
-{
-"contactRelationshipId": 12,
-"contactId": 12,
-"contactGroupId": 3
-}
-],
-"ContactGroups_by_ContactRelationships": [
-{
-"contactGroupId": 3,
-"groupName": "South East"
-}
-]
+  "contactId": 12,
+  "firstName": "Curtis",
+  "lastName": "Lu",
+  "imageUrl": "",
+  "twitter": "@curtis9",
+  "skype": "curtis9",
+  "notes": "Marital Status: M   Gender: M   Salary: 60000 Children: 4 Education:  Bachelors Occupation:  Professional",
+  "ContactInfos_by_contactId": [
+    {
+      "infoId": 34,
+      "ordinal": 0,
+      "contactId": 12,
+      "infoType": "Home",
+      "phone": "500 555-0137",
+      "email": "curtis9@Home.com",
+      "address": "5927 Rainbow Dr",
+      "city": "UPPER TRACT",
+      "state": "WV",
+      "zip": "26866",
+      "country": "USA"
+    },
+    {
+      "infoId": 35,
+      "ordinal": 0,
+      "contactId": 12,
+      "infoType": "Work",
+      "phone": "500 555-0136",
+      "email": "curtis9@Work.com",
+      "address": "5167 Condor Place",
+      "city": "UPPER TRACT",
+      "state": "WV",
+      "zip": "26866",
+      "country": "USA"
+    },
+    {
+      "infoId": 36,
+      "ordinal": 0,
+      "contactId": 12,
+      "infoType": "Mobile",
+      "phone": "500 555-0177",
+      "email": "curtis9@Mobile.com",
+      "address": "1873 Mt. Whitney Dr",
+      "city": "UPPER TRACT",
+      "state": "WV",
+      "zip": "26866",
+      "country": "USA"
+    }
+  ],
+  "ContactRelationshipss_by_contactId": [
+    {
+      "contactRelationshipId": 12,
+      "contactId": 12,
+      "contactGroupId": 3
+    }
+  ],
+  "ContactGroupss_by_ContactRelationships": [
+    {
+      "contactGroupId": 3,
+      "groupName": "South East"
+    }
+  ]
 }
 </pre>
 
-<p>ContactRelationships_by_contactId, the junction table record, can be retrieved and edited just like the others, however, I envision that, once familiar with the process, the junction table will be relegated to behind the scenes only and not accessed much from the API. Currently there is a hard limit of 1000 of each relationship.
+</section>
 
-I can make changes to the record snapshot and use the API PUT command to update the record and the related records. I can post the whole record set or just what I want changed. There are two URL parameter to aid in controlling what happens to related records during an update. They are as follows...
-allow_related_update - Defaults to false. When false, only the relationship itself (the lookup/relationship field on the child or the junction table record) are updated. When true, the related records posted are updated on the server. This is also required to be true to allow creation of new related records.
-allow_related_delete - Defaults to false. When direct parent-child records, like ContactInfos, are triggered to be unrelated, the relating child field is set to null. When this field schema is set so that allow_null is false, i.e. requires a parent value, this record can not stand alone unrelated and thus must be deleted. As a safety catch, this scenario will return an error unless the parameter is set to true, at which time the child record will be deleted. For records related via junction tables, this scenario can be managed by schema setup (on_update/on_delete properties with settings of SET_NULL or CASCADE).
+<section id="update-whole-picture" class="flush-left" style="clear:both">
 
-For the record below, lets say that Curtis changed his skype account, now works from home with a new address, ditching his work info for his work mobile, was moved from the South East group to the North East group, and was added to a new group called "Sales East Coast".
+	<p>I can make changes to the record snapshot and use the API PUT command to update the record and the related records.
+		I can post the whole record set or just what I want changed.
+		There is a URL parameter to aid in controlling what happens to related records during an update.
 
-See the "Action" comment in update below to see how it works...
-</p>
+	<ul>
+		<li><strong>allow_related_delete</strong> - Defaults to false.
+			When direct parent-child records, like ContactInfos, are triggered to be unrelated, the relating child field is set to null.
+			When this field schema is set so that allow_null is false, i.e. requires a parent value, this record can not stand alone unrelated and thus must be deleted.
+			As a safety catch, this scenario will return an error unless the parameter is set to true, at which time the child record will be deleted.
+			For records related via junction tables, this scenario can be managed by schema setup (on_update/on_delete properties with settings of SET_NULL or CASCADE).
+		</li>
+	</ul>
+	For the record below, lets say that Curtis changed his skype account, now works from home with a new address, ditching his work info for his work mobile, was moved from the South East group to the North East group, and was added to a new group called "Sales East Coast".
+
+	See the "Action" comment in update below to see how it works...
+	</p>
 
 <pre class="prettyprint">
-PUT /rest/db/Contacts?allow_related_update=true&allow_related_delete=true
+PUT /rest/db/Contacts?allow_related_delete=true
+
 {
-"contactId": 12,
-"firstName": "Curtis",
-"lastName": "Lu",
-"skype": "curtislu",
-Action: Record fields are updated as usual.
-"ContactInfos_by_contactId": [
-{
-"infoId": 34,
-"contactId": 12,
-"infoType": "Home",
-"address": "5927 Trout Trail",
-"city": "RIVERTON"
-Action: Existing related records are updated. If 'contactId' is in the record, the value will be overwritten with the current Contact record's primary key.
-},
-{
-"infoId": 35,
-"contactId": null,
-"infoType": "Work"
-Action: Lookup/relating field is set to null indicating that this child needs to be removed from the relationship.
-},
-{
-"infoType": "Work Mobile",
-"phone": "500 555-8888"
-Action: If the 'infoId' primary key of the ContactInfos record is not present the record is created as a new child.
-}
-],
-"ContactGroups_by_ContactRelationships": [
-{
-"contactGroupId": 3,
-"Contacts.contactId": null
-Action: If primary key of related table (i.e. table being serviced here is Contacts, see dot notation) is set and has a null value, the relationship is removed (entry from junction table is deleted).
-},
-{
-"contactGroupId": 6,
-"groupName": "North East"
-Action: System will check if this relationship exists already, if not it is created (entry added to junction table)
-},
-{
-"groupName": "Sales East Coast"
-Action: No primary key in related record indicates that it is a new record that needs to be created. After creation, the relationship is created (entry added to junction table).
-}
-]
+  "contactId": 12,
+  "firstName": "Curtis",
+  "lastName": "Lu",
+  "skype": "curtislu",
+  <strong>Action: Record fields are updated as usual.</strong>
+  "ContactInfos_by_contactId": [
+    {
+      "infoId": 34,
+      "contactId": 12,
+      "infoType": "Home",
+      "address": "5927 Trout Trail",
+      "city": "RIVERTON"
+      <strong>Action: Existing related records are updated. If 'contactId' is in the record,
+		  the value will be overwritten with the current Contact record's primary key.
+	  </strong>
+    },
+    {
+      "infoId": 35,
+      "contactId": null,
+      "infoType": "Work"
+      <strong>Action: Lookup/relating field is set to null indicating that this child needs to be removed from the relationship.
+	  </strong>
+    },
+    {
+      "infoType": "Work Mobile",
+      "phone": "500 555-8888"
+      <strong>Action: If the 'infoId' primary key of the ContactInfos record is not present the record is created as a new child.
+	  </strong>
+    }
+  ],
+  "ContactGroups_by_ContactRelationships": [
+    {
+      "contactGroupId": 3,
+      "Contacts.contactId": null
+      <strong>Action: If primary key of related table (i.e. table being serviced here is Contacts,
+		  see dot notation) is set and has a null value, the relationship is removed (entry from junction table is deleted).
+	  </strong>
+    },
+    {
+      "contactGroupId": 6,
+      "groupName": "North East"
+      <strong>Action: System will check if this relationship exists already, if not it is created (entry added to junction table).
+	  </strong>
+    },
+    {
+      "groupName": "Sales East Coast"
+      <strong>Action: No primary key in related record indicates that it is a new record that needs to be created.
+		  After creation, the relationship is created (entry added to junction table).
+	  </strong>
+    }
+  ]
 }
 </pre>
 
-<p>To recap...
-Native record fields are updated as usual. If related records are contained in the request, the fields contained in the request trigger different actions.
-If the related table's primary key is not included in the related record, it is assumed that this record doesn't exist yet and, if allowed, the related record is created along with the new relationship.
-For Parent-Child Relationships:
-Existing related records are updated, if allowed. If parent lookup field is in the record and not set to null, the value will be overwritten with the current parent record's primary key (useful when "adopting" other records).
-If parent lookup field is in the record and it is set to null, indicating that this child needs to be removed from the relationship, the lookup field is set to null, or if allowed (see above) is deleted.
-For Many-to-Many Relationships:
-If primary key of related table (using dot notation) is set and has a null value, the junction table record is deleted thus removing the relationship.
-</p>
-<p>The administrator account on your DSP has complete control over how users are added to the system.
-	By default, only those with system administrator privileges can add users to the system.
-	This is the most restrictive case. A system administrator logs into the DSP,
-	goes to the admin view by selecting the gear icon in the upper right,
-	selects the <strong>User</strong> section from the menu at left, and clicks <strong>Create New User</strong>.
-</p>
+</section>
+
+<section id="recap" class="flush-left" style="clear:both">
+
+	<H2>To Recap</H2>
+
+	<p>Native record fields are updated as usual.
+	</p>
+
+	<p>If related records are contained in the request, the fields contained in the request trigger different actions.
+	</p>
+
+	<p>If the related table's primary key is not included in the related record, it is assumed that this record doesn't exist yet and, if allowed, the related record is created along with the new relationship.
+	</p>
+
+	<p>For Parent-Child Relationships:
+		Existing related records are updated, if allowed. If parent lookup field is in the record and not set to null, the value will be overwritten with the current parent record's primary key (useful when "adopting" other records).
+		If parent lookup field is in the record and it is set to null, indicating that this child needs to be removed from the relationship, the lookup field is set to null, or if allowed (see above) is deleted.
+	</p>
+
+	<p>For Many-to-Many Relationships:
+		If primary key of related table (using dot notation) is set and has a null value, the junction table record is deleted thus removing the relationship.
+	</p>
+
+	<p>The administrator account on your DSP has complete control over how users are added to the system.
+		By default, only those with system administrator privileges can add users to the system.
+		This is the most restrictive case. A system administrator logs into the DSP,
+		goes to the admin view by selecting the gear icon in the upper right,
+		selects the <strong>User</strong> section from the menu at left, and clicks <strong>Create New User</strong>.
+	</p>
 
 </section>
 
