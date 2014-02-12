@@ -11,25 +11,28 @@
 <section id="introduction" class="flush-left">
 	<img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20140210-related-records/sqldb-icon.png" style="float:left">
 
-	<p style="margin-top:25px;">To some, SQL databases and everything that comes with them, are so "old school",
-		but we here at DreamFactory believe there are still some very useful features to SQL databases,
-		not to mention huge amounts of existing data stored in them - data that is critical for your applications.
-		No, I am not going to get into the debate of SQL vs. NoSQL, that's for another time and another place.
+	<p style="margin-top:25px;">As a follow up to our other blog posts on
+		<a href="http://blog.dreamfactory.com/add-a-rest-api-to-any-sql-db-in-minutes">
+			adding a REST API to your SQL database</a> and
+		<a href="http://blog.dreamfactory.com/blog/bid/316052/Demo-How-to-Make-Relationship-Queries-with-DreamFactory-s-REST-API">
+			retrieving related data from that REST API</a>,
+		I wanted to describe, in more detail, the power of the "related records" feature of our SQL DB Service of the REST API.
+	</p>
+
+	<p>SQL databases hold huge amounts of the existing data stored in the world.
+		Data that is vital to consumer and enterprise applications alike.
 	</p>
 
 	<p>One of the powerful features of SQL databases is the ability to relate separate data records and perform
-		queries in a way that you can retrieve that related data all at once. The only problem is, this requires
-		a fairly in-depth knowledge of your database, it's schema, and SQL syntax. For the veteran DB
-		engineers (you know who you are), this may not seem like a big deal, but for a lot of front-end developers,
-		that either don't know or don't want to know all that is involved, it is no small feat.
+		queries that retrieve that related data all at once. One problem is that this requires
+		a fairly in-depth knowledge of your database, it's schema, and SQL syntax.
+		Another is that this ability of your database is not easily accessed from the web.
+		For the veteran DB and server-side engineers, this may not seem like a big deal,
+		but for a lot of front-end developers, that either don't know or don't want to know all that is involved,
+		it is no small feat.
 	</p>
 
-	<p>As a follow up to our other blog posts on
-		<a href="http://blog.dreamfactory.com/add-a-rest-api-to-any-sql-db-in-minutes">
-			creating a SQL service</a> and
-		<a href="http://blog.dreamfactory.com/blog/bid/316052/Demo-How-to-Make-Relationship-Queries-with-DreamFactory-s-REST-API">
-			retrieving related data</a>,
-		I wanted to describe, in more detail, the power of the "related records" feature of our SQL DB REST API.
+	<p>DreamFactory's SQL DB Service makes getting to your vital SQL data and using it from your applications easier than ever.
 	</p>
 
 </section>
@@ -38,8 +41,9 @@
 
 <H2>Getting the Whole Picture</H2>
 
-<p>When using related data in your application, you have a couple of choices for getting and managing
-	the data from the database...</p>
+<p>When using data in your application, you typically want to retrieve, interact, and display
+	related data as complete units, not individual pieces.
+	You have a couple of choices for getting and managing this data from the database...</p>
 
 <ol>
 	<li>you can pull copies of the data from each table in separate queries,
