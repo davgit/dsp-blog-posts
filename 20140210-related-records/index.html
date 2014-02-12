@@ -81,8 +81,10 @@
 	related data is in one JSON record.
 </p>
 
-<p>Consider the Contact schema from the earlier blog showing related data
-	(returned as JSON from our SQL DB service, reduced and edited here for clarity).
+<p>DreamFactory's SQL DB service discovers these relationships automatically from the schema in your database.
+	You don't have to provision anything except the connection parameters.
+	Consider the Contact schema from the earlier blog showing related data
+	(returned as JSON from the "db" service, reduced and edited here for clarity).
 </p>
 
 <pre class="prettyprint">
@@ -257,7 +259,9 @@ GET /rest/db/?names=Contacts,ContactInfos,ContactGroups,ContactRelationships
 	<li>Each ContactGroup "contains" multiple Contacts, linked by rows in ContactRelationships table.</li>
 </ul>
 
-<p>A full related query would show the existing relationships, using the "related" URL parameter
+<p>A retrieve by id or a query with a filter string request using the "related" URL parameter
+	pulls the existing relationships, and adds them to the requested record(s) as arrays using the
+	relationship name as the field name,
 	(coming end of February - pass '*' as the value of "related" parameter to get all relationships).
 	For example, retrieving the record for a specific contact with primary key '12'...
 </p>
@@ -538,6 +542,11 @@ PATCH /rest/db/Contacts/33
 
 	<p>For Many-to-Many Relationships:
 		If primary key of related table (using dot notation) is set and has a null value, the junction table record is deleted thus removing the relationship.
+	</p>
+
+	<p>All of this logic works for creating or updating single records or multiple records at a time.
+		The "related" parameter can also be used (along with "fields" parameter) when making requests
+		(POST, PATCH, DELETE) and retrieving changed data in one shot (see the API/SDK in the admin panel).
 	</p>
 
 </section>
