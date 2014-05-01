@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Introducing Platform Events</title>
+	<script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=doxy"></script>
+	<link type="text/css" rel="stylesheet" href="../common/blog.css">
+</head>
+<body>
+<div class="hs-migrated-cms-post df-blog">
+	<div class="pull-left">
+		<img class="picture" src="masthead.jpg">
+	</div>
+
+	<section id="introduction" class="flush-left">
+		<H2>Awesome Inside!</H2>
+
+		<p style="margin-top:25px;">We've snuck an extra special treat into our latest release (<a href="https://github.com/dreamfactorysoftware/dsp-core/" target="_blank">version
+			1.5</a>) of the DreamFactory Services Platform&trade;. This new morsel of awesome is the new platform events and scripting system. These two new built-in services
+			(/rest/system/event and /rest/system/script) allows you, dear developer, the ability to synchronously listen for, and act upon, system events in real-time. That's a lot
+			to digest in one sentence so a little background is in order.</p>
+	</section>
+
+	<section id="what-good-are-events" class="flush-left">
+		<H2>What Good Are Events?</H2>
+
+		<p>Since the dawn of humankind, events have been a part of our lives. Holidays, birthdays, parties, coronation ceremonies, you name it; unless you're some kind of hermit,
+			you've probably attended an event. The problem with events is that you always need a reminder. As technology has progressed, we can get notified of upcoming events from
+			our devices and social and organizational networking systems. It's only natural that someone had the idea to bring this concept to software systems.</p>
+
+		<p>Having the system tell you when something is about to, or has, occurred is a blessing in disguise. Once, long ago dear reader, we were forced to
+			<a href="http://en.wikipedia.org/wiki/Polling_(computer_science)" target="_blank">poll</a> for system changes. But we endured until our platforms embraced
+			<a href="http://en.wikipedia.org/wiki/Event_(computing)" target="_blank">events</a>. These nuggets of system information, jam-packed full of goodies,
+			are sent out by our systems, allow you to build your applications more easily. What's that? Easy you say? Pssshaw!</p>
+
+		<p>No, really, it is easier (if we did a good job implementing our event system ;) ). Consider a typical client-side developer (named Pat). Pat knows javascript and HTML5
+			hands-down. But needs a specialized service that checks a remote server for additional authentication information. Perhaps for two-factor checks. But to build a service
+			like that -- and incorporate it into the DreamFactory Services Platform&trade; -- can be a daunting task to they who are not one with PHP. This is where events
+			rock.</p>
+
+		<p>All Pat really needs to know is when someone is about to log in to the system. At that point the app can make the remote call and either allow or deny the operation. The
+			particular one that would be useful in our case is <strong>session.login</strong>. Pat's app registers as a listener for this event and when it's fired by the server,
+			the URL registered as an event listener, will be called via an HTTP POST. This isn't the only way apps can consume events. You may also create PHP event handlers and
+			server-side javascript (more on this later).</p>
+	</section>
+
+	<section id="how-do-is-see-them" class="flush-left">
+		<H2>How Does It Work?</H2>
+
+		<p>The DreamFactory Services Platform&trade; is architected in such a way that we can hook, inject, and augment REST API calls. This feature is
+			implemented and demonstrated in the <strong>preProcess()</strong> and <strong>postProcess()</strong> methods of our base service and resource classes. We enhanced this
+			system to dispatch events when REST API calls are processed. One of our major design goals was that the platform be merely a dispatcher of events, and not <strong>define</strong>
+			them. Yes, the actions performed by the server trigger the events, but the names of these events are virtually ignored by the server.</p>
+
+		<p>We do a similar thing today with our Live API offering . This platform application dynamically </p>
+
+		<h3>Swagger and the Live API</h3>
+
+		<p></p>
+
+		<h3>Event Definitions</h3>
+
+		<p></p>
+		<h4>Event Placeholders</h4>
+
+		<p></p>
+		<h4>Multiple Events</h4>
+
+		<p></p>
+
+	</section>
+
+	<section id="how-can-i-use-them" class="flush-left">
+		<H2>Right on... But How Do I Use Them?</H2>
+		<section id="platform-events" class="flush-left">
+			<H3>Platform Events</H3>
+		</section>
+		<section id="rest-events" class="flush-left">
+			<H3>REST Events</H3>
+			<section id="dynamic-events" class="flush-left">
+				<H4>Dynamic Events</H4>
+			</section>
+		</section>
+		<section id="asynchronous-listening" class="flush-left">
+			<H3>Asynchronous Listening</H3>
+		</section>
+		<section id="server-side-scripting" class="flush-left">
+			<H3>Server-Side Scripting</H3>
+		</section>
+
+	</section>
+
+	<section id="cool-any-examples" class="flush-left">
+		<H2>Cool! Got Any Examples?</H2>
+	</section>
+</div>
+</body>
+</html>
