@@ -1,7 +1,7 @@
 /**************************************************************************
 ** Custom blog styles 2013-12-01 GHA
 **************************************************************************/
-@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,700|Open+Sans:700,300,400);
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:700,300,400);
 
 /**************************************************************************
 ** DF Blog Styles
@@ -9,6 +9,7 @@
 
 .df-blog > * {
 	font-family: "Open Sans", Arial, "Lucida Grande", sans-serif;
+	color:       #2a2a2a;
 }
 
 .df-blog a:hover {
@@ -138,14 +139,19 @@
 	font-weight: bold;
 }
 
-.df-blog code {
-	font-size:        12px;
+.df-blog code, .df-blog pre {
+	font-family:      "Source Code Pro", "Consolas", "Monaco", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+	font-size:        10pt;
 	border:           1px dotted #e0e0e0;
+	border-radius:    6px;
+	margin-left:      2px;
+	margin-right:     2px;
 	background-color: #efefef;
-	padding:          2px 3px;
+	padding:          1px 2px;
 	line-height:      inherit;
 	vertical-align:   middle;
 	display:          inline-block;
+	color:            #000;
 	font-weight:      bold;
 }
 
@@ -288,102 +294,3 @@
 .df-blog pre.prettyprint .str .com {
 	color: inherit;
 }
-
-/**************************************************************************
-** Custom blog prettify styles 2013-12-01 GHA
-**************************************************************************/
-
-/*.str {*/
-/*color: #080;*/
-/*}*/
-
-/*.kwd {*/
-/*color: #008;*/
-/*}*/
-
-/*.com {*/
-/*color: #800;*/
-/*}*/
-
-/*.typ {*/
-/*color: #606;*/
-/*}*/
-
-/*.lit {*/
-/*color: #066;*/
-/*}*/
-
-/*.pun {*/
-/*color: #660;*/
-/*}*/
-
-/*.pln {*/
-/*color: #000;*/
-/*}*/
-
-/*.tag {*/
-/*color: #008;*/
-/*}*/
-
-/*.atn {*/
-/*color: #606;*/
-/*}*/
-
-/*.atv {*/
-/*color: #080;*/
-/*}*/
-
-/*.dec {*/
-/*color: #606;*/
-/*}*/
-
-/*pre.prettyprint {*/
-/*padding: 2px;*/
-/*border:  1px solid #888;*/
-/*}*/
-
-/*@media print {*/
-/*.str {*/
-/*color: #060;*/
-/*}*/
-
-/*.kwd {*/
-/*color:       #006;*/
-/*font-weight: bold;*/
-/*}*/
-
-/*.com {*/
-/*color:      #600;*/
-/*font-style: italic;*/
-/*}*/
-
-/*.typ {*/
-/*color:       #404;*/
-/*font-weight: bold;*/
-/*}*/
-
-/*.lit {*/
-/*color: #044;*/
-/*}*/
-
-/*.pun {*/
-/*color: #440;*/
-/*}*/
-
-/*.pln {*/
-/*color: #000;*/
-/*}*/
-
-/*.tag {*/
-/*color:       #006;*/
-/*font-weight: bold;*/
-/*}*/
-
-/*.atn {*/
-/*color: #404;*/
-/*}*/
-
-/*.atv {*/
-/*color: #060;*/
-/*}*/
-/*}*/

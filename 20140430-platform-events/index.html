@@ -4,6 +4,17 @@
 	<title>Introducing Platform Events</title>
 	<script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=doxy"></script>
 	<link type="text/css" rel="stylesheet" href="../common/blog.css">
+	<style>
+		a {
+			color:          #3859a0;
+			text-decoration: none;
+		}
+
+		a:hover, a:active, a:focus {
+			color: #2E3869;
+			text-decoration: underline;
+		}
+	</style>
 </head>
 <body>
 <div class="hs-migrated-cms-post df-blog">
@@ -12,24 +23,29 @@
 	</div>
 
 	<section id="introduction" class="flush-left">
-		<H2>Awesome Inside!</H2>
+		<H1 style="font-size: 2em; font-weight: bold; font-style:oblique ; padding-bottom:0; margin-bottom:0">Awesome Inside!</H1>
 
-		<p style="margin-top:25px;">We've snuck an extra special treat into our latest release (<a href="https://github.com/dreamfactorysoftware/dsp-core/" target="_blank">version
-			1.5</a>) of the DreamFactory Services Platform&trade;. This new morsel of awesome is the new platform events and scripting system. These two new built-in services
-			(/rest/system/event and /rest/system/script) allows you, dear developer, the ability to synchronously listen for, and act upon, system events in real-time. That's a lot
-			to digest in one sentence so a little background is in order.</p>
+		<p style="margin-top:0;">We've snuck an extra special treat into our latest release (<a href="https://github.com/dreamfactorysoftware/dsp-core/" target="_blank">version
+			1.5</a>) of the DreamFactory Services Platform&trade;. This new morsel of awesome is our new
+			<a href="https://github.com/dreamfactorysoftware/dsp-core/wiki/The-Platform-Event-System" target="_blank">Platform Event and Scripting System</a>. These two new
+			built-in services (<code>/rest/system/event</code> and <code>/rest/system/script</code>) allows you, the developer, to a/synchronously listen for, and act
+			upon, system events in real-time. That's a lot to digest so enjoy this introduction to the new event services.</p>
 	</section>
 
 	<section id="what-good-are-events" class="flush-left">
 		<H2>What Good Are Events?</H2>
 
-		<p>Since the dawn of humankind, events have been a part of our lives. Holidays, birthdays, parties, coronation ceremonies, you name it; unless you're some kind of hermit,
-			you've probably attended an event. The problem with events is that you always need a reminder. As technology has progressed, we can get notified of upcoming events from
-			our devices and social and organizational networking systems. It's only natural that someone had the idea to bring this concept to software systems.</p>
+		<p>Since the dawn of humankind, events have been a part of our lives. Holidays, birthdays, gatherings, celebrations, keggers in Skred's cave; you name it! Unless you're
+			some kind of hermit, you've probably attended an event or two. One annoying thing about events is that you always need a reminder (if you're not eidetic). As our
+			technology has strengthened, our reminders, or notifications, have evolved as well. Now we can be notified of upcoming dates, events, parties, and/or cave happenings;
+			from our device, social, and organizational networks. It seems to reason that someone would, at some point, blend these "reminders" into software architecture. I'm not
+			sure which language had them first, but I remember them first in <a href="http://en.wikipedia.org/wiki/Object_Pascal" target="_blank">Delphi</a>, and then in
+			<a href="http://en.wikipedia.org/wiki/Motif_(software)" target="_blank">Motif/X-Windows</a>. Pretty much all new software development systems after that had
+			some sort of event system. But I digress.</p>
 
-		<p>Having the system tell you when something is about to, or has, occurred is a blessing in disguise. Once, long ago dear reader, we were forced to
-			<a href="http://en.wikipedia.org/wiki/Polling_(computer_science)" target="_blank">poll</a> for system changes. But we endured until our platforms embraced
-			<a href="http://en.wikipedia.org/wiki/Event_(computing)" target="_blank">events</a>. These nuggets of system information, jam-packed full of goodies,
+		<p>Events are important because having the system tell you when something is about to, or has, occurred; is a blessing in disguise. Once, long ago dear reader, applications
+			were forced to <a href="http://en.wikipedia.org/wiki/Polling_(computer_science)" target="_blank">poll</a> for system changes. But we endured until our platforms
+			embraced <a href="http://en.wikipedia.org/wiki/Event_(computing)" target="_blank">events</a>. These nuggets of system information, jam-packed full of goodies,
 			are sent out by our systems, allow you to build your applications more easily. What's that? Easy you say? Pssshaw!</p>
 
 		<p>No, really, it is easier (if we did a good job implementing our event system ;) ). Consider a typical client-side developer (named Pat). Pat knows javascript and HTML5
@@ -37,10 +53,13 @@
 			like that -- and incorporate it into the DreamFactory Services Platform&trade; -- can be a daunting task to they who are not one with PHP. This is where events
 			rock.</p>
 
-		<p>All Pat really needs to know is when someone is about to log in to the system. At that point the app can make the remote call and either allow or deny the operation. The
-			particular one that would be useful in our case is <strong>session.login</strong>. Pat's app registers as a listener for this event and when it's fired by the server,
-			the URL registered as an event listener, will be called via an HTTP POST. This isn't the only way apps can consume events. You may also create PHP event handlers and
-			server-side javascript (more on this later).</p>
+		<p>All Pat really needs to know is when someone is about to log in to the system. At that point the app can make the remote call and either allow or deny the operation.
+			This login notification is one of many possible system <strong>events</strong>. The particular one that would be useful in this case is called
+			<strong>session.login</strong>. So, Pat's app registers as a listener for this event (<strong>session.login</strong>). When it's triggered by a user logging on, the
+			callback Pat registered is called and gives the application a chance to validate, augment, and/or deny the request. And this isn't the only way apps may consume events.
+			The new <a href="https://github.com/dreamfactorysoftware/dsp-core/wiki/The-Platform-Event-System" target="_blank">Platform Event and Scripting System</a> supports
+			handlers written in PHP and server-side javascript (more on this later). In addition, the system can notify applications via HTTP
+			POST synchronously or asynchronously. Think about that for a sec... Ok, ready?</p>
 	</section>
 
 	<section id="how-do-is-see-them" class="flush-left">
