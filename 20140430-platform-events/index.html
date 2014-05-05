@@ -6,12 +6,12 @@
 	<link type="text/css" rel="stylesheet" href="../common/blog.css">
 	<style>
 		a {
-			color:          #3859a0;
+			color:           #3859a0;
 			text-decoration: none;
 		}
 
 		a:hover, a:active, a:focus {
-			color: #2E3869;
+			color:           #2E3869;
 			text-decoration: underline;
 		}
 	</style>
@@ -70,11 +70,48 @@
 			system to dispatch events when REST API calls are processed. One of our major design goals was that the platform be merely a dispatcher of events, and not <strong>define</strong>
 			them. Yes, the actions performed by the server trigger the events, but the names of these events are virtually ignored by the server.</p>
 
-		<p>We do a similar thing today with our Live API offering . This platform application dynamically </p>
+		<p>This is made possible by our use of <a href="https://github.com/wordnik/swagger-core" target="_blank">Swagger&trade;</a>
+			for documenting our API. We've extended the <a href="https://github.com/wordnik/swagger-spec" target="_blank">standard Swagger&trade; schema</a>
+			to include event name. This allows us to define events that are to be fired when specific API calls are made by clients.</p>
 
-		<h3>Swagger and the Live API</h3>
+		<h3>All Platform Events Are Defined In Swagger&trade;</h3>
 
-		<p></p>
+		<p>
+			One of the great features of the DSP is the Live API/SDK. This is an application that is provided through the DSP admin application. At startup, it looks for any
+			Swagger&trade; configuration files in the known resource and model paths. These files end in <code>.swagger.php</code>. They are aggregated and presented in a list by
+			service. Once you expand a service, a list of REST operations provided by that service is shown. A user may then explore the documentation for each call. In addition,
+			and this is cool part, the user can put all the arguments for any call into this application and the REST call will be made, and the results displayed.</p>
+
+		<figure><img src="figure1.png" alt="Figure 1">
+			<figcaption>Figure 1: The Live API/SDK option</figcaption>
+		</figure>
+
+		<p>Clicking the above option opens and loads the operations available by service. Clicking a service will expand and display the operations available. For instance, figure
+			2 shows the new goodies that lie beneath the <code>system</code> service.</p>
+
+		<figure><img src="figure2.png" alt="Figure 2">
+			<figcaption>Figure 2: The list of operations for the new Event service</figcaption>
+		</figure>
+
+		<p>So not only can you manipulate events via the new service, we've also enhanced the Live API/SDK app to include the name of events that will fire for each call. In figure
+			3, if a call is associated with an event, it will be displayed under the implementation notes.</p>
+
+		<figure><img src="figure3.png" alt="Figure 3">
+			<figcaption>Figure 3: Each POST to <code>/rest/system/event</code> fires a <code>system.events.create</code> event.</figcaption>
+		</figure>
+
+		<section class="callout warning-block">
+			<h4>Pluralized Event Names</h4>
+
+			<p>Because our REST API allows you to POST a single or a batch of data to a single call, there are separate events for each type. The difference is subtle, so
+				double-check your code.</p>
+
+			<p>For events that accept batched data, the service name is generally pluralized. For instance, <code>system.events.create</code>. Note the plural of the service:
+				<strong>events</strong>.</p>
+
+			<p>For targeted events, that is to say, a single resource is being created or retrieved by id, the name of the event reflects the operation type. For instance, an HTTP
+				sent PATCH to <code>/rest/system/event/my.event.id</code> will generate a <code>system.event.update</code> event.</p>
+		</section>
 
 		<h3>Event Definitions</h3>
 
@@ -83,7 +120,6 @@
 
 		<p></p>
 		<h4>Multiple Events</h4>
-
 		<p></p>
 
 	</section>
@@ -108,8 +144,13 @@
 
 	</section>
 
-	<section id="cool-any-examples" class="flush-left">
-		<H2>Cool! Got Any Examples?</H2>
+	<section id="conclusion" class="flush-left">
+		<H2>So, There It Is</H2>
+
+		<p>This post has been just a small sampling of the new Platform Event and Scripting System released with version 1.5 of the DreamFactory Services Platform&trade;. I am
+			working on a follow-up to this blog which will include code samples and real-world examples of how this new feature can enhance your cool. Look for it in a few weeks.
+			In the mean time, peruse the documentation on our newly <a href="https://github.com/dreamfactorysoftware/dsp-core/wiki" target="_blank">redesigned
+				documentation/wiki</a>.</p>
 	</section>
 </div>
 </body>
