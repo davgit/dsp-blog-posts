@@ -24,7 +24,7 @@
 </div>
 
 <section id="introduction" class="flush-left">
-	<H1 style="font-size: 2em; font-weight: bold; font-style:oblique ; padding-bottom:0; margin-bottom:0">Awesome Inside!</H1>
+	<H1 style="font-size: 2em; font-weight: bold; font-style:oblique ; padding-bottom:0; margin-bottom:0">Introducing Platform Events (Part 1)</H1>
 
 	<p style="margin-top:0;">We've snuck an extra special treat into our latest release (<a href="https://github.com/dreamfactorysoftware/dsp-core/" target="_blank">version
 		1.5</a>) of the DreamFactory Services Platform&trade;. This new morsel of awesome is our new
@@ -34,7 +34,7 @@
 </section>
 
 <section id="what-good-are-events" class="flush-left">
-	<H2>What Good Are Events?</H2>
+	<H2>What Good Are Events? Awesome Inside!</H2>
 
 	<p>Since the dawn of humankind, events have been a part of our lives. Holidays, birthdays, gatherings, celebrations, keggers in Skred's cave; you name it! Unless you're
 		some kind of hermit, you've probably attended an event or two. One annoying thing about events is that you always need a reminder (if you're not eidetic). As our
@@ -46,8 +46,8 @@
 
 	<p>Events are important because having the system tell you when something is about to, or has, occurred; is a blessing in disguise. Once, long ago dear reader, applications
 		were forced to <a href="http://en.wikipedia.org/wiki/Polling_(computer_science)" target="_blank">poll</a> for system changes. But we endured until our platforms
-		embraced <a href="http://en.wikipedia.org/wiki/Event_(computing)" target="_blank">events</a>. These nuggets of system information, jam-packed full of goodies,
-		are sent out by our systems, allow you to build your applications more easily. What's that? Easy you say? Pssshaw!</p>
+		embraced <a href="http://en.wikipedia.org/wiki/Event_(computing)" target="_blank">events</a>. These nuggets of system information, jam-packed full of goodies, allow you to
+		build your applications more easily. What's that? Easy you say? Pssshaw!</p>
 
 	<p>No, really, it is easier (if we did a good job implementing our event system ;) ). Consider a typical client-side developer (named Pat). Pat knows javascript and HTML5
 		hands-down. But needs a specialized service that checks a remote server for additional authentication information. Perhaps for two-factor checks. But to build a service
@@ -63,63 +63,67 @@
 		POST synchronously or asynchronously. Think about that for a sec... Ok, ready?</p>
 </section>
 
-<section id="how-do-is-see-them" class="flush-left">
-<H2>How Does It Work?</H2>
+<section id="how-do-it-know" class="flush-left">
+	<H2>How Does It Work?</H2>
 
-<p>The DreamFactory Services Platform&trade; is architected in such a way that we can hook, inject, and augment REST API calls. This feature is
-	implemented and demonstrated in the <strong>preProcess()</strong> and <strong>postProcess()</strong> methods of our base service and resource classes. We enhanced this
-	system to dispatch events when REST API calls are processed. One of our major design goals was that the platform be merely a dispatcher of events, and not
-	<strong>define</strong>
-	them. Yes, the actions performed by the server trigger the events, but the names of these events are virtually ignored by the server.</p>
+	<p>The DreamFactory Services Platform&trade; is architected in such a way that we can hook, inject, and augment REST API calls. This feature is
+		implemented and demonstrated in the <strong>preProcess()</strong> and <strong>postProcess()</strong> methods of our base service and resource classes. We enhanced this
+		system to dispatch events when REST API calls are processed. One of our major design goals was that the platform be merely a dispatcher of events, and not
+		<strong>define</strong>
+		them. Yes, the actions performed by the server trigger the events, but the names of these events are virtually ignored by the server.</p>
 
-<p>This is made possible by our use of <a href="https://github.com/wordnik/swagger-core" target="_blank">Swagger&trade;</a>
-	for documenting our API. We've extended the <a href="https://github.com/wordnik/swagger-spec" target="_blank">standard Swagger&trade; schema</a>
-	to include event name. This allows us to define events that are to be fired when specific API calls are made by clients.</p>
+	<p>This is made possible by our use of <a href="https://github.com/wordnik/swagger-core" target="_blank">Swagger&trade;</a>
+		for documenting our API. We've extended the <a href="https://github.com/wordnik/swagger-spec" target="_blank">standard Swagger&trade; schema</a>
+		to include event name. This allows us to define events that are to be fired when specific API calls are made by clients.</p>
+</section>
 
-<h3>All Platform Events Are Defined In Swagger&trade;</h3>
+<section class="flush-left">
+	<h2>All Platform Events Are Defined In Swagger&trade;</h2>
 
-<p>
-	One of the great features of the DSP is the Live API/SDK. This is an application that is provided through the DSP admin application. At startup, it looks for any
-	Swagger&trade; configuration files in the known resource and model paths. These files end in <code>.swagger.php</code>. They are aggregated and presented in a list
-	by
-	service. Once you expand a service, a list of REST operations provided by that service is shown. A user may then explore the documentation for each call. In
-	addition,
-	and this is cool part, the user can put all the arguments for any call into this application and the REST call will be made, and the results displayed.</p>
+	<p>
+		One of the great features of the DSP is the Live API/SDK. This is an application that is provided through the DSP admin application. At startup, it looks for any
+		Swagger&trade; configuration files in the known resource and model paths. These files end in <code>.swagger.php</code>. They are aggregated and presented in a list
+		by
+		service. Once you expand a service, a list of REST operations provided by that service is shown. A user may then explore the documentation for each call. In
+		addition,
+		and this is cool part, the user can put all the arguments for any call into this application and the REST call will be made, and the results displayed.</p>
 
-<figure><img src="figure1.png" alt="Figure 1">
-	<figcaption>Figure 1: The Live API/SDK option</figcaption>
-</figure>
+	<figure><img src="figure1.png" alt="Figure 1">
+		<figcaption>Figure 1: The Live API/SDK option</figcaption>
+	</figure>
 
-<p>Clicking the above option opens and loads the operations available by service. Clicking a service will expand and display the operations available. For instance,
-	figure
-	2 shows the new goodies that lie beneath the <code>system</code> service.</p>
+	<p>Clicking the above option opens and loads the operations available by service. Clicking a service will expand and display the operations available. For instance,
+		figure
+		2 shows the new goodies that lie beneath the <code>system</code> service.</p>
 
-<figure><img src="figure2.png" alt="Figure 2">
-	<figcaption>Figure 2: The list of operations for the new Event service</figcaption>
-</figure>
+	<figure><img src="figure2.png" alt="Figure 2">
+		<figcaption>Figure 2: The list of operations for the new Event service</figcaption>
+	</figure>
 
-<p>So not only can you manipulate events via the new service, we've also enhanced the Live API/SDK app to include the name of events that will fire for each call. In
-	figure
-	3, if a call is associated with an event, it will be displayed under the implementation notes.</p>
+	<p>So not only can you manipulate events via the new service, we've also enhanced the Live API/SDK app to include the name of events that will fire for each call. In
+		figure
+		3, if a call is associated with an event, it will be displayed under the implementation notes.</p>
 
-<figure><img src="figure3.png" alt="Figure 3">
-	<figcaption>Figure 3: Each POST to <code>/rest/system/event</code> fires a <code>system.events.create</code> event.</figcaption>
-</figure>
-<section class="callout warning-block">
-	<h4>Pluralized Event Names</h4>
+	<figure><img src="figure3.png" alt="Figure 3">
+		<figcaption>Figure 3: Each POST to <code>/rest/system/event</code> fires a <code>system.events.create</code> event.</figcaption>
+	</figure>
 
-	<p>Because our REST API allows you to POST a single or a batch of data to a single call, there are separate events for each type. The difference is subtle, so
-		double-check your code.</p>
+	<section class="callout warning-block">
+		<h3>Pluralized Event Names</h3>
 
-	<p>For events that accept batched data, the service name is generally pluralized. For instance, <code>system.events.create</code>. Note the plural of the service:
-		<strong>events</strong>.</p>
+		<p>Because our REST API allows you to POST a single or a batch of data to a single call, there are separate events for each type. The difference is subtle, so
+			double-check your code.</p>
 
-	<p>For targeted events, that is to say, a single resource is being created or retrieved by id, the name of the event reflects the operation type. For instance, an HTTP
-		sent PATCH to <code>/rest/system/event/my.event.id</code> will generate a <code>system.event.update</code> event.</p>
+		<p>For events that accept batched data, the service name is generally pluralized. For instance, <code>system.events.create</code>. Note the plural of the service:
+			<strong>events</strong>.</p>
+
+		<p>For targeted events, that is to say, a single resource is being created or retrieved by id, the name of the event reflects the operation type. For instance, an HTTP
+			sent PATCH to <code>/rest/system/event/my.event.id</code> will generate a <code>system.event.update</code> event.</p>
+	</section>
 </section>
 
 <section>
-	<h3>Event Definitions</h3>
+	<h2>Event Definitions</h2>
 
 	<p>In the <code>*.swagger.php</code> (our standard Swagger&trade; service definition file extension) files, each operation that a service exposes has a section
 		describing
@@ -134,7 +138,7 @@ array(
 	'summary'          => 'getScript() - Get the script with ID provided',
 	'nickname'         => 'getScript',
 	'type'             => 'ScriptResponse',
-	<strong>'event_name'       => '{api_name}.script.read',</strong>
+	<strong>'event_name' => '{api_name}.script.read',</strong>
 	'parameters'       => array(
 		array(
 			'name'          => 'script_id',
@@ -156,7 +160,7 @@ array(
 </section>
 
 <section>
-	<h3>Event Types and Placeholders</h3>
+	<h2>Event Types and Placeholders</h2>
 
 	<p>You'll also notice that the name of the event is not complete. We've used a <strong>placeholder</strong> for the API name to be inserted before the event is
 		triggered.
@@ -169,14 +173,14 @@ array(
 </section>
 
 <section>
-	<h3>Types of Events</h3>
+	<h2>Types of Events</h2>
 
 	<p>There are two distinct types of events generated by the platform. The events that are defined in the Swagger&trade; files are called <strong>Platform</strong>
 		events. In
 		addition to these, each REST API call generates a dynamic <strong>REST</strong> event.</p>
 
 	<section>
-		<h4>Platform Events</h4>
+		<h3>Platform Events</h3>
 
 		<p>As stated above, these events are generated by any REST API call that has an event defined it the services' Swagger&trade; definition file. All calls except
 			<strong>GET</strong> trigger the event <em>before</em> the service has processed the resource. This allows you to alter, augment, or deny the original
@@ -188,7 +192,7 @@ array(
 			output. Again, allowing you alter the path, and/or the results, of the request.</p>
 
 		<section>
-			<h4>Resource Event Patterns</h4>
+			<h3>Resource Event Patterns</h3>
 
 			<p>Platform events triggered by resource activity follow a simple CRUD naming convention regardless of the type of REQUEST. That is to say, some service will create
 				resources with a POST, but will
@@ -210,7 +214,7 @@ array(
 		</section>
 
 		<section>
-			<h4>Database Event Patterns</h4>
+			<h3>Database Event Patterns</h3>
 
 			<p>Platform events triggered by database activity follow a different naming convention. Database services trigger events that represent the DDL statement that will be
 				or was, made. These are shown below.</p>
@@ -231,7 +235,7 @@ array(
 	</section>
 
 	<section>
-		<h4>REST Events</h4>
+		<h3>REST Events</h3>
 
 		<p>The second type of events generated by the platform are called <strong>REST</strong> events. These are generated for every call and are triggered before and
 			after
@@ -250,7 +254,7 @@ array(
 	</section>
 
 	<section>
-		<h4>Event Name Placeholders</h4>
+		<h3>Event Name Placeholders</h3>
 
 		<p>Currently, the system recognizes, and dynamically replaces the following placeholders:</p>
 
@@ -299,14 +303,50 @@ array(
 
 <section id="how-can-i-use-them" class="flush-left">
 	<H2>Right on... But How Do I Use Them?</H2>
+
+	<p>The best way to learn the event system is to experience <em>all</em> events. To do this, there is a configuration setting called <code>dsp.log_all_events</code>. This is
+		defaulted to <strong>FALSE</strong> in the release. Simply set this to <strong>TRUE</strong> and log out and back in. Your log file will now show every event as it is sent
+		to the dispatcher. The call that triggered the event is also output to the log. Figure 5 is a snippet of three REST calls and the three events each call triggers.</p>
+
 	<section>
-		<H3>Platform Events</H3>
-	</section>
-	<section>
-		<H3>Asynchronous Listening</H3>
-	</section>
-	<section>
-		<H3>Server-Side Scripting</H3>
+		<figure>
+		<pre class="prettyprint long-lines">
+## Launchpad requests the list of services
+app.DEBUG: Triggered: event "system.service.get.pre_process" triggered by rest/system/service  
+app.DEBUG: Triggered: event "system.services.list" triggered by rest/system/service  
+app.DEBUG: Triggered: event "system.service.get.post_process" triggered by rest/system/service  
+			
+## Then the DSP's configuration
+app.DEBUG: Triggered: event "system.config.get.pre_process" triggered by rest/system/config  
+app.DEBUG: Triggered: event "system.config.read" triggered by rest/system/config  
+app.DEBUG: Triggered: event "system.config.get.post_process" triggered by rest/system/config  
+			
+## The roles are loaded for security checks
+app.DEBUG: Triggered: event "system.role.get.pre_process" triggered by rest/system/role  
+app.DEBUG: Triggered: event "system.roles.list" triggered by rest/system/role  
+app.DEBUG: Triggered: event "system.role.get.post_process" triggered by rest/system/role  
+		</pre>
+			<figcaption>Figure 5: Three REST calls throwing nine events.</figcaption>
+		</figure>
+
+		<p>When a REST API call is received it goes through three essential stages: pre-processing, processing, and post-processing. Two of these stages are represented by the
+			platform's REST events. These fire at the pre-processing and post-processing stage. They allow you to process any data before and after the request is processed.</p>
+
+		<p>Sandwiched in between these events is the platform event for that REST API call. In the example above, the first platform event fired is
+			<code>system.services.list</code>.</p>
+
+		<section class="callout changed-block">
+			<h4>Logging All Events</h4>
+
+			<p>Remember, when <code>dsp.log_all_events</code> is enabled, ALL events are logged. Even events that have no handlers. In the snippet above there were nine events
+				generated from three REST calls. However, there were no listeners for any of them so they were merely logged.</p>
+
+			<p>If <code>dsp.log_all_events</code> is set to <strong>FALSE</strong> only events that are <em>dispatched</em>
+				to handlers are logged.</p>
+
+			<p>For events that accept batched data, the service name is generally pluralized. For instance, <code>system.events.create</code>. Note the plural of the service:
+				<strong>events</strong>.</p>
+		</section>
 	</section>
 </section>
 
@@ -317,7 +357,8 @@ array(
 		working on a follow-up to this blog which will include code samples and real-world examples of how this new feature can enhance your cool. Look for it in a few weeks.
 		In the mean time, peruse the documentation on our newly <a href="https://github.com/dreamfactorysoftware/dsp-core/wiki" target="_blank">redesigned documentation/wiki</a>.
 	</p>
-</section>
+
+	<p>In part 2 we will cover how to listen for events from the platform and touch on server-side scripting. A full guide on server-side scripting is forthcoming.</p>
 </section>
 
 </div>

@@ -57,6 +57,10 @@
 	margin:             20px 20px 20px 0;
 }
 
+.df-blog pre.prettyprint.long-lines {
+	font-size: 8px;
+}
+
 .df-blog pre.prettyprint + figcaption {
 	margin-top:  -12px;
 	padding-top: 0;
