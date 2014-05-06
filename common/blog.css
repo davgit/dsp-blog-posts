@@ -1,7 +1,7 @@
 /**************************************************************************
 ** Custom blog styles 2013-12-01 GHA
 **************************************************************************/
-@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,700|Open+Sans:700,300,400);
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:700,300,400);
 
 /**************************************************************************
 ** DF Blog Styles
@@ -9,6 +9,7 @@
 
 .df-blog > * {
 	font-family: "Open Sans", Arial, "Lucida Grande", sans-serif;
+	color:       #2a2a2a;
 }
 
 .df-blog a:hover {
@@ -28,7 +29,7 @@
 }
 
 .df-blog h1, .df-blog h2, .df-blog h3, .df-blog h4, .df-blog h5 {
-	font-family: "Open Sans", Arial, "Lucida Grande", sans-serif;
+	font-family: "Roboto", "Open Sans", Arial, "Lucida Grande", sans-serif;
 }
 
 .df-blog p, .df-blog h2, .df-blog h3, .df-blog h4, .df-blog ul, .df-blog ul li, .df-blog pre, .df-blog ol, .df-blog li {
@@ -37,8 +38,9 @@
 }
 
 .df-blog h4, .df-blog h5, .df-blog section h4 + p, .df-blog section h5 + p {
-	margin-left:  50px;
-	margin-right: 50px;
+	margin-bottom: -10px;
+	margin-left:   50px;
+	margin-right:  50px;
 }
 
 .df-blog pre.prettyprint {
@@ -46,11 +48,22 @@
 	-moz-box-shadow:    0 0 10px rgba(51, 51, 51, 0.5);
 	-webkit-box-shadow: 0 0 10px rgba(51, 51, 51, 0.5);
 	box-shadow:         0 0 10px rgba(51, 51, 51, 0.5);
-	margin:             20px;
 	font-family:        "Source Code Pro", "Consolas", "Monaco", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
 	font-weight:        normal;
 	border-radius:      4px;
 	width:              auto;
+	background-color:   #000;
+	border:             1px solid rgba(255, 255, 255, .50);
+	margin:             20px 20px 20px 0;
+}
+
+.df-blog pre.prettyprint.long-lines {
+	font-size: 8px;
+}
+
+.df-blog pre.prettyprint + figcaption {
+	margin-top:  -12px;
+	padding-top: 0;
 }
 
 .df-blog pre.prettyprint ol {
@@ -92,9 +105,9 @@
 
 .post-body .df-blog > img.picture, .df-blog > img.picture, .df-blog img.picture {
 	float:              left !important;
-	-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
-	-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
-	box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
+	-moz-box-shadow:    2px 4px 4px rgba(51, 51, 51, 0.25);
+	-webkit-box-shadow: 2px 4px 4px rgba(51, 51, 51, 0.25);
+	box-shadow:         2px 4px 4px rgba(51, 51, 51, 0.25);
 	-webkit-transform:  rotate(356deg);
 	-moz-transform:     rotate(356deg);
 	-o-transform:       rotate(356deg);
@@ -108,10 +121,16 @@
 .df-blog figure {
 }
 
-.df-blog figure img {
+.df-blog > div > img.masthead {
 	-moz-box-shadow:    6px 8px 10px rgba(51, 51, 51, 0.25);
 	-webkit-box-shadow: 6px 8px 10px rgba(51, 51, 51, 0.25);
 	box-shadow:         6px 8px 10px rgba(51, 51, 51, 0.25);
+}
+
+.df-blog figure img {
+	-moz-box-shadow:    2px 4px 4px rgba(51, 51, 51, 0.25);
+	-webkit-box-shadow: 2px 4px 4px rgba(51, 51, 51, 0.25);
+	box-shadow:         2px 4px 4px rgba(51, 51, 51, 0.25);
 	border:             1px solid rgba(0, 0, 0, .25);
 	margin:             5px auto 5px !important;
 	float:              none !important;
@@ -138,15 +157,25 @@
 	font-weight: bold;
 }
 
-.df-blog code {
-	font-size:        12px;
-	border:           1px dotted #e0e0e0;
-	background-color: #efefef;
-	padding:          2px 3px;
+.df-blog code, .df-blog pre {
+	font-family:      "Source Code Pro", "Consolas", "Monaco", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+	font-size:        10pt;
+	border:           1px solid #e0e0e0;
+	border-radius:    6px;
+	margin-left:      2px;
+	margin-right:     2px;
+	background-color: #eee;
+	padding:          1px 2px;
 	line-height:      inherit;
 	vertical-align:   middle;
 	display:          inline-block;
+	color:            #222;
 	font-weight:      bold;
+}
+
+.df-blog ul.code-like > li {
+	font-family: "Source Code Pro", "Consolas", "Monaco", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+	font-size:   10pt;
 }
 
 .df-blog section {
@@ -155,6 +184,16 @@
 
 .df-blog section h2 {
 	margin-left: 25px;
+}
+
+.df-blog section h4.list-header {
+	font-size:      14px;
+	font-weight:    bold;
+	border:         none;
+	text-shadow:    none;
+	margin-left:    74px;
+	padding-bottom: 0;
+	margin-bottom:  -14px;
 }
 
 .df-blog section.flush-left {
@@ -288,102 +327,3 @@
 .df-blog pre.prettyprint .str .com {
 	color: inherit;
 }
-
-/**************************************************************************
-** Custom blog prettify styles 2013-12-01 GHA
-**************************************************************************/
-
-/*.str {*/
-/*color: #080;*/
-/*}*/
-
-/*.kwd {*/
-/*color: #008;*/
-/*}*/
-
-/*.com {*/
-/*color: #800;*/
-/*}*/
-
-/*.typ {*/
-/*color: #606;*/
-/*}*/
-
-/*.lit {*/
-/*color: #066;*/
-/*}*/
-
-/*.pun {*/
-/*color: #660;*/
-/*}*/
-
-/*.pln {*/
-/*color: #000;*/
-/*}*/
-
-/*.tag {*/
-/*color: #008;*/
-/*}*/
-
-/*.atn {*/
-/*color: #606;*/
-/*}*/
-
-/*.atv {*/
-/*color: #080;*/
-/*}*/
-
-/*.dec {*/
-/*color: #606;*/
-/*}*/
-
-/*pre.prettyprint {*/
-/*padding: 2px;*/
-/*border:  1px solid #888;*/
-/*}*/
-
-/*@media print {*/
-/*.str {*/
-/*color: #060;*/
-/*}*/
-
-/*.kwd {*/
-/*color:       #006;*/
-/*font-weight: bold;*/
-/*}*/
-
-/*.com {*/
-/*color:      #600;*/
-/*font-style: italic;*/
-/*}*/
-
-/*.typ {*/
-/*color:       #404;*/
-/*font-weight: bold;*/
-/*}*/
-
-/*.lit {*/
-/*color: #044;*/
-/*}*/
-
-/*.pun {*/
-/*color: #440;*/
-/*}*/
-
-/*.pln {*/
-/*color: #000;*/
-/*}*/
-
-/*.tag {*/
-/*color:       #006;*/
-/*font-weight: bold;*/
-/*}*/
-
-/*.atn {*/
-/*color: #404;*/
-/*}*/
-
-/*.atv {*/
-/*color: #060;*/
-/*}*/
-/*}*/
