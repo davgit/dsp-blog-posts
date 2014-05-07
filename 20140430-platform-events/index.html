@@ -114,14 +114,18 @@
 
 	<p>Below is a simple GET call to retrieve the configuration of the DSP.</p>
 
-	<figure><img style="width: 600px !important;" src="rest-get-diagram.png" alt="rest-get-call">
+	<figure><img style="width: 600px !important;"
+				 src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20140430-platform-events/rest-get-diagram.png"
+				 alt="rest-get-call">
 		<figcaption>Call Diagram: GET <code>/rest/system/config</code></figcaption>
 	</figure>
 
 	<p>As you can see, the pre- and post-process events are fired at specific points during the request. The events defined by the platform (in Swagger&trade;), however, may be
 		fired in any of the three stages of the request. Let's contrast that to a POST request to the same resource:</p>
 
-	<figure><img style="width: 600px !important;" src="rest-post-diagram.png" alt="rest-post-call">
+	<figure><img style="width: 600px !important;"
+				 src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20140430-platform-events/rest-post-diagram.png"
+				 alt="rest-post-call">
 		<figcaption>Call Diagram: POST <code>/rest/system/config</code></figcaption>
 	</figure>
 
