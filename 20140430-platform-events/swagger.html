@@ -1,0 +1,37 @@
+<section class="flush-left">
+	<h3>The Swagger&trade; Affair</h3>
+
+	<p>
+		One of the great features of the DSP is the Live API/SDK. This is an application that is provided through the
+		DSP admin application. At startup, it looks for any Swagger&trade; configuration files in the known resource,
+		model and application paths. For all system-provided resources and services, these files end in <code>.swagger.php</code>.
+		Applications and user-defined services can have Swagger&trade; configuration files in either PHP or Javascript. </p>
+
+	<p>
+		These files are aggregated and presented in the Live API/SDK application, sorted by service. Once you expand a
+		service, the operations provided are displayed. A user may then read the documentation and explore each API
+		call. In addition, and this is cool part, the user can put all the arguments for any call into this application
+		and the REST call will be made, and the results displayed.</p>
+
+	<figure><img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20140430-platform-events/figure1.png" alt="Figure 1">
+		<figcaption>Figure 1: The Live API/SDK option</figcaption>
+	</figure>
+
+	<p>Clicking the above option opens and loads the operations available by service. Clicking a service will expand and
+		display the operations available. For instance, figure 2 shows the new goodies that lie beneath the
+		<code>system</code> service.</p>
+
+	<figure><img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20140430-platform-events/figure2.png" alt="Figure 2">
+		<figcaption>Figure 2: The list of operations for the new Event service</figcaption>
+	</figure>
+
+	<p>So not only can you manipulate events via the new service, we've also enhanced the Live API/SDK app to include
+		the name of events that will fire for each call. In figure 3, if a call is associated with an event, it will be
+		displayed under the implementation notes.</p>
+
+	<figure><img src="//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20140430-platform-events/figure3.png" alt="Figure 3">
+		<figcaption>Figure 3: Each POST to <code>/rest/system/event</code> fires a <code>system.events.create</code>
+			event.
+		</figcaption>
+	</figure>
+</section>
