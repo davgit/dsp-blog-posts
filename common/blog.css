@@ -58,7 +58,7 @@
 }
 
 .df-blog pre.prettyprint.long-lines {
-	font-size: 8px;
+	font-size:   9pt;
 }
 
 .df-blog pre.prettyprint + figcaption {
@@ -175,7 +175,8 @@
 
 .df-blog ul.code-like > li {
 	font-family: "Source Code Pro", "Consolas", "Monaco", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
-	font-size:   10pt;
+	font-size:   0.80em;
+	list-style:  disc inside;
 }
 
 .df-blog section {
@@ -187,13 +188,14 @@
 }
 
 .df-blog section h4.list-header {
-	font-size:      14px;
+	font-size:      18px;
 	font-weight:    bold;
 	border:         none;
 	text-shadow:    none;
 	margin-left:    74px;
 	padding-bottom: 0;
 	margin-bottom:  -14px;
+	color:          #222;
 }
 
 .df-blog section.flush-left {
@@ -245,6 +247,10 @@
 	-moz-box-shadow:    0 0 6px rgba(0, 0, 0, 0.5);
 	box-shadow:         0 0 6px rgba(0, 0, 0, 0.5);
 	border-radius:      0;
+}
+
+.df-blog .callout.callout-right {
+	margin-left: 305px;
 }
 
 .column, .columns {
