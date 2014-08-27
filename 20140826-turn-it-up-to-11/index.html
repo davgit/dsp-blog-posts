@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Turbocharge Your DSP With nginx</title>
+	<script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=doxy"></script>
+	<link type="text/css" rel="stylesheet" href="../common/blog.css">
+	<style>
+		a {
+			color:           #3859a0;
+			text-decoration: none;
+		}
+
+		a:hover, a:active, a:focus {
+			color:           #2E3869;
+			text-decoration: underline;
+		}
+	</style>
+	<script>
+	var _href = function( link ){
+		var _blogSource = '//raw.github.com/dreamfactorysoftware/dsp-blog-posts/master/20140826-turbocharge-your-dsp-with-nginx/';
+
+		if ( window.location.hostname != 'localhost' ) {
+			link.src = _blogSource + link.src;
+		}
+
+		return link;
+	}
+	</script>
+</head>
+<body>
+<div class="hs-migrated-cms-post df-blog">
+
+<div class="pull-left">
+	<img class="picture masthead" src="masthead.jpg" onload="_href(this);">
+</div>
+
+<section id="introduction" class="flush-left" style="min-height: 270px;">
+	<h1 class="ninja">Turn It Up To Eleven!</h1>
+
+	<p style="margin-top:0; font-style: oblique;">Your DSP can be configured to use any web server you want. The core package ships with configuration examples for
+		<a href="http://apache.org/" target="_blank">Apache</a> as well
+		as <a href="http://nginx.org/" target="_blank">nginx</a>. This guide will show you how to transform your ordinary, default Apache/pre-fork DSP into a shiny new
+		nginx/FPM
+		DSP! Sound cool? It is!</p>
+
+	<section class="callout callout-right warning-block">
+		<h3>Web Server Selection and Free-Hosted DSPs</h3>
+
+		<p>Unfortunately, at this time, you cannot change the web server on a free-hosted or Bitnami-installed DSP. If you want to
+			experience all the joy of the nginx, you'll need to be running your
+			<a href="https://github.com/dreamfactorysoftware/dsp-core/" target="_blank">own private DSP</a>.</p>
+	</section>
+</section>
+
+<section class="flush-left">
+	<H2>Assumptions && Prerequisites</H2>
+
+	<p>This guide assumes you're running the latest <a href="https://github.com/dreamfactorysoftware/dsp-core/" target="_blank">DreamFactory Services Platform™</a> and on a major
+		linux distribution (Ubuntu, CentOS, Red Hat, Debian), or a derivative thereof. The DSP can be a virtual machine on your dev box, a <a href="http://vagrantup.com/"
+																																			  target="_blank">vagrant box</a>, or
+		even an actual, physical server.
+		Other distributions may need tweaking to locations. But the configuration options should the same. It is also assumed (and required) that you have sudo access to your DSP's
+		server.</p>
+
+	<p>Remember, that this will not work with free-hosted or Bitnami stack installations. Only self-installed versions are supported.</p>
+</section>
+
+<section class="flush-left">
+	<H2>Installation</H2>
+
+	<p>If you've already installed the necessary packages, you can skip ahead to the next part.</p>
+
+	<p>We need to install two main packages to get this going. The first is the <a href="http://nginx.org/" target="_blank">nginx</a> server package. The second is
+		<a href="http://php-fpm.org/" target="_blank">PHP FPM</a>, or FastCGI Process Manager, package. Check out the
+		link if you're not familiar with it.</p>
+
+	<section>
+		<h3>Install nginx</h3>
+
+		<p>We are going to install the <code>nginx-extras</code>
+			package for this guide. It is a package that requires the nginx server as well as a few extras we need:</p>
+
+		<figure>
+			<pre class="prettyprint lang-bash">$ sudo apt-get install nginx-extras</pre>
+		</figure>
+
+		<p>When that's done you'll have a nice new <code>/etc/nginx</code>
+			directory to play with.</p>
+	</section>
+
+	<section>
+		<h3>Install PHP FPM</h3>
+
+		<p>The second package we need is the PHP FPM package. Install it like this:</p>
+
+		<figure>
+			<pre class="prettyprint lang-bash">$ sudo apt-get install php5-fpm</pre>
+		</figure>
+
+		<p>After it's installed, we need to copy a file from the DSP to the PHP FPM directory. It's detailed in the Configuration section below.</p>
+	</section>
+</section>
+
+<section class="flush-left">
+	<h2>Configuration</h2>
+
+	<p>The <strong>VERY</strong> first thing you <em>should</em> do is make a copy of the <strong>nginx</strong> installation. You can do this easily:</p>
+
+	<figure>
+		<pre class="prettyprint lang-bash">$ mkdir ~/nginx && sudo cp -r /etc/nginx/* ~/nginx</pre>
+	</figure>
+
+	<p>That will come in handy someday when you break your server. Trust me. ;)</p>
+
+	<p>Now we can start fiddling in the configs. We need to copy a few files from your DSP installation directory.</p>
+
+	<section class="callout changed-block">
+		<h4>Your Current Directory</h4>
+
+		<p>For the purpose of this guide, we will assume you are in your DSP's root directory. All paths shown will be relative from there.</p>
+	</section>
+
+	<p>First the PHP FPM file:</p>
+
+	<figure>
+		<pre class="prettyprint lang-bash">
+$ sudo cp config/external/php/etc/php5/mods-available/dreamfactory.ini /etc/php5/mods-available/
+$ sudo php5enmod dreamfactory
+$ sudo service php5-fpm restart
+php5-fpm stop/waiting
+php5-fpm start/running, process 15113
+		</pre>
+	</figure>
+
+	<p>Cool beans. Now we copy the nginx files:</p>
+
+	<figure>
+		<pre class="prettyprint lang-bash">
+$ sudo cp config/external/nginx/etc/nginx/dsp-locations.conf /etc/nginx/
+$ sudo cp config/external/nginx/etc/nginx/sites-available/* /etc/nginx/sites-available/
+$ sudo cp -r config/external/nginx/etc/nginx/conf.d/* /etc/nginx/conf.d/
+		</pre>
+	</figure>
+
+	<section>
+		<h3>What Have I Done?!</h3>
+
+		<p>The files copied above are building blocks and do not overwrite anything that is owned by nginx. Here's a quick rundown of what they are:</p>
+
+		<p><code>dsp-locations.conf</code> is included by the files in <code>/etc/nginx/sites-available</code> to configure the web server's routes.</p>
+
+		<p><code>/etc/nginx/sites-available</code> now has two new files: <code>dsp.single.local</code> and <code>dsp.multi.local</code>. These both do the same thing in different
+			ways.</p>
+
+		<section class="callout highlight-block">
+			<h4>What are these files?</h4>
+
+			<p>These files configure nginx to listen for web connections and send it to PHP. If you're going to use SSL on your site we recommend you use the
+				<code>dsp.single.local</code> file as your configuration. The <strong>single</strong> file runs the DSP in a single <strong>server</strong> section of the nginx
+				configuration. If you're not running SSL, or not yet at least, the <strong>multi</strong> file has a <strong>server</strong> configuration for HTTP and HTTPS
+				separated.
+				You can comment out the HTTPS section if you do not want to use SSL.</p>
+		</section>
+
+		<p>In <code>/etc/nginx/conf.d</code> there are few new files: <code>dreamfactory.http.conf</code> and <code>dreamfactory.php-fpm.conf</code>. These configure nginx for PHP
+			FPM
+			and set a few defaults. Please read through them if you've not already. They're commented and you can change to your liking. That goes pretty much for all these config
+			files.</p>
+
+		<p>In addition, there a new directory called <code>ssl</code> in which there is a file called <code>dreamfactory.ssl.conf</code>. If you're going to run SSL you just need
+			to
+			put the location of your keys into that file. If you're not running SSL it is ignored. This is placed in a separate place so it can be made as secure as you require.
+		</p>
+
+		<section class="callout changed-block">
+			<h4>SSL Configuration File Location</h4>
+
+			<p>You can adjust the source of the include from <code>conf.d/ssl/</code> to anything you want. We'll cover that in a bit.</p>
+		</section>
+	</section>
+
+	<section>
+		<h3 id="nginx-conf">nginx.conf</h3>
+
+		<p>The last file we need to copy is the <code>nginx.conf</code> file. This step is optional. You might not want to copy this file over the default configuration without
+			giving
+			a good perusal.</p>
+
+		<p>We have found these settings to be generally good and many thanks to the gentleman referenced in that configuration file for those settings. There aren't any settings in
+			our
+			version of <code>nginx.conf</code> that are required to run the DSP properly. It is just tuned for speed. (thanks to that dude...).</p>
+
+		<p>So copy it if you want:</p>
+
+		<figure>
+		<pre class="prettyprint lang-bash">
+$ sudo cp config/external/nginx/etc/nginx/nginx.conf /etc/nginx/
+		</pre>
+		</figure>
+	</section>
+</section>
+
+<section>
+	<h3 id="choose-your-destructor">Choose Your Destructor</h3>
+
+	<p>If you haven't decided by now if you're going to use the <strong>single</strong> or <strong>multi</strong> configuration files outlined above, go with the multi. Either way,
+		you need to create a new configuration for your DSP using one of the two samples. We're going to use the single version and call it <code>dsp.local</code>:</p>
+
+	<figure>
+		<pre class="prettyprint lang-bash">
+$ cd /etc/nginx/sites-available
+$ sudo cp dsp.single.local dsp.local
+		</pre>
+	</figure>
+
+	<p>Go on in the new file (<code>dsp.local</code>) with your favorite editor and change anything that calls out to you. Your DSP root directory perhaps, the server name, port,
+		etc. Make sure you test your changes before restarting nginx by using the following command:</p>
+
+	<figure>
+		<pre class="prettyprint lang-bash">
+$ sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+		</pre>
+	</figure>
+
+	<p>If you messed up, you'll get this fail:</p>
+
+	<figure>
+		<pre class="prettyprint lang-bash">
+$ sudo nginx -t
+nginx: [emerg] unknown directive "included" in /etc/nginx/nginx.conf:140
+nginx: configuration file /etc/nginx/nginx.conf test failed
+		</pre>
+	</figure>
+
+	<section class="callout changed-block">
+		<h3 class="ninja">Ninja Tip!</h3>
+
+		<p>When you're in <em>DGM</em> (deep geek mode), having to type <code>sudo service nginx restart</code> two or three times a minute gets old. So create an alias to do the
+			typing for you!</p>
+
+		<p>I run Ubuntu and <strong>bash</strong> is the shell that I use. When you log in, or open a terminal window, <strong>bash</strong>
+			<a href="http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x237.html" target="_blank">sources</a>
+			your
+			<code>~/.bash_aliases</code>
+			file. If you don't have one, you can create one and it will automatically be sourced upon next and future logins.</p>
+
+		<p>Here are a few of the things in my <code>~/.bash_aliases</code> file for these types of situations. Feel free to add them to your arsenal.</p>
+
+		<figure>
+			<pre class="prettyprint lang-bash">
+alias a2off='sudo service apache2 graceful-stop'
+alias a2on='sudo service apache2 start'
+alias a2rl='sudo service apache2 reload'
+alias a2rs='sudo service apache2 restart'
+
+alias ngtrs='sudo nginx -t && sudo service nginx restart'
+alias ngtrl='sudo nginx -t && sudo service nginx reload'
+alias ngtoff='sudo nginx -t && sudo service nginx stop'
+alias ngton='sudo nginx -t && sudo service nginx start'
+			</pre>
+		</figure>
+	</section>
+</section>
+
+<section>
+	<h2>Enable the DSP Server</h2>
+
+	<p>The nginx server ships with a default server configuration (in <code>/etc/nginx/sites-available/default</code>), which is enabled.</p>
+
+	<p>If you're not using (going to use) it, you should disable it:</p>
+
+	<figure>
+		<pre class="prettyprint lang-bash">
+$ sudo unlink /etc/nginx/sites-enabled/default
+		</pre>
+	</figure>
+
+	<p>Now we need to <strong>enable</strong> the DSP, done via symbolic link:</p>
+
+	<figure>
+		<pre class="prettyprint lang-bash">$ sudo ln -s /etc/nginx/sites-available/dsp.local /etc/nginx/sites-enabled/dsp.local</pre>
+	</figure>
+
+	<p>What we're doing is symlinking the <code>sites-available</code>
+		configuration into the <code>sites-enabled</code> directory. Now we test the configuration before restarting the service:</p>
+
+	<figure>
+		<pre class="prettyprint lang-bash">
+$ sudo nginx -t
+$ sudo service nginx restart
+		</pre>
+	</figure>
+
+	<p>If you want to disable the DSP from nginx, just unlink the symbolic link we just created:</p>
+
+	<figure>
+		<pre class="prettyprint lang-bash">$ sudo unlink /etc/nginx/sites-enabled/dsp.local</pre>
+	</figure>
+
+	<section>
+		<h3 id="restart">Restart the Server</h3>
+
+		<p>Restart nginx now</p>
+
+		<figure>
+			<pre class="prettyprint lang-bash">$ sudo service nginx restart</pre>
+		</figure>
+	</section>
+</section>
+
+<section>
+	<h2>All Done!</h2>
+
+	<p>Now you can test out your DSP on nginx. Please let us know how your experiences compare using nginx vs. Apache, or any other server for that matter!</p>
+
+	<p>I'll be posting an update to this soon with benchmarks between the DSP on Apache vs. nginx. That should be interesting.</p>
+</section>
+
+</div>
+</body>
+</html>
